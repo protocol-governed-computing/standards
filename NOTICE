@@ -1,0 +1,11 @@
+PGS — Protocol-Governed Systems
+Copyright 2026 Bhash Ganti aka Bachi
+
+This project introduces a protocol-first execution model in which:
+
+- Behavior is declared in protocol artifacts
+- Execution is performed by a deterministic runtime
+- Capability implementations are bound at compile time
+- Governance is enforced through invariants and assertions
+
+Extensibility is achieved by declaration, not refactor.

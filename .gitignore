@@ -1,0 +1,47 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+.\#*
+\#*\#
+
+# Backup / temp files
+*.bak
+*.tmp
+*.orig
+parkinglot/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+CLAUDE.md
+
+# Secrets — never versioned. Recovery codes were committed here once and reached the remote on four
+# branches; deleting a file does not remove it from history, so the guard belongs at the entrance.
+*recovery-code*
+*recovery_code*
+*.pem
+*.key
+.env
+__pycache__/

@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: >-
+  If you cite this specification, cite the revision you read. A revision is a
+  declared identity, and a claim made against the family names one.
+title: Open Protocol-Governed Computing Standard
+abstract: >-
+  A normative specification for Protocol-Governed Computing: a model of computing
+  in which what software may construct and may execute is determined by explicit,
+  versioned, machine-consumable declarations, and in which nothing may be
+  constructed or executed that those declarations do not authorize. Thirty-two
+  documents in seven normative parts, preceded by non-normative front matter.
+type: software
+authors:
+  - family-names: Ganti
+    given-names: Bhash
+    alias: Bachi
+    email: bachipeachy@gmail.com
+repository-code: https://github.com/protocol-governed-computing/standards
+url: https://github.com/protocol-governed-computing/standards
+license: Apache-2.0
+version: v0
+keywords:
+  - protocol-governed computing
+  - governance
+  - conformance
+  - specification
+  - declarative semantics

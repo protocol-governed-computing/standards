@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1560" role="img" aria-labelledby="title desc">
+  <title id="title">PGC at a glance: from declared meaning to governed behavior</title>
+  <desc id="desc">A vertical diagram. An external profile constrains declarations. Before the seal, governance is resolved and a snapshot is constructed. The seal creates an immutable, complete snapshot. After the seal, a runtime accepts the snapshot, evaluates declared obligations, traverses declared structure, and produces governed results and evidence. Inspection reads the sealed snapshot without executing it. Transformation produces a successor snapshot.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fbfa"/>
+      <stop offset="1" stop-color="#eef3f1"/>
+    </linearGradient>
+    <linearGradient id="before" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8f0ee"/>
+      <stop offset="1" stop-color="#dce8e5"/>
+    </linearGradient>
+    <linearGradient id="after" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff4d8"/>
+      <stop offset="1" stop-color="#f9e7ae"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#163f3a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#24655d"/>
+    </marker>
+    <marker id="arrow-light" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#bd8d1c"/>
+    </marker>
+    <style>
+      .title { font: 700 36px Georgia, serif; fill: #173b37; }
+      .subtitle { font: 400 19px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #46615c; }
+      .section { font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 2px; fill: #52736d; }
+      .label { font: 700 24px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #173b37; }
+      .small { font: 400 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #35534e; }
+      .tiny { font: 400 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #58736e; }
+      .card { stroke: #b6cbc5; stroke-width: 2; }
+      .line { fill: none; stroke: #24655d; stroke-width: 4; marker-end: url(#arrow); }
+      .line-light { fill: none; stroke: #bd8d1c; stroke-width: 4; marker-end: url(#arrow-light); }
+    </style>
+  </defs>
+
+  <rect width="1200" height="1560" fill="url(#paper)"/>
+  <text x="80" y="78" class="section">OPEN PGC STANDARD · FIRST ORIENTATION</text>
+  <text x="80" y="132" class="title">Meaning is declared before behavior runs.</text>
+  <text x="80" y="170" class="subtitle">PGC moves authority from hidden runtime decisions into explicit, checkable system content.</text>
+
+  <rect x="80" y="220" width="1040" height="420" rx="28" fill="url(#before)" class="card"/>
+  <text x="120" y="270" class="section">BEFORE THE SEAL · WHAT IS DECIDED</text>
+  <rect x="130" y="320" width="270" height="120" rx="18" fill="#ffffff" class="card"/>
+  <text x="165" y="370" class="label">Declarations</text>
+  <text x="165" y="404" class="small">artifacts · rules · structure</text>
+  <rect x="465" y="320" width="270" height="120" rx="18" fill="#ffffff" class="card"/>
+  <text x="500" y="370" class="label">Governance</text>
+  <text x="500" y="404" class="small">closure · authority · profile</text>
+  <rect x="800" y="320" width="270" height="120" rx="18" fill="#ffffff" class="card"/>
+  <text x="835" y="370" class="label">Construction</text>
+  <text x="835" y="404" class="small">resolve · project · verify</text>
+  <path d="M400 380 H455" class="line"/>
+  <path d="M735 380 H790" class="line"/>
+  <text x="120" y="530" class="small">The question here is: may this candidate exist, and what exactly will execution be allowed to use?</text>
+  <text x="120" y="570" class="tiny">Governed Construction · Governance Closure &amp; Authority · Normative Platform Profile</text>
+
+  <path d="M600 640 V700" class="line"/>
+  <rect x="340" y="690" width="520" height="92" rx="46" fill="#173b37" filter="url(#shadow)"/>
+  <text x="600" y="748" text-anchor="middle" style="font:700 30px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill:#ffffff">SEAL · snapshot becomes fixed</text>
+
+  <rect x="80" y="825" width="1040" height="530" rx="28" fill="url(#after)" class="card"/>
+  <text x="120" y="875" class="section">AFTER THE SEAL · WHAT IS APPLIED</text>
+  <rect x="130" y="930" width="270" height="120" rx="18" fill="#fffdf6" class="card"/>
+  <text x="165" y="980" class="label">Accepted snapshot</text>
+  <text x="165" y="1014" class="small">sealed · complete · verified</text>
+  <rect x="465" y="930" width="270" height="120" rx="18" fill="#fffdf6" class="card"/>
+  <text x="500" y="980" class="label">Runtime</text>
+  <text x="500" y="1014" class="small">evaluate · traverse · refuse</text>
+  <rect x="800" y="930" width="270" height="120" rx="18" fill="#fffdf6" class="card"/>
+  <text x="835" y="980" class="label">Result + evidence</text>
+  <text x="835" y="1014" class="small">what happened · why it was allowed</text>
+  <path d="M400 990 H455" class="line-light"/>
+  <path d="M735 990 H790" class="line-light"/>
+  <text x="120" y="1140" class="small">The runtime adds no behavior. It reads the sealed structure, applies its obligations, and refuses when declarations run out.</text>
+  <text x="120" y="1180" class="tiny">Execution Model · Snapshot · Runtime · Evidence, Attestation &amp; Provenance</text>
+  <rect x="130" y="1220" width="440" height="86" rx="18" fill="#fffdf6" class="card"/>
+  <text x="165" y="1268" class="label">Inspection</text>
+  <text x="165" y="1298" class="small">reads; never executes or changes state</text>
+  <rect x="630" y="1220" width="440" height="86" rx="18" fill="#fffdf6" class="card"/>
+  <text x="665" y="1268" class="label">Transformation</text>
+  <text x="665" y="1298" class="small">snapshot N → governed snapshot N+1</text>
+  <path d="M350 1220 C250 1160 240 1060 300 1050" class="line-light"/>
+  <path d="M850 1220 C960 1160 960 1060 900 1050" class="line-light"/>
+
+  <rect x="80" y="1420" width="1040" height="76" rx="18" fill="#173b37"/>
+  <text x="600" y="1468" text-anchor="middle" style="font:700 24px Georgia, serif; fill:#ffffff">A governed system can explain what it contains, what it did, and what it refused.</text>
+</svg>
