@@ -1,5 +1,7 @@
 # Open Protocol-Governed Computing Standard
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22150615.svg)](https://doi.org/10.5281/zenodo.22150615)
+
 A specification for computing in which the construction and execution of software are governed by
 explicit, versioned, machine-consumable declarations rather than by convention, documentation, or
 code inspection.

@@ -19,6 +19,18 @@ repository-code: https://github.com/protocol-governed-computing/standards
 url: https://github.com/protocol-governed-computing/standards
 license: Apache-2.0
 version: v0
+doi: 10.5281/zenodo.22150616
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22150616
+    description: >-
+      The archived snapshot of revision v0. This is the identity a claim names,
+      and the one to cite.
+  - type: doi
+    value: 10.5281/zenodo.22150615
+    description: >-
+      Resolves to the most recent revision of the family, whichever that is.
+      Use it to reach the standard, not to name a revision.
 keywords:
   - protocol-governed computing
   - governance
