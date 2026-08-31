@@ -1,0 +1,25 @@
+{
+  "upload_type": "software",
+  "title": "Open Protocol-Governed Computing Standard",
+  "description": "<p>A normative specification for Protocol-Governed Computing: a model of computing in which what software may construct and may execute is determined by explicit, versioned, machine-consumable declarations, and in which nothing may be constructed or executed that those declarations do not authorize.</p><p>Part of the Protocol-Governed Computing reference corpus. Cite the version DOI of the release you used, not the concept DOI.</p>",
+  "creators": [
+    {
+      "name": "Ganti, Bhash",
+      "orcid": "0009-0007-3810-6520",
+      "affiliation": "Independent researcher"
+    }
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "protocol-governed computing",
+    "governance",
+    "declarative semantics",
+    "conformance",
+    "specification",
+    "standard",
+    "normative model"
+  ],
+  "access_right": "open",
+  "language": "eng",
+  "notes": "Version is taken from the GitHub release tag. Cite the revision you read."
+}
