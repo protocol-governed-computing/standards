@@ -176,6 +176,12 @@ family's revision identity, which is the inverse of the direction of authority �
 What it must not become is a specification — it is evidence about one realization, and §2 governs
 what such evidence establishes.
 
+**The map carries a second part**, which asks of each of its findings whether the finding is
+evidence that a normative document underdetermines something, or evidence that one realization erred
+inside a space a document already determines. Only the first kind bears on this annex: a hazard named
+in §5 arrives that way. An entry that cannot be stated without describing what one realization built
+is not a problem with the family but that realization's answer, and is not stated here.
+
 ## 7. What this annex cannot do
 
 - **It cannot make anything conformant.** Following every recommendation here discharges no claim.

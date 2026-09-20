@@ -386,6 +386,29 @@ declares is `kind registry`; `3b` marks `**self-describing**` where it declares 
 The definitions are now sited and the drift is cosmetic, but a family whose terms are load-bearing
 should probably not mark them under two spellings.
 
+### Carried under `v0` without a revision — a non-normative amendment to `8a`
+
+**Document:** `8a` §6, one paragraph added.
+
+**What it says.** The realization map carries a second part, which asks of each finding whether it is
+evidence that a normative document underdetermines something, or evidence that one realization erred
+inside a space a document already determines. Only the first kind bears on the annex. An entry that
+cannot be stated without describing what one realization built is that realization's answer, not a
+problem with the family, and is not stated there.
+
+**Why this is not a revision.** `8a` is non-normative by its own first line: nothing in it is
+required, nothing in it relaxes anything that is, and an implementation satisfying the normative
+documents conforms whether or not it follows any of it. The paragraph adds no obligation, removes
+none, and changes no conformance condition. `4e` §9 holds that a revision is **declared** rather than
+inferred from a number or a date, so a revision is not occasioned by a file changing — it is
+occasioned by something a claim could be made against changing. Nothing here is.
+
+**What this means for the deposit.** The archived `v0` and this repository therefore differ by
+exactly this paragraph, and both are `v0`. That is recorded rather than left to be discovered: a
+reader who diffs the two finds a difference, and this is where they learn what it is and why the
+identity did not move. A claim naming `v0` is a claim against the normative documents, and those are
+byte-identical in both.
+
 ---
 
 ## `draft-3` supersedes `draft-2`

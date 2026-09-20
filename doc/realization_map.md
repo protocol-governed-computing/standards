@@ -21,35 +21,71 @@ Like any evidence, it is stated against a named subject:
 | | |
 |---|---|
 | **Realization** | the Protocol-Governed Computing reference realization |
-| **Snapshot** | `94e9b9ddffdc5d854c1f540169a864b9d55b1d8c4d30bbe9b2602dced0aa8643` |
-| **Composition** | 7 domains, 394 artifacts, composition conformance PASSED over 5 rules |
-| **Standard revision** | `draft-2` |
+| **Snapshot** | `72404ce469c8987efa83d9a68cb3d517e2b9b571204bf7087b696a25abc46c99` |
+| **Composition** | 7 domains, 410 artifacts examined, composition conformance PASSED over 5 rules |
+| **Standard revision** | `v0` |
+| **Assembler** | version 14 |
 
-**This is the second measurement.** The first was stated against snapshot `7b6f2699…` under
-`draft-1`, before Tasks B and C. **§28 carries the disposition of every finding** — what closed, what
-was revised, what a change request carries, what is deferred and on what ground. Read it before
-reopening anything here; the entries below record what was found, and only §28 records what became
-of it.
+**This is the third statement of subject, and the second is not superseded so much as left behind.**
+The measurements were: `7b6f2699…` under `draft-1`; `94e9b9dd…` under `draft-2`; and this one,
+`72404ce4…` under `v0`. **§28 carries the disposition of every finding** — what closed, what was
+revised, what a change request carries, what is deferred and on what ground. The entries below record
+what was found; only §28 and §0.1 record what became of it.
 
-**This map is retired.** Task D is closed and the map is not extended. Its value was the attempt
-rather than the document: the three defects it found against the standard — SU-5, TR-17, SU-9 — were
-each found by trying to conform and failing, and that mechanism needs no map. The findings §28 leaves
-open are absences rather than falsehoods, each a change request when somebody wants one.
+**The map was retired and is un-retired, for a reason that is not the old one.** Task D closed and
+the map was not extended, on the ground that the mechanism which found its three document defects —
+trying to conform and failing — needs no map. That ground still holds for Part I's original purpose.
+Part II gives the document a second purpose it did not have when it was retired: routing each finding
+for a party building independently, which requires the findings to be true of a current subject
+rather than an archived one.
 
-**The map is true of that subject and of nothing else.** It does not age into being wrong; it stays
-about an older snapshot, which is a different and honest thing. Reading it against a later
-composition establishes nothing until the subject above is restated and the entries rechecked.
+**Restating a subject is two operations and only one of them is complete.** §0's own standard is that
+"reading it against a later composition establishes nothing until the subject above is restated and
+the entries rechecked." The subject is restated. The entries are rechecked **in part** — §0.1 records
+exactly which, by what means, and with what verdict. **§§3–26 otherwise stand as measured against
+`94e9b9dd…` under `draft-2` and are not warranted against the subject above.** Where §0.1 and a
+section below disagree, §0.1 is later.
 
-**The subject has two axes and only one has moved.** The realization is unchanged at
-`7b6f2699…`. The standard moved from `draft-1` to `draft-2`, which supersedes two entries of this
-map — the rulings on SU-5, TR-17 and SU-9 changed the documents those entries were about. All three
-are marked **closed by revision** below, with the declarations in `revisions.md`. The other
-twenty-three normative documents are unchanged, so every other entry stands against `draft-2` as
-written.
+### 0.1 Rebasing record
+
+**Coverage delta, `draft-2` → `v0`.** Twenty-four invariants were added and none retired; `v0` is a
+superset. Part I maps none of them.
+
+| Added | Where |
+|---|---|
+| **CM-1 … CM-8** | `1a` Conceptual Model — **an entire family, and Part I has no section for it** |
+| SM-7a, SM-7b | `1b`, `6b` |
+| MB-15, KV-10, EN-14, EX-16, RT-13, SN-14, EV-17, IN-15, IN-16 | across the execution and governance set |
+| NP-12, CF-14, CD-17, SU-11, TR-25 | profiles, conformance, supersession, transformation |
+
+Coverage stated at §29 is therefore overstated against `v0` by twenty-four invariants and one
+document.
+
+**Spot recheck.** Findings with a signature that can be checked directly against the current
+snapshot and toolchain. Nothing here rests on reading the sections below.
+
+| # | Verdict against `72404ce4…` / `v0` | Evidence |
+|---|---|---|
+| 1, 3 | **changed** — the manifest declares `identity_covers: [domains, constituents, profile]`, and names `conformance/` as `post_seal`. What sits outside the identity is now *declared* rather than incidental; whether that satisfies `SN-2`/`SN-3` is a ruling, not a measurement | `snapshot/manifest.json` |
+| 2 | **closed** — `assembler.core.verify_snapshot` recomputes every constituent from its bytes, and the runtime recomputes independently at boot rather than importing the assembler's answer | `protocol_runtime/runtime/boot.py` |
+| 4 | **closed** — the manifest carries `profile: REFERENCE_PLATFORM_PROFILE_V1`, so `SN-7` has a subject | `snapshot/manifest.json` |
+| 13 | **stands** — `"public_key_ref": "STUB"` in every domain's attestation | `snapshot/trust/*/structure_attestation.json` |
+| 14 | **changed, re-verify** — `rglob` survives only in `protocol_compiler/scripts/`, which is authoring tooling; the compile-path resolution no longer shows the search-select-fallback signature. Whether the finding is closed or relocated needs the section read against current code | |
+| 24 | **stands** — 36 schemas, and none for `TRANSPORT_INGRESS`/`TRANSPORT_EGRESS`; the two transport schemas present are request and response envelopes | |
+| 29 | **changed, re-verify** — the admission text now survives only as a comment in `protocol_runtime/runtime/trace_viz.py`; the gate itself must be read | |
+| 30 | **stands** — `protocol_compiler/compiler/governance_engine/artifact_kinds.py` is still on disk and still in the governance engine | |
+| 33 | **stands in substance** — `NORMATIVE_PLATFORM_PROFILE_BASELINE_V0.md` remains beside `REFERENCE_PLATFORM_PROFILE_V1.md` | `.github/snapshot_profiles/` |
+| 39 | **stands** — fourteen artifacts declare `superseded_by` against one declaring `supersedes` | |
+| 45 | **stands, and is larger than recorded** — the sealed snapshot carries both vocabularies at scale: `CT` (330), `CS` (212), `CC` (153), `WF` (93), `IN` (93), `EV` (80), `TI` (66), `TE` (66) alongside `CAPABILITY_TRANSFORM` (71), `CAPABILITY_CONTRACT` (102), `WORKFLOW` (62), `INVARIANT` (184), `STRUCTURE` (85). The profile records four discrepancies; the snapshot shows at least eight short forms in the compiled projection | `snapshot/` |
+
+**What this record does not do.** It does not re-measure §§3–26. Every entry not named above is
+stated against the previous subject, and an entry there may be closed, relocated, or newly false
+without this record saying so. Two verdicts above are **re-verify** rather than a finding either way,
+and are not to be cited as closures.
 
 ## 1. What this map is
 
-Implementation Guidance §6 states the map's two purposes: to save every implementer the
+Implementation Guidance §11 states the map's two purposes: to save every implementer the
 rediscovery of reading the code, and to make visible that **a normative document with no
 demonstration is either unimplemented or unimplementable**.
 
@@ -59,6 +95,19 @@ evidence — and where nothing does, which of the two that is.
 
 It is a partial map. Documents are covered as they are worked; §27 collects the findings, §28
 records what became of each, and §29 states what is covered so far.
+
+**This document has two parts, and they ask different questions of the same findings.** Part I
+(§§2–30) is the map: where this realization demonstrates each invariant, and where nothing does.
+Part II (§§31–36) is the transfer register: for each finding, whether it is evidence that a document
+underdetermines something — and must therefore reach every future implementer — or evidence that
+this realization erred inside a well-specified space, and must reach no one.
+
+Part II is withheld in full from any independent realization (§35). Part I's disclosure is governed
+by the same consideration and by the same reasoning.
+
+---
+
+# Part I — Demonstration
 
 ## 2. How to read an entry
 
@@ -1940,6 +1989,56 @@ The one exception is the reach read-only check (§9.1), which is a genuine per-e
 about whether a capability may be used a particular way — and it is the only one. Recorded under the
 same finding rather than counted twice.
 
+## 26A. The twenty-four invariants added in `v0`
+
+`v0` added twenty-four invariants over `draft-2` and retired none (§0.1). This section maps them.
+It is stated against the subject at §0 and is the only part of Part I that is.
+
+### 26A.1 `CM-1 … CM-8` — Conceptual Model
+
+**Subject mismatch, and it is the honest answer rather than an evasion.** Every one of these binds
+*a document of this family* or *a profile* — that terms are used as defined, that no document
+redefines or overlaps them, that distinctions drawn as *distinguish from* are preserved, that a
+definition change is a revision requiring re-examination, that ownership of a term follows subject
+matter rather than document order. A realization is not their subject and cannot demonstrate or
+violate them.
+
+They are demonstrated, for the documents, outside this map: `tools/vocab_index.py` derives
+`projections/vocabulary_violations.md` from the document set and tests it against `1a` §12 —
+currently **0 defects, 44 warnings**. That is a projection of the family, not evidence about a
+realization, and this map's subject does not reach it.
+
+**CM-5 is the one with a realization edge.** A profile MUST NOT alter the meaning of a defined term,
+and a realization authors profiles. Nothing checks an authored profile against `1a`'s definitions.
+**Unimplemented**, and it compounds finding 34: the same authority that writes the platform writes
+the profile that constrains it, and now also the vocabulary it is read in.
+
+### 26A.2 The remaining sixteen
+
+| Invariant | Class | Where, or what is missing |
+|---|---|---|
+| **SN-14** — a snapshot declares what its whole-integrity value covers, and the covered set excludes the value itself | **Demonstrated** | `manifest.json` declares `identity_covers: [domains, constituents, profile]`, and `manifest.json` is absent from its own 595 constituents. This is findings 1 and 3 closed, in invariant form |
+| **EV-17** — evidence identifies the sealed representation it was produced under and the subject of the determination it records | **Violated** | `snapshot/evidence/*/evidence.json` carries `edges`, `event_catalog`, `nodes`, `projection_class` and **no reference to a snapshot and no determination subject**. Evidence that cannot say what it was produced under cannot be checked without its producer — `AI-16` by another route. Finding 51 |
+| **RT-13** — a runtime evaluates sealed obligations and refuses rather than resolves what they leave open | **Violated** | `protocol_runtime/runtime/scheduler.py:252` — `outcome::<result_status>` is entered as a *fallback* when `transition::` does not answer. Resolving what the declarations left open is the named prohibition. Finding 52; the mechanism is finding 31, now forbidden by name |
+| **EX-16** — an outcome is never treated as a governance refusal, and a refusal is never reported as a routable outcome | **Violated** | the mechanism of finding 28: an unrouted outcome ends the run and the workflow reports the last contract's status as its own, which is a refusal delivered as an outcome and an outcome standing in for one. Finding 55 |
+| **EN-14** — a determination is not reported as a refusal unless it establishes what `2f` §6.1 requires, and a refusal is not delivered as a value that is acted on | **Partial** | the second clause is breached by the same mechanism as EX-16; the first is finding 11 — `CompilerError` produces a diagnostic and an exit code, establishing nothing |
+| **KV-10** — a declared vocabulary states, for each kind it admits, whether a governance assertion is required for ordinary admission | **Unimplemented** | `declared_vocabulary.kinds` is a bare list of sixteen names; nothing states the requirement per kind. Finding 27 at vocabulary scale, and now a vocabulary obligation rather than only a kind one. Finding 50 |
+| **CD-17** — an obligation forbidding a structural possibility is discharged by an absence demonstration over a stated and totally searched space, never by a refusal or by observation | **Unimplemented** | no absence-demonstration machinery exists. This recontextualizes findings 40 and 42: measuring how many rules have been *observed* to refuse is not a discharge of an absence obligation at all under CD-17, so the measurement answers a question the document does not ask. Finding 53 |
+| **CF-14** — the subject classes of a system-instance claim are determined from the accepted snapshot's self-description and its claimed profile, never enumerated by the claimant | **Partial** | newly possible: the manifest now carries `profile` (finding 4 closed). Nothing yet derives subject classes from it, so the enabling condition holds and the derivation does not |
+| **SM-7a** — an admitted transition does not come to rest having applied part of what its determination permits | **Unimplemented** ‡ | finding 17's territory: refusal-without-residue holds by pipeline shape, which is exactly what does not survive partial application. Needs the runtime read against the clause |
+| **SM-7b** — a closure is established for the state a transition applies to | **Unimplemented** ‡ | |
+| **MB-15** — an element carries a kind if and only if it is admitted as an artifact in its own right | **Re-verify** | several artifacts mention `artifact_kind` more than once; whether any is a declaration element carrying a kind needs the machine blocks read rather than counted |
+| **IN-15** — inspection is reachable independently of the interaction boundary, and a read is never admitted as an interaction there | **Partial** ‡ | the inspection surface exists; finding 18 shows reads reaching the sealed snapshot outside it, which is the converse breach |
+| **IN-16** — an open read-surface policy does not dispense with the determination `IN-12` requires | **Violated** | finding 9 exactly: reads are permitted by reachability and `context_requirements` is declared and inert. An open policy that determines nothing is the case the invariant was written for |
+| **NP-12** — a profile does not decide a deferred item by deferring it to the system that claims the profile | **Not breached** ‡ | no deferral language found in the profile. Recorded as unbreached rather than demonstrated: nothing checks it |
+| **SU-11** — an amendment does not change an artifact's declared semantics; such a change is a new identity | **Unimplemented** | nothing distinguishes an amendment from a semantic change, and finding 39's two-sided supersession gives two places for them to disagree |
+| **TR-25** — a human answer is recorded as declared register content addressed by field | **Vacuous** | no human-answer register exists. The mechanism the invariant constrains is absent, so it cannot be violated here. Finding 54 |
+
+**Six new findings — 50 through 55 — and one closure.** SN-14 is the only Demonstrated entry in the
+set. Three of the sixteen are new invariants naming mechanisms this map had already found (28, 31,
+9), which is evidence that `v0`'s additions were written against real defects; three more (KV-10,
+CD-17, EV-17) name absences nothing had previously been obliged to notice.
+
 ## 27. Findings
 
 Forty-four, grouped by what would close them. §28 records what became of each.
@@ -2536,3 +2635,168 @@ nothing is wrong with the artifact. What moved is the identity of the compositio
 **Three documents fail on one observation** — MB-3 (integrity over a canonical form of the semantic
 object), ID-3 and KV-8 (a meaning-preserving representation change must not change identity). The
 semantic object is provably unchanged in the same output that shows the hash moving.
+
+---
+
+# Part II — Transfer register
+
+## 31. What this part is for
+
+Part I records what the reference realization demonstrates and where it falls short. Part II asks a
+different question of the same findings: **what does each one mean for someone building a second
+realization who has never seen this one?**
+
+The two are not the same question, and answering them together is how a reference realization's
+mistakes get transplanted into a standard. A finding is either evidence that a normative document
+underdetermines something — in which case every future implementer will hit it and the document
+should change — or it is evidence that this realization did something badly inside a well-specified
+space, in which case it should reach no one and a second implementer's different answer is data.
+
+Nothing distinguishes those two after the fact. Once the answer is known, the reasoning runs
+backwards: a defect whose fix is obvious in hindsight looks like a document gap, and a document gap
+whose fix was expensive looks like an implementation error. **The routing is therefore recorded
+before an independent realization is attempted, and is not revised in light of what that realization
+finds.** What it finds is scored against this table, not folded into it.
+
+That makes an independent build a controlled experiment rather than an anecdote:
+
+| The independent realization | What it establishes |
+|---|---|
+| hits a finding routed **∅** | the standard underdetermines it after all — this routing was wrong, and the document changes |
+| does not hit a finding routed **∅** | a defect local to this realization, confirmed by a party that did not consult it |
+| hits a finding routed **N** after the fix | the fix was insufficient |
+| hits a finding routed **G** | expected; the problem was named and the answer was theirs |
+
+## 32. Destinations
+
+| | Destination | Criterion | Reaches an implementer |
+|---|---|---|---|
+| **N** | Normative change | A document does not determine something an implementation must decide | Yes — as normative text |
+| **P** | Profile or operator prerequisite | The standard states the answer belongs to a profile | Yes — settled in the profile before any build |
+| **G** | Implementation Guidance §5 | A genuine decision the implementer owns | Yes — as a **problem**, never an answer |
+| **∅** | Nothing | The standard determined it; this realization did not do it | **No** |
+
+**The rule that governs every G entry:** it may name the problem and what bounds an answer. It may
+not name this realization's answer. An entry that cannot be written without describing what was
+built here is not a G entry — it is ∅, and the discipline is to say so rather than to launder it.
+
+## 33. Routing
+
+Routed from the §27 finding summaries. Where a route depends on text beyond the summary it is marked
+**‡** and confirmed against the full section before it is relied on.
+
+| # | Finding, in short | Route | Note |
+|---|---|---|---|
+| 1 | identity does not cover every constituent | ∅ | `SN-2`, `SN-3` determine it |
+| 2 | integrity compares recorded values, never recomputes | ∅ | proved; a strong probe |
+| 3 | self-description outside its own identity | ∅ | |
+| 4 | no snapshot claims a profile; `SN-7` has no subject | **P** | a snapshot must claim the profile it is judged against, or conformance has no subject |
+| 5 | sealed projection editable in place | ∅ | closes with 2 |
+| 6 | no projection contract; `PJ-6` vacuous | **N** ‡ | if `PJ-6` cannot be checked without a contract the document does not require, the document is short |
+| 7 | `dispatch`/`handlers` unverified | ∅ | |
+| 8 | read/query classification undeclared | ∅ | `IN-4` determines it |
+| 9 | reads permitted by reachability | ∅ | |
+| 10 | trace records the path, not the determination | ∅ | |
+| 11 | construction refuses without evidence | ∅ | `AI-14` determines it |
+| 12 | determinative vs observational undeclared — `EV-6` uncheckable in principle | **N** ‡ | "uncheckable in principle" is a document defect, not an omission |
+| 13 | attestation names no party (`STUB`) | ∅ | |
+| 14 | resolution searches, selects, falls back, never compares identity | ∅ | `AI-12`, `ID-14`; the sharpest probe in the set |
+| 15 | relocation changes identity via `module_path` | ∅ | `AI-2`, `ID-9`; proved |
+| 16 | `fb.<concern>` encoded concern in the namespace | **P** | closed here by rename. The cost was leaving namespace arrangement open — `4c §8` assigns that to a profile, so a profile settles it before any build |
+| 17 | refusal-no-residue holds by pipeline shape | ∅ | named as a problem at Guidance §5.6 |
+| 18 | sealed snapshot read outside the inspection surface | ∅ | |
+| 19 | `owner_subdomain` derived from source directory | ∅ | same family as 15 |
+| 20 | a governance invariant that cannot refuse; subject is adequacy | ∅ | the origin of Guidance §9 |
+| 21 | coverage proved in one direction only | ∅ | Guidance §9 |
+| 22 | nothing compares an assertion against its invariant | ∅ | Guidance §9 |
+| 23 | identity computed over serialization, not over a canonical semantic object | **G** | `4c §8` requires that a canonicalization scheme exist and declines to say which. **Over what identity is computed** is the implementer's, and is not currently named at Guidance §5.3 |
+| 24 | five schemas do not close their surface; TI/TE have none | ∅ + **P** | the TI/TE half belongs with the transport ruling |
+| 25 | category and provenance declared per kind in code | ∅ | `GO-1`, `GO-3` determine it |
+| 26 | nothing evaluates an artifact against its category contract | ∅ | |
+| 27 | no kind states whether a governance assertion is required | ∅ | `MB-10` determines it |
+| 28 | an unrouted outcome ends the run instead of refusing | ∅ | `AI-6`; a probe |
+| 29 | the admission gate admits unconditionally | ∅ | a declared point determining nothing |
+| 30 | **the kind registry constitutes the vocabulary** — code makes a kind real | ∅ | `KV-3` forbids it outright. The most consequential ∅ in the table: it is what a first phase testing vocabulary and bootstrap is built to detect |
+| 31 | outcome resolution falls back to a second namespace | ∅ | milder 14 |
+| 32 | disagreement detected in a runbook, not at build | ∅ | |
+| 33 | a profile rotted; 23 of 35 identities dead; nothing reads either | **P** | a profile nothing reads cannot adjudicate anything. Something must read the profile before it is handed over |
+| 34 | `NP-7` breached in substance — externality is authorship, not storage | **P** | no code change closes it. The self-reference question, and stronger than it is usually put |
+| 35 | no execution environment profile; `EE-4`/`EE-5` held by doctrine in a `CLAUDE.md` | **P** | |
+| 36 | no domain profile anywhere; `DP-4` undeclared for six domains | **P** | bears directly on whether a domain can be admitted by a party that did not author it |
+| 37 | vocabulary concern did not survive `8a §7.7` | — | closed by revision |
+| 38 | `SU-5`'s subject is dependency, not mention | — | closed by revision |
+| 39 | supersession declared twice, nothing compares them | ∅ | `SU-3` determines it |
+| 40 | 7 of 229 design rules never observed to refuse | ∅ | Guidance §9 |
+| 41 | preservation checked for loss, not fabrication | ∅ | |
+| 42 | no census of which of 85 handlers have refused | ∅ | Guidance §9 |
+| 43 | a withdrawn invariant leaves `CP-7` holding as a fact | ∅ | |
+
+### 33.1 Entries Part I does not carry
+
+Found while specifying an independent build; not among the forty-four.
+
+| # | Finding | Route | Note |
+|---|---|---|---|
+| 45 | **A second vocabulary.** The compiled projection emits `VOCAB`, `SURFACE`, `CT`, `CS` against canonical `VOCABULARY`, `SURFACE_CONTRACT`, `CAPABILITY_TRANSFORM`, `CAPABILITY_SIDE_EFFECT`; a checker must normalize before comparing | **N** ‡ + **G** | Does anything forbid a projection from renaming a kind? `GC-13` points at it. If nothing does, drift is permitted rather than merely present — a document gap. The G half: *what keeps what is compiled speaking the same vocabulary as what was declared?* |
+| 46 | Component capability names minted with no declared definition elsewhere | ∅ | named as such by the profile that mints them |
+| 47 | `2c §6.1` leaves the representation of authority and concern unspecified, and nothing told an implementer this was theirs | **G** | closed: Implementation Guidance §4 |
+| 48 | A profile states requirements and not an inventory, so two conforming realizations may differ in size. How they are compared is undetermined | **N** ‡ | `7a` may not answer it. Comparative conformance depends on it |
+| 49 | The four-component split of this realization appears in no normative document | ∅ | now stated at Guidance §8: arrangement is not obligation |
+| 50 | `KV-10` — the declared vocabulary states no per-kind governance-assertion requirement (§26A) | **P** | the vocabulary lives in the profile. A profile handed to an independent builder must state it, or the builder cannot know which kinds need an assertion |
+| 51 | `EV-17` — evidence identifies neither the sealed representation it was produced under nor the determination's subject | ∅ | `AI-16` and `EV-17` both determine it |
+| 52 | `RT-13` — the scheduler falls back to a second namespace, resolving what the declarations left open | ∅ | finding 31's mechanism, now forbidden by name |
+| 53 | `CD-17` — no absence demonstration exists; absence obligations are answered by observation, which the invariant excludes as a discharge | **G** + ∅ | the ∅ is this realization's gap. The **G**: *how is an obligation forbidding a structural possibility discharged, and over what stated space?* — an implementer must decide it and Guidance §9 currently names only the removal test |
+| 54 | `TR-25` — no human-answer register exists; the constrained mechanism is absent | ∅ | vacuous here |
+| 55 | `EX-16` — a refusal is delivered as a routable outcome and an outcome stands in for a refusal | ∅ | finding 28's mechanism |
+| 56 | `CM-5` — nothing checks an authored profile against the Conceptual Model's definitions | ∅ + **P** | compounds 34: one authority writes the platform, the profile constraining it, and now the vocabulary it is read in |
+
+## 34. What this yields
+
+- **P** — settled before any independent build begins: namespace arrangement (16), a profile that is
+  actually read (33), profile externality (34, 56), a snapshot that claims its profile (4), the
+  transport contracts (24), domain profiles for anything a second party is expected to admit (36),
+  and a per-kind statement of whether a governance assertion is required (50). These are
+  prerequisites, not guidance.
+- **N** — candidate normative changes, each to be confirmed against the document before it is
+  drafted: 6, 12, 45, 48.
+- **G** — Implementation Guidance §5 gains two entries: from 23, over what identity is computed;
+  and from 53, over how an obligation forbidding a structural possibility is discharged and over
+  what stated space. §4 already carries 47.
+- **∅** — thirty-odd findings that reach no one. Whether an independent realization hits them is the
+  experiment, and their value depends entirely on their not being disclosed.
+
+## 35. Handling
+
+**Part II is withheld from any independent realization, in full.** It is a list of this
+realization's hardest problems with this realization's context attached, and it is more
+concentrated as an anchor than Part I. Only its routed outputs travel: normative text, a profile,
+and problems named in Implementation Guidance.
+
+The routing is auditable after the fact. Anyone may read an entry, read what reached the
+implementer, and judge whether the destination was honest — which is the reason the table records a
+destination for every finding rather than only for the ones that moved.
+
+## 36. Rebasing
+
+Part I's **subject** is restated against `72404ce4…` under `v0` (§0), and §0.1 records a spot
+recheck of the findings whose signatures can be checked directly. Part I's **entries** — §§3–26 —
+are not re-measured, and a route below may therefore be stated against a finding that has since
+moved.
+
+Three routes change with §0.1 and are carried here:
+
+| # | Route as recorded | Effect of §0.1 |
+|---|---|---|
+| 2, 4 | ∅ / **P** | closed in the realization. The **P** on 4 stands regardless: a snapshot that claims no profile has nothing to be judged against, and that is a prerequisite rather than a defect report |
+| 14 | ∅ | **re-verify.** The search-select-fallback signature is gone from the compile path. If the finding closed, its value as a probe closes with it |
+| 45 | **N** ‡ + **G** | strengthened. Both vocabularies are carried at scale *inside the sealed snapshot*, not only in a checker's normalization step. The **N** question — whether anything forbids a projection renaming a kind — is correspondingly sharper |
+
+**The coverage delta is closed.** `v0`'s twenty-four additions are mapped at §26A and routed above
+as findings 50–56. `CM-1 … CM-8` are not a realization's obligations and are recorded as such; the
+sixteen others yielded six findings, one closure (`SN-14`), and four entries marked ‡ that need a
+section read rather than a signature checked.
+
+What remains open is the reverse direction: **§§3–26 are still measured against `94e9b9dd…` under
+`draft-2`.** §26A is stated against the current subject and the rest of Part I is not, so a route
+drawn from an older section may be stated against a finding that has since moved. §0.1's spot recheck
+bounds that risk for eleven findings and not for the others.

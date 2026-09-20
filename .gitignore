@@ -45,3 +45,6 @@ CLAUDE.md
 *.key
 .env
 __pycache__/
+
+# Session handoff — local working state, never part of the standard
+SOTU.md
