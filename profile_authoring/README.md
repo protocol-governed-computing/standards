@@ -306,13 +306,149 @@ Building a profile for the first time, do this in order:
 6. Generate the profiles into an output directory.
 7. Review the gaps and decide whether they are really closed.
 8. Run the axis check before handing the profile to anyone.
+9. Optionally, build a platform that claims it and read the result back — the cookbook in §10.
 
 This is not a form-filling exercise. It is a decision-making process with a record, and the record is
 what becomes the profile.
 
 ---
 
-## 10. One writing rule to keep in mind
+## 10. Cookbook: build a platform that claims your profile
+
+You have a finished profile. This builds a platform that claims it, in a sandbox, in eight steps.
+
+The rest of this folder is portable — the questions come from the standard, and any system can answer
+them. This section is not. The commands are the PGC reference toolchain's, and they can drift with
+it. Another realization would do all of this differently.
+
+**Read this first.** Your profile is not an input to the build. No compiler, assembler, runtime, or
+inspector reads a profile document. What the build consumes is the profile's *name*. Reading the
+finished snapshot back against your profile is work you do by hand. Finding out what that costs is
+the whole point of the exercise.
+
+Below, `MY_PLATFORM_V0` is your profile's identity. Substitute your own.
+
+### Step 1 — Make a sandbox
+
+```bash
+mkdir -p ~/pgc_sandbox && cd ~/pgc_sandbox
+python3.12 -m venv .venv && source .venv/bin/activate
+pip install protocol-governed-computing
+pgc
+```
+
+`pgc` lists what is installed and what is missing. It will say no platform root is set. Step 2 fixes
+that.
+
+### Step 2 — Clone the declarations
+
+The install gives you the tools and the implementation modules. It does not give you the
+declarations. The wheels leave `registry/` out on purpose, so that nobody ends up with a second
+governance surface hiding inside a package. You clone the repositories that carry it.
+
+```bash
+git clone https://github.com/protocol-governed-computing/software_governance.git
+git clone https://github.com/protocol-governed-computing/conformance_workloads.git
+```
+
+**Note what you just did.** Your platform's governance surface is now that surface, with its
+constitutions and its invariants. That is a derivation. Name the profile you derive from, by
+identity, in §6 of your profile. If you want a platform that owes nothing to this one, author your
+own surface instead.
+
+### Step 3 — Point the tools at it
+
+```bash
+export PGC_PLATFORM_ROOT=~/pgc_sandbox/software_governance
+export PGC_SNAPSHOT_ROOT=$PGC_PLATFORM_ROOT/snapshot
+pgc
+```
+
+`pgc` should now resolve the platform root. If it says `no registry/ here`, you pointed at the wrong
+directory.
+
+### Step 4 — Compile the governance surface
+
+```bash
+protocol_compiler compile --structure STRUCTURE_BUILD_PLATFORM_CONFIG_V1
+```
+
+Name the structure. There is no default, because a governance surface is whatever a build config
+says it is.
+
+### Step 5 — Assemble your first snapshot
+
+```bash
+snapshot_assembler assemble \
+  --source ~/pgc_sandbox/software_governance/snapshot/compiled \
+  --out    ~/pgc_sandbox/snapshot_surface \
+  --profile MY_PLATFORM_V0
+```
+
+`--profile` is where your profile enters. There is no default here either. A profile comes from
+outside the system being built, so the assembler will not supply one for you.
+
+Three things to know about what you just built:
+
+- **This is a surface with no workload and no business domain.** It is not a snapshot with no
+  domains. The surface *is* domains. Strip those and there are no constitutions and no invariants, so
+  nothing governs whatever you add next.
+- **It has no predecessor, so it is your genesis.** Genesis is a claim, though, not a file the
+  assembler writes. Your A14 answer is what settles it.
+- **A genesis claim has to show the profile was not written by what it governs.** If you wrote both,
+  that demonstration fails. Record it as failing.
+
+### Step 6 — Compile a workload
+
+There is no separate command for this. It is the same `compile`, with the anchors moved to the domain
+and the platform left where it is.
+
+```bash
+DOMAIN=~/pgc_sandbox/conformance_workloads/workloads/collatz
+
+PGC_DOMAIN_ROOTS=$DOMAIN \
+PGC_SNAPSHOT_ROOT=$DOMAIN/snapshot \
+protocol_compiler compile --structure <the domain's own STRUCTURE_BUILD_*_CONFIG code>
+```
+
+Find the structure code in the domain's `registry/structures/` folder. Step 4 has to have run first:
+the domain resolves its references against the compiled surface.
+
+### Step 7 — Assemble a second snapshot
+
+```bash
+snapshot_assembler assemble \
+  --source ~/pgc_sandbox/software_governance/snapshot/compiled \
+  --source $DOMAIN/snapshot/compiled \
+  --out    ~/pgc_sandbox/snapshot_with_workload \
+  --profile MY_PLATFORM_V0
+```
+
+You are not adding the workload to the first snapshot. A snapshot is sealed. The assembler builds a
+whole new one from the sources you name, so this is a separate snapshot with its own identity. Keep
+both.
+
+Do both conform to your profile? That depends on your answers, not on the tool. If your required
+domains name the workload, the first one does not conform and the second does. If they name only the
+surface, both conform — a profile sets a floor, and a snapshot may carry more than the floor.
+
+### Step 8 — Read it back
+
+```bash
+snapshot_assembler verify --out ~/pgc_sandbox/snapshot_with_workload
+python3 check_every_axis_decided.py ~/pgc_sandbox/profiles/MY_PLATFORM_V0.md
+```
+
+The first checks the snapshot against its own manifest. The second checks your profile against the
+register.
+
+Neither one checks the snapshot against your profile. You do that yourself, by reading. That reading
+is what tells you whether the profile you wrote says anything a checking party could act on — which
+is the answer this whole exercise exists to get.
+
+---
+
+## 11. One writing rule to keep in mind
 
 When a decision could reasonably have gone another way, write down why your system chose this route.
 
