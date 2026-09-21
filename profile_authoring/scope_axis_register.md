@@ -134,6 +134,38 @@ item — but it MUST decide every item bearing on a conformance claim it support
   which its evidence is retained. A profile supporting a claim about evidence while leaving retention
   undecided supports a claim nobody can evaluate.
 
+### A15 — Where a Section A value is carried
+
+- **Question.** Which Section A answers does the environment supply, rather than the snapshot
+  carrying them?
+- **Answer.** Required shape: the list, or `none`. Each listed value names the answer it qualifies.
+- **Options.** Illustrative — none · a named retention window · a named policy value.
+- **Defers from.** `3b` §15; `6b` §2, §6; `6a` §7.
+- **Lands in.** NPP `environment_supplied_values`.
+- **Watch.** This axis exists because every other Section A axis can be fully answered while leaving
+  it open. A complete answer states what a value *means*, never where it is written, and the two come
+  apart precisely where it matters: a value supplied by the environment can change with no declared
+  act. Under a trust root (A6) the consequence is sharper — anything outside the snapshot is outside
+  what the signature covers, so the signature vouches for the evidence and not for the rule governing
+  it. **Cross-check:** every value listed here MUST also appear in `declared_environment_facts` (B8).
+  One listed here and absent there is a governed consequence varying with something undeclared.
+
+### A16 — Partial application
+
+- **Question.** Where a transition can be applied partly, what state results?
+- **Answer.** Required shape: the resulting state, or a statement that no admitted realization can
+  apply a transition partly together with what makes that true.
+- **Options.** Illustrative — no transition is resumed after partial application · a partly applied
+  transition is determined not to have applied · every effect is re-appliable without changed effect.
+- **Defers from.** `1b` §8 (SM-7a, SM-10); `6b` §8.1.
+- **Lands in.** NPP `partial_application`.
+- **Watch.** SM-7a binds whether or not a profile mentions it, so silence here is not neutrality —
+  it is an undetermined state the declarations owe an answer for. **Cross-check:** where more than
+  one node participates (B1/B7), a node lost mid-step *is* a realization applying a transition
+  partly, so "cannot happen" is refusable rather than merely optimistic. Note the direction of the
+  dependency: the environment produces the case, and Section A must answer it — answering it in
+  Section B would settle what a result means by where it ran.
+
 ### A8 — Read surface openness
 
 - **Question.** Who may read what this system contains?
@@ -352,3 +384,18 @@ reads complete and is not.
 **Also not an axis: the read surface minimum.** `5b` §10 requires every system to answer what it
 contains, what governs what, what it determined, and what it is. That is not a choice — it is the
 condition of being checkable at all — so it is stated to the author as a floor, never asked.
+
+### D1 — Derivation
+
+- **Question.** Does this profile derive from another, and from which identity?
+- **Answer.** Required shape: the base profile's identity, or `none`.
+- **Options.** Illustrative — none · a named profile identity.
+- **Defers from.** `6a` §10, §11 (NP-10).
+- **Lands in.** NPP `derives_from`, and §5 of the platform profile.
+- **Watch.** Derivation was previously treated as a judgement a generator must decline, and the
+  judgement it declined was the base's *content*. That is not what this axis asks. Whether a profile
+  derives at all, and from which identity, is an ordinary answer an author can give, and NP-10's
+  obligation not to widen the base is the same sentence whatever the base says. The failure this
+  catches is composition without acknowledgement: building on a governance surface whose
+  constitutions and invariants the author did not write is deriving, whatever the repository layout
+  suggests, and a profile claiming otherwise claims a surface it does not carry.

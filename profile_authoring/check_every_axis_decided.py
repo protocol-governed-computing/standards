@@ -51,6 +51,9 @@ AXES = {
     "A12": ("Protocol bindings as artifacts",        "protocol_bindings_governed"),
     "A13": ("Reaching the read surface",             "read_surface.reach"),
     "A14": ("Genesis discharge",                     "genesis_discharge"),
+    "A15": ("Where a Section A value is carried",    "environment_supplied_values"),
+    "A16": ("Partial application",                   "partial_application"),
+    "D1":  ("Derivation",                            "derives_from"),
 }
 
 EVASIONS = [

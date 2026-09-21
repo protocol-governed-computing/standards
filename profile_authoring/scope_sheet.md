@@ -36,6 +36,7 @@ Fill this in as you go. The generator reads this block and nothing else.
 scope_sheet:
   platform_name:              # what you are building, in your own words
   profile_identity:           # the name your snapshots will claim, e.g. ACME_ORDERS_PLATFORM_V0
+  derives_from:               # D1: the base profile's identity, or none
 
   # A — meaning
   kinds:                      # A1
@@ -55,6 +56,8 @@ scope_sheet:
   protocol_bindings_governed: # A12
   read_surface_reach:         # A13
   genesis_discharge:          # A14
+  environment_supplied_values: # A15  (or: none — the snapshot carries every one)
+  partial_application:        # A16
 
   # B — environment
   nodes:                      # B1/B2
@@ -233,6 +236,64 @@ claims was not written by your system's own authors. If you wrote both, say so �
 worth more than a claim that cannot survive being checked.
 
 > **If you have no view yet:** none — you must answer this one.
+
+## A15. Which of the answers above does the environment supply, rather than the snapshot carrying them?
+
+Every answer in Section A means something. This asks a different question about each: **where is it
+written down?** A value declared in the snapshot travels with it and can be read by anyone holding
+it. A value supplied by the environment can change without any declared act.
+
+The distinction is invisible until you look for it. "Evidence is kept five days" is a complete answer
+either way — but if the window lives in a config file, an operator can shorten how long your
+determinations can be established, and nothing records that they did.
+
+**It matters most where you have a trust root (A6).** A checking party verifies a signed snapshot.
+Anything not in that snapshot is outside what the signature covers, so a meaning-bearing value
+supplied by the environment is one the signature does not vouch for.
+
+**Anything you list here must also appear in B8.** A value a determination may depend on, supplied by
+the environment, is an environmental input; one that is not declared as such is the leak B8 exists to
+prevent.
+
+> **If you have no view yet:** none — the snapshot carries every one.
+
+## A16. If a transition can be applied partly, what state results?
+
+A transition that comes to rest half-applied is one your declarations have to account for: SM-7a
+forbids it coming to rest that way, and obliges a realization that *can* apply one partly to
+determine what state results.
+
+Answer either that no realization this profile admits can apply a transition partly — and say what
+makes that true — or what state results when one does.
+
+**More than one node makes this real rather than theoretical.** A node lost mid-step is exactly a
+realization applying a transition partly, so a multinode platform answering "cannot happen" is
+answering about a case its own environment produces.
+
+*From practice:* no transition is resumed after partial application, so none is ever partly applied
+and resumed · a partly applied transition is determined not to have applied, and is retried · every
+effect is re-appliable without changed effect, so re-application is the same state.
+
+> **If you have no view yet:** none available — answer from how your own effects behave.
+
+---
+
+# Section D — What this profile derives from
+
+## D1. Does this profile derive from another, and which?
+
+Deriving means naming a base **by identity** and requiring at least what it requires. A deriving
+profile may require more and permit less; it may never widen its base (NP-10).
+
+Deriving is not inheritance of privilege. No profile is privileged (6a §11), a base makes no claim on
+profiles that have not named it, and the relation is declared by the profile that derives — never by
+the one derived from.
+
+**Answer this if you are building on somebody's governance surface.** Composing on a surface whose
+constitutions and invariants you did not author *is* deriving, whatever the directory layout says.
+The honest answer names it.
+
+> **If you have no view yet:** none — this profile derives from nothing.
 
 ---
 

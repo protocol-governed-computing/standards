@@ -4,7 +4,7 @@
 completion:
   status: draft
   generated_from: scope sheet
-  open_gaps: 5
+  open_gaps: 4
   usable_as_a_target: false   # a profile with an open gap is not yet something to hand anyone
 ```
 
@@ -153,6 +153,14 @@ snapshot_profile:
     demonstration fails and is recorded as failing.
 
     '
+  environment_supplied_values: none
+  partial_application: 'No transition is resumed after partial application. Execution
+    is single-node and a run that does not complete is refused rather than continued,
+    so nothing that came to rest partly applied is ever picked up — by this node or
+    another. What is written before a refusal is evidence of the refusal, not a partly
+    applied transition admitted as complete.
+
+    '
   required_governance:
     artifact_kinds:
     - CONSTITUTION
@@ -208,19 +216,14 @@ nothing could refuse is not in force, and one that restates a selection in §1 i
 For each: what discharges it, which discharge class that is, and a demonstration **capable of
 failing** if the system were non-conforming (CD-4). A claim with no stated discharge is decorative.
 
-## 5. Derivation
-
-> **GAP — to be written by the author.**
-
-If this profile derives from another, name the base **by identity** and state that this profile does
-not widen it (NP-10). If it derives from none, delete this section — an absent section is clearer
-than one saying "none".
 
 ## 6. Externality
 
 NP-7 requires a profile to be external to what it governs, and **externality is authorship, not
 storage**. A profile written by the authority that builds the system is not external, whatever
 directory it is kept in.
+
+> **GAP — to be written by the author.**
 
 State which case applies here. Where the same authority wrote both, a conformance claim under this
 profile must record that — a finding against the claim, not against the profile.

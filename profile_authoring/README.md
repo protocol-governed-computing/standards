@@ -47,7 +47,7 @@ them into profile documents mechanically.
 | `profile_template.md` | The structure a profile should follow, based on the standard's own requirements. |
 | `generate_profiles.py` | Reads a completed scope sheet and writes the profile documents. |
 | `check_every_axis_decided.py` | Reads a finished profile back against the register and checks whether every deferred decision was actually answered. |
-| `worked_example/` | Three sheets answered for real systems, with the profiles they produced. **Start here if you are new.** |
+| `worked_example/` | Four sheets answered for real systems, with the profiles they produced. **Start here if you are new.** |
 
 ---
 
@@ -128,7 +128,7 @@ This is where the common mixture gets separated:
   which case it is pass one.
 - "federated" is both, and must be answered in both places.
 
-### Pass three — what it is made of (Section C)
+### Pass three — what it is made of (Section C), and what it derives from (Section D)
 
 The domains, and for each one the question that cannot be skipped:
 
@@ -161,17 +161,23 @@ There are two separate checks, and they answer different questions.
 
 ### 5.1 `open_gaps`
 
-`generate_profiles.py` counts `open_gaps` by looking for sections the generator refused to fill in.
+`generate_profiles.py` counts `open_gaps` by looking for sections the generator refused to fill in,
+and derives the number from the markers it emitted rather than asserting it beside them.
 
-Three parts of a profile need the author's judgment:
+Four parts of a profile need the author's judgment:
 
+- which artifacts are required,
 - additional obligations,
 - how each claim is discharged,
-- whether the profile derives from another profile.
+- whether the same authority wrote the profile and the system it governs.
 
 A generator can produce plausible text for those, and the result would read complete while being
 nothing of the kind. So it marks them and counts them instead. When the author writes them in,
 `open_gaps` becomes zero.
+
+Derivation used to be a fifth. It is now an ordinary answer on the sheet (`D1`): what a generator
+cannot supply is the base's *content*, and it does not need to, because NP-10's obligation not to
+widen a base is the same sentence whatever the base says.
 
 That says nothing about whether the decisions the family defers were made. A profile can carry
 `open_gaps: 0` and still leave the trust root undecided, because the trust root is not a generated
@@ -207,7 +213,7 @@ candidate snapshot; this is the cheaper check that comes first, and it catches t
 
 Two limits matter:
 
-- the register states an explicit target field for only three axes; the rest are matched by name, so a
+- the register states an explicit target field for only some axes; the rest are matched by name, so a
   renamed field reports as absent rather than being followed,
 - and the check establishes that a decision was made, never that it was sound.
 
@@ -249,7 +255,6 @@ The generated profiles come out with gaps, marked and counted. That is the point
 | Which artifacts are required | They are identities in your system, and they do not exist until you author them. |
 | Additional obligations | Each must say what would count as breaking it. An obligation nothing could ever refuse is not in force. |
 | How each claim is settled | A demonstration has to be capable of failing. One that cannot fail supports a claim nobody can evaluate. |
-| Whether the profile derives from another | This is a judgment about intent. |
 
 A profile with an open gap is not yet something to hand anyone as a target.
 
@@ -265,7 +270,7 @@ checked.
 
 ## 8. Start with the worked examples
 
-`worked_example/` holds three sheets answered for systems that already exist. Its own README says
+`worked_example/` holds four sheets. Its own README says
 which to read first; in short:
 
 | Example | What it shows |
@@ -273,6 +278,7 @@ which to read first; in short:
 | `reference_composition/` | A complete sheet, fully answered — a governance surface, one workload, two tool domains, nothing crossing a boundary. **Read this one first.** |
 | `governance_surface/` | The same surface with no workload, written to be derived from. |
 | `federated_multinode/` | An authoring session in progress: many nodes, external callers, questions still open. |
+| `signed_federated_multinode/` | The same shape carried through and finished, answered forwards for a platform not yet built. The only example whose gaps are closed. |
 
 The first two carry the generated profiles beside them, in each example's `profiles/` folder.
 
@@ -321,10 +327,17 @@ The rest of this folder is portable — the questions come from the standard, an
 them. This section is not. The commands are the PGC reference toolchain's, and they can drift with
 it. Another realization would do all of this differently.
 
-**Read this first.** Your profile is not an input to the build. No compiler, assembler, runtime, or
-inspector reads a profile document. What the build consumes is the profile's *name*. Reading the
-finished snapshot back against your profile is work you do by hand. Finding out what that costs is
-the whole point of the exercise.
+**Read this first, and note what it does and does not say.** The assembler *does* read your profile.
+It resolves the `snapshot_profile` block by identity — not by filename, because a profile is named by
+what it declares itself to be — and refuses to seal a snapshot that claims a profile whose required
+artifacts and required kinds it does not carry. A claim nobody can read is not a claim (3b SN-7), and
+a snapshot asserting a conformance it does not have is worse.
+
+What it checks is a floor, and a narrow one: the identities and kinds §1 requires. It does not read
+your trust root, your retention window, your obligations, or your claim discharges — and no compiler,
+runtime or inspector reads any of it. **Everything the profile says beyond that floor is checked by
+reading, by hand.** Finding out how much that is, and what it costs, is the whole point of the
+exercise.
 
 Below, `MY_PLATFORM_V0` is your profile's identity. Substitute your own.
 

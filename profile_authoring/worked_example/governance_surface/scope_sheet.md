@@ -20,6 +20,7 @@ scope_sheet:
     no conformance workload and no business domain. One machine, unsigned, locally stored. The
     governed boundary contracts are declared and none is exercised.
   profile_identity: GOVERNANCE_SURFACE_PROFILE_V0
+  derives_from: none
 
   # A — meaning
   kinds:
@@ -108,6 +109,13 @@ scope_sheet:
     rules passing over the whole. The externality demonstration is NOT discharged: this profile was
     authored by the same authority that built the system it governs, so the genesis claim fails on
     that point and is recorded as failing.
+
+  environment_supplied_values: none
+  partial_application: >
+    No transition is resumed after partial application. Execution is single-node and a run that
+    does not complete is refused rather than continued, so nothing that came to rest partly
+    applied is ever picked up — by this node or another. What is written before a refusal is
+    evidence of the refusal, not a partly applied transition admitted as complete.
 
   # B — environment
   nodes: One machine.

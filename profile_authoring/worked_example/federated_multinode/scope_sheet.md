@@ -12,6 +12,7 @@ see the note at the end.
 scope_sheet:
   platform_name:
   profile_identity:
+  derives_from:
 
   # A — meaning
   kinds:
@@ -33,6 +34,9 @@ scope_sheet:
   protocol_bindings_governed:
   read_surface_reach:
   genesis_discharge:
+
+  environment_supplied_values: 
+  partial_application: 
 
   # B — environment
   nodes: Several. Multinode.

@@ -39,13 +39,14 @@ GAP = "> **GAP — to be written by the author.**"
 TEXT, FLAG, LIST, DOMAINS = "text", "flag", "list", "domains"
 
 SCHEMA: dict[str, str] = {
-    "platform_name": TEXT, "profile_identity": TEXT,
+    "platform_name": TEXT, "profile_identity": TEXT, "derives_from": TEXT,
     # A — meaning
     "kinds": LIST, "aliases_accepted": FLAG, "kinds_required_exercised": LIST, "outcomes": LIST,
     "result_classes": TEXT, "projections": LIST, "namespaces": LIST, "namespaces_closed": FLAG,
     "trust_root": TEXT, "evidence_retention": TEXT, "read_openness": TEXT, "reads_attributed": FLAG,
     "sufficiency_criterion": TEXT, "interaction_forms_governed": TEXT,
     "protocol_bindings_governed": TEXT, "read_surface_reach": TEXT, "genesis_discharge": TEXT,
+    "environment_supplied_values": LIST, "partial_application": TEXT,
     # B — environment
     "nodes": TEXT, "availability": TEXT, "co_location_rules": TEXT, "resource_guarantees": TEXT, "deadlines": TEXT,
     "isolation": TEXT, "failure_visibility": TEXT, "distribution": TEXT,
@@ -58,12 +59,13 @@ SCHEMA: dict[str, str] = {
 # Which pass each axis belongs to. A sheet is answered over several sessions, and "what is still
 # open, by pass" is the question a facilitator actually has between them.
 SECTIONS: dict[str, tuple[str, ...]] = {
-    "identity": ("platform_name", "profile_identity"),
+    "identity": ("platform_name", "profile_identity", "derives_from"),
     "A — what the platform means": (
         "kinds", "aliases_accepted", "kinds_required_exercised", "outcomes", "result_classes",
         "projections", "namespaces", "namespaces_closed", "trust_root", "evidence_retention",
         "read_openness", "reads_attributed", "sufficiency_criterion", "interaction_forms_governed",
-        "protocol_bindings_governed", "read_surface_reach", "genesis_discharge"),
+        "protocol_bindings_governed", "read_surface_reach", "genesis_discharge",
+        "environment_supplied_values", "partial_application"),
     "B — where it runs": (
         "nodes", "availability", "co_location_rules", "resource_guarantees", "deadlines", "isolation",
         "failure_visibility", "distribution", "declared_environment_facts", "environment_excludes",
@@ -78,7 +80,11 @@ DOMAIN_FIELDS = ("name", "owns", "governed_by", "reached_by", "ordered_by", "sta
 
 # Answers that read as decisions and are not. 6a §7 and NP-12; CF-5 for the third.
 REFUSED = (
-    (r"whatever|as declared by the system|system decides|up to the system",
+    # The bare word "whatever" is not evasion — an author writing "never whatever the code
+    # happens to parse" is refusing deferral, not performing it. Require the phrase that
+    # actually hands the question back: whatever *the system* decides.
+    (r"whatever\s+(the\s+)?(system|platform|realization|implementation|build|it)\b"
+     r"|as declared by the system|system decides|up to the system",
      "defers the decision back to the system it constrains (6a §7, NP-12) — an item is not decided "
      "by requiring the system to decide it"),
     (r"same as the reference|as the reference (implementation|realization)|like the reference",
@@ -136,7 +142,7 @@ def validate(a: dict) -> tuple[list[str], list[str]]:
             unanswered.append(key)
             continue
         value = a[key]
-        if kind is LIST and not isinstance(value, list):
+        if kind is LIST and not isinstance(value, list) and not says_nothing(value):
             problems.append(f"{key}: expected a list of answers, got {type(value).__name__}")
         elif kind is LIST and any(blank(x) for x in value):
             problems.append(f"{key}: contains a blank entry")
@@ -191,8 +197,13 @@ def validate(a: dict) -> tuple[list[str], list[str]]:
 
     # C4 governs A3, A11, A12, and constrains C5. A boundary nothing crosses cannot discharge a
     # claim about crossing it.
+    # C4 is a fixed choice, and the choice is the answer's opening clause. Scanning the whole
+    # answer reads a qualification as a reversal: an author who answers "things cross" and then
+    # explains that node-to-node traffic is *not* a crossing has still answered that things
+    # cross. Match the lead, as says_nothing does.
     boundary = str(a.get("boundary") or "").lower()
-    exercised = "cross" in boundary and "not" not in boundary and "nothing" not in boundary
+    lead = _lead(boundary)
+    exercised = "cross" in lead and not re.search(r"\b(no|none|not|nothing)\b", lead)
     if answered("boundary") and not exercised:
         if answered("result_classes") and not says_nothing(a.get("result_classes")):
             problems.append(
@@ -221,6 +232,36 @@ def validate(a: dict) -> tuple[list[str], list[str]]:
             "may not vary is anything the system did not declare (6b §2). An empty list is an "
             "answer; absence is not")
 
+    # A15 pairs with B8. A meaning-bearing value the environment supplies is an environmental
+    # input by definition, so it must appear in declared_environment_facts. One listed here and
+    # absent there is the leak both axes exist to catch: a governed consequence varying with
+    # something the system never declared (6b §2).
+    raw_supplied = a.get("environment_supplied_values")
+    supplied = ([str(v) for v in raw_supplied]
+                if isinstance(raw_supplied, list) and not says_nothing(raw_supplied) else [])
+    facts = " ".join(str(f) for f in (a.get("declared_environment_facts") or [])).lower()
+    for value in supplied:
+        if value.lower().split()[0] not in facts:
+            problems.append(
+                f"environment_supplied_values: {value!r} is supplied by the environment and is "
+                "not named in declared_environment_facts (B8) — a value a determination may "
+                "depend on, that the system has not declared as an environmental input, is the "
+                "leak 6b §2 forbids")
+
+    # A16 against B7. Where more than one node participates, a realization can lose one midway,
+    # so "no realization can apply a transition partly" is a claim about the environment as much
+    # as about the platform, and SM-7a is engaged either way.
+    partial = str(a.get("partial_application") or "").lower()
+    multinode = re.search(r"federat|multi|several|node group|cluster|more than one",
+                          str(a.get("distribution") or "") + " " + str(a.get("nodes") or ""), re.I)
+    dismissed = re.search(r"\b(not possible|cannot happen|cannot arise|does not arise|"
+                          r"no such case|not applicable)\b", _lead(partial))
+    if multinode and dismissed:
+        problems.append(
+            "partial_application: more than one node participates (B1/B7), so a node may be lost "
+            "with a transition partly applied — SM-7a obliges this profile to determine what "
+            "state results rather than to hold that the case cannot arise")
+
     admissible = set(a.get("kinds") or ())
     for kind in a.get("kinds_required_exercised") or ():
         if kind not in admissible:
@@ -235,20 +276,73 @@ def _yaml(block: dict) -> str:
     return yaml.safe_dump(block, sort_keys=False, default_flow_style=False, allow_unicode=True).rstrip()
 
 
-def _draft_block(gaps: int) -> str:
+GAP_COUNT = "{{OPEN_GAPS}}"
+
+
+def _draft_block() -> str:
     """Every emitted document says it is a draft, in a form a reader and a tool both see.
 
     A skeleton that looks like a profile is the failure mode automation invites here: the shape is
     right, the sections are present, and nothing announces that several of them were never decided.
+
+    The count is left as a token and settled from the finished document by `_settle_gap_count`.
     """
     return f"""```yaml
 completion:
   status: draft
   generated_from: scope sheet
-  open_gaps: {gaps}
+  open_gaps: {GAP_COUNT}
   usable_as_a_target: false   # a profile with an open gap is not yet something to hand anyone
 ```
 """
+
+
+def _lead(answer: str) -> str:
+    """The opening clause of an answer, which is where its decision sits.
+
+    Scanning a whole answer for a word reads a qualification as a reversal — the failure that made
+    a boundary answer saying "node-to-node traffic is *not* a crossing" register as no boundary at
+    all. Match the lead, as says_nothing does.
+    """
+    return re.split(r"[.;\n]", str(answer or "").lower(), 1)[0]
+
+
+def _derivation_section(a: dict) -> str:
+    """§5 is an ordinary answer, not a judgement a tool must decline.
+
+    Whether a profile derives at all, and from which identity, is something an author can state
+    plainly. What a tool cannot supply is the base's *content*, and it does not need to: NP-10
+    obliges the deriving profile not to widen its base, and that obligation is the same sentence
+    whatever the base says. An absent section is clearer than one saying "none" (NP-10), so a
+    profile deriving from nothing emits no §5 at all.
+    """
+    base = a.get("derives_from")
+    if says_nothing(base):
+        return ""
+    return f"""## 5. Derivation
+
+This profile derives from `{base}`, named by identity.
+
+It **does not widen** that base (NP-10): every selection the base makes is made here, and this
+profile only requires more. Where this profile and its base disagree about what a snapshot must
+satisfy, this profile requires the stricter of the two, and a snapshot conforming here conforms
+there.
+
+Deriving does not make the base privileged and does not make this profile subordinate to it (6a
+§11). The relation is declared by this profile, and the base makes no claim on profiles that have
+not named it.
+
+"""
+
+
+def _settle_gap_count(doc: str) -> str:
+    """Derive `open_gaps` from the markers actually emitted, never from a literal beside them.
+
+    A hardcoded count drifts the first time a section is added, removed, or has its marker
+    changed, and the drift is silent. This block exists so a tool can read the count, so a count
+    disagreeing with the document carrying it is worse than no count at all.
+    """
+    return doc.replace(GAP_COUNT, str(doc.count(GAP)))
 
 
 def platform_profile(a: dict) -> str:
@@ -258,7 +352,7 @@ def platform_profile(a: dict) -> str:
         "snapshot_profile": {
             "identity": identity,
             "supersedes": None,
-            "derives_from": None,
+            "derives_from": None if says_nothing(a.get("derives_from")) else a.get("derives_from"),
             "description": a.get("platform_name"),
             # A profile states a floor, never an inventory: a snapshot may carry more than this
             # and still conform (6a §5, CF-5). The domains an author happens to have composed are
@@ -292,6 +386,13 @@ def platform_profile(a: dict) -> str:
             "interaction_forms_governed": a.get("interaction_forms_governed"),
             "protocol_bindings_governed": a.get("protocol_bindings_governed"),
             "genesis_discharge": a.get("genesis_discharge"),
+            # A15/A16. Where a meaning-bearing value is carried, and what a partly applied
+            # transition leaves behind. Both are Section A: neither is settled by placement.
+            # Emitted as null rather than [] when the answer is "none": the axis checker reads an
+            # explicit null as a decision and an empty container as carrying nothing, and "the
+            # snapshot carries every one" is a decision.
+            "environment_supplied_values": a.get("environment_supplied_values") or None,
+            "partial_application": a.get("partial_application"),
             "required_governance": {
                 # Admissible is not the same question as exercised. declared_vocabulary.kinds is the
                 # closed set a snapshot MAY carry; this is the set it MUST. A profile that equates
@@ -312,7 +413,7 @@ def platform_profile(a: dict) -> str:
     }
     return f"""# {identity} — draft
 
-{_draft_block(5)}
+{_draft_block()}
 A snapshot profile is a conformance contract over an assembled snapshot. It states the properties a
 snapshot SHALL satisfy — not an inventory of what any particular build contains. A snapshot may
 contain more than this profile requires and still conform.
@@ -350,19 +451,14 @@ nothing could refuse is not in force, and one that restates a selection in §1 i
 For each: what discharges it, which discharge class that is, and a demonstration **capable of
 failing** if the system were non-conforming (CD-4). A claim with no stated discharge is decorative.
 
-## 5. Derivation
-
-{GAP}
-
-If this profile derives from another, name the base **by identity** and state that this profile does
-not widen it (NP-10). If it derives from none, delete this section — an absent section is clearer
-than one saying "none".
-
+{_derivation_section(a)}
 ## 6. Externality
 
 NP-7 requires a profile to be external to what it governs, and **externality is authorship, not
 storage**. A profile written by the authority that builds the system is not external, whatever
 directory it is kept in.
+
+> **GAP — to be written by the author.**
 
 State which case applies here. Where the same authority wrote both, a conformance claim under this
 profile must record that — a finding against the claim, not against the profile.
@@ -397,7 +493,7 @@ def environment_profile(a: dict) -> str:
     }
     return f"""# {identity} — draft
 
-{_draft_block(1)}
+{_draft_block()}
 An execution environment profile. It states where execution happens and under what constraints, and
 it changes nothing about what execution means.
 
@@ -479,7 +575,7 @@ decision no other part of the system may make, that is a change of claim, discha
 """
     return f"""# {identity} — draft
 
-{_draft_block(1 if claim == "authority" else 0)}
+{_draft_block()}
 ## 1. Profile
 
 ```yaml
@@ -565,7 +661,7 @@ def main() -> int:
         (args.out / f"{identity}_DOMAIN_{d['name'].upper()}.md", domain_profile(answers, d))
         for d in (answers.get("domains") or [])
     ]:
-        path.write_text(text, encoding="utf-8")
+        path.write_text(_settle_gap_count(text), encoding="utf-8")
         written.append(path)
 
     # Everything emitted is read back. A profile whose YAML does not load resolves to nothing when a
