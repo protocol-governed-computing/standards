@@ -399,3 +399,31 @@ condition of being checkable at all — so it is stated to the author as a floor
   catches is composition without acknowledgement: building on a governance surface whose
   constitutions and invariants the author did not write is deriving, whatever the repository layout
   suggests, and a profile claiming otherwise claims a surface it does not carry.
+
+### C3 — Entry points
+
+- **Question.** Which workflows must resolve and be reachable for this to be the platform claimed?
+- **Answer.** Required shape: artifact identities of the form `namespace::ARTIFACT_IDENTITY`, or `[]`.
+- **Options.** None enumerable — the identities are the author's own.
+- **Defers from.** `6a` §5; `3b` SN-7.
+- **Lands in.** NPP `required_workloads.entry_workflows`, which a realization matches against the
+  identities a snapshot carries.
+- **Watch.** This is the only axis in the register whose value is resolved rather than read, and two
+  failures follow from that. A **description** passes every check in the toolkit and fails at
+  assembly, where the message names the description as an absent artifact — the profile's defect
+  presented as the snapshot's. And an identity that is not a `WORKFLOW` cannot be satisfied at all: a
+  domain may be required, reachable and working while carrying no workflow, as a read surface built
+  from transport ingress and egress pairs does. Where a domain's reach is the concern, requiring its
+  kinds (A1b) and the domain itself (C1b) carries the obligation without naming an entry point.
+
+---
+
+## What this register does not cover
+
+The C axes other than C3 — the domains themselves, which of them are required or excluded, whether
+anything crosses a boundary, and what the profile claims — have no entries here, and the axis check
+does not report them. They are asked by the sheet and validated by the generator, but a decision that
+appears in neither this register nor that check is one nothing independently verifies was made.
+
+C3 is entered because it resolves against a snapshot, which made its failure mode concrete. The
+others are not less important for being absent.

@@ -402,13 +402,19 @@ scope_sheet:
     # any workload supplying them satisfies this profile and the conformance workload is one
     # such supplier rather than a condition of conformance.
   excluded_domains: []        # C1c
-  entry_points:               # C3
-    - the inspection read workflows
-    # They must resolve and be reachable, and they follow from C1b: requiring the inspection
-    # domain while not requiring its reads to work would require a domain and not require it to
-    # function. No workload workflow is an entry point — requiring one would contradict C1b,
-    # where the conformance workload supplies required kinds rather than being a condition of
-    # conformance.
+  entry_points: []            # C3
+    # None. The reasoning that first produced an answer here was sound and the mechanism was
+    # wrong: requiring the inspection domain while not requiring its reads to work would require
+    # a domain and not require it to function. But inspection carries no workflows — its reads
+    # are transport ingress and egress pairs — so naming an inspection entry workflow names
+    # something that cannot exist.
+    #
+    # The obligation is already carried. TRANSPORT_INGRESS and TRANSPORT_EGRESS are required by
+    # A1b, and `inspection` is required by C1b, so a snapshot without a working read surface
+    # fails on the kinds rather than on an entry point.
+    #
+    # No workload workflow is named either. Requiring one would contradict C1b, where the
+    # conformance workload supplies required kinds rather than being a condition of conformance.
   boundary: >                 # C4
     Things cross. Callers reach this platform from outside it — a client submitting work through
     the workload's ingress, and a checking party issuing reads through the inspection ingress.
@@ -512,7 +518,8 @@ demonstration the claimant designed, and closing it needs a second party to auth
 
 ## What this example exposed in the toolkit
 
-Three axes were missing, and answering this sheet is what surfaced them. All three now exist.
+Four axes were missing or unguarded, and answering this sheet is what surfaced them. All four are now
+in place.
 
 **Where a Section A value is carried was not asked.** A7 could be answered completely — a period, a
 terminating act, an exemption — and leave undecided whether the window lived in the snapshot or in
@@ -531,9 +538,19 @@ multinode platform holds that the case cannot arise.
 judgement a generator must decline is the base's content; whether a profile derives at all, and from
 which identity, is an ordinary answer. Now **D1**, and §5 is no longer a gap.
 
+**Entry points were unguarded, and the register had no C axis at all.** C3 was answered here as "the
+inspection read workflows" — a description. It passed every check in the toolkit, because a list of
+strings is structurally valid, and would have failed at assembly as *"required workload entry point
+absent: the inspection read workflows"*: a profile's defect presented as a snapshot's. Worse, the
+thing it named cannot exist — the inspection domain carries eighteen transport ingress and eighteen
+egress artifacts and **no workflow**, so a read surface can be required, reachable and working with no
+workflow to name. The obligation was already carried by requiring the kinds in A1b and the domain in
+C1b. C3 now requires identities of the form `namespace::ARTIFACT_IDENTITY`, and the register has a C3
+entry recording both failure modes — and a note that the other C axes still have none.
+
 ## What this example exposed in the generator
 
-Six defects, each of the same family: the tool reporting something the document did not support.
+Seven defects, six of the same family: the tool reporting something the document did not support.
 
 - `boundary` was scanned for the substring `not`, so an answer saying "things cross" and then
   explaining that node-to-node traffic is *not* a crossing registered as no boundary at all —
@@ -548,6 +565,9 @@ Six defects, each of the same family: the tool reporting something the document 
 - The new A15 cross-check iterated a string one character at a time.
 - The new A16 cross-check matched `none` anywhere in the answer, so "none is ever partly applied"
   read as a dismissal — the same polarity flaw as `whatever`, written an hour after fixing it.
+- `entry_points` accepted prose for a field the assembler resolves against artifact identities. This
+  one is not a matching flaw: nothing was checking the field's shape at all, and the profile would
+  have been handed to a build that reported the profile's mistake as the snapshot's.
 
 The first two and the last two are one mistake made four times: matching a word without its polarity
 or position. The boundary check, the evasion check and the A16 check now read the opening clause

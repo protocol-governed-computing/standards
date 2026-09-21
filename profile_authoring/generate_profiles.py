@@ -262,6 +262,18 @@ def validate(a: dict) -> tuple[list[str], list[str]]:
             "with a transition partly applied — SM-7a obliges this profile to determine what "
             "state results rather than to hold that the case cannot arise")
 
+    # C3 lands in a field the assembler matches against artifact identities, not prose. A
+    # description is structurally a valid list entry and passes every check here, then fails at
+    # assembly as "required workload entry point absent: <the description>" — which reads as a
+    # missing artifact rather than as a profile that named one wrongly.
+    for point in a.get("entry_points") or ():
+        if not re.fullmatch(r"[a-z][a-z0-9_]*::[A-Z][A-Z0-9_]*", str(point).strip()):
+            problems.append(
+                f"entry_points: {point!r} is not an artifact identity — this field is matched "
+                "against what a snapshot carries, so an entry must be a governed identity of the "
+                "form namespace::ARTIFACT_IDENTITY. A description of the workflows cannot be "
+                "resolved against anything")
+
     admissible = set(a.get("kinds") or ())
     for kind in a.get("kinds_required_exercised") or ():
         if kind not in admissible:

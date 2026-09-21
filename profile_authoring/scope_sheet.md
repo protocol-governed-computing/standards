@@ -428,6 +428,18 @@ what the platform is for.
 
 The entry points that must exist for this to be the platform you are claiming.
 
+**Answer with identities, not descriptions.** Each entry is matched against what a snapshot actually
+carries, in the form `namespace::ARTIFACT_IDENTITY`. "The inspection read workflows" is structurally a
+valid list entry and will pass every check in this folder — and then fail at assembly as *"required
+workload entry point absent: the inspection read workflows"*, which reads as a missing artifact rather
+than as a profile that named one wrongly.
+
+**Check that what you are naming is a workflow.** A domain can be required, reachable and working
+without carrying a single `WORKFLOW`: a read surface built from transport ingress and egress pairs has
+no workflow to name. Requiring one there names something that cannot exist. Where a domain's reach is
+what you care about, require its *kinds* in A1b and the domain itself in C1b — that obligation is
+carried without naming an entry point at all.
+
 > **If you have no view yet:** none required.
 
 ## C4. Does anything cross an interaction boundary?

@@ -295,8 +295,7 @@ snapshot_profile:
     manifest_declares_identity_coverage: true
     covered_set_excludes_the_value: true
   required_workloads:
-    entry_workflows:
-    - the inspection read workflows
+    entry_workflows: []
   required_claims:
   - SNAPSHOT_IMMUTABILITY
   - DETERMINISTIC_EXECUTION
