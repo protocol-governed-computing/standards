@@ -18,7 +18,11 @@ environment_profile:
   identity: GOVERNANCE_SURFACE_PROFILE_V0_ENVIRONMENT
   environment: One machine.
   execution_constraints:
-    availability: One machine.
+    availability: 'The assembled snapshot must be readable and the local evidence
+      store writable. If either is unreachable the run does not start. Nothing else
+      has to be reachable — the surface has no workload and no remote dependency.
+
+      '
     placement: None stated — everything runs in one process on one host.
     resource: None stated.
     timing: None stated.

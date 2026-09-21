@@ -9,11 +9,6 @@ filled.
 a profile takes — its encoding, structure, or how it is published."* A profile that ignores this
 template is not thereby defective, and a profile that follows it is not thereby conforming.
 
-**Do not give this to an authoring trial.** The point of such a trial is to find what the standard
-alone leads an author to produce. Supplying the structure answers that in advance, and three
-independently authored profiles organising the same content three ways is the evidence that the
-structure was not determined.
-
 ---
 
 ## 1. Identity
@@ -103,9 +98,8 @@ plainly is what lets a reader tell in one pass whether the profile is theirs.
 ## Not a section: authorship
 
 `6a` §6 and NP-7 require that **a profile not be authored by the system that claims it.** That is a
-constraint on who may write the profile, not something the profile must state, and this template
-had it as a section until all three existing profiles were checked and none had one. They were
-right. Externality is a property of authorship, not of declaration — a profile asserting its own
+constraint on who may write the profile, not something the profile must state — so it gets no
+section. Externality is a property of authorship, not of declaration, and a profile asserting its own
 independence establishes nothing.
 
 ## Say why, not only what

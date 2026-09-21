@@ -58,6 +58,7 @@ scope_sheet:
 
   # B — environment
   nodes:                      # B1/B2
+  availability:               # B1
   co_location_rules:          # B2/B5
   resource_guarantees:        # B3
   deadlines:                  # B4
@@ -249,6 +250,22 @@ regions.
 
 > **If you have no view yet:** one machine.
 
+## B1. What must be reachable for execution to proceed, and what happens when it is not?
+
+The nodes, stores, and dependencies your system needs in order to run at all — and what your system
+does when one of them cannot be reached.
+
+Answering only *how many machines* leaves this unsaid. How many nodes there are and what must be
+reachable are different facts: a single machine still has a snapshot to read and a place to write
+evidence, and "the disk is unreachable" is not the same event as "a step failed".
+
+**Unreachable is not a result.** Whatever you answer, it determines whether execution happens — never
+what a result means. A dependency that is down makes the system refuse to proceed; it never makes a
+step conclude differently.
+
+> **If you have no view yet:** the snapshot and the local evidence store must be readable and
+> writable; if either is not, execution does not start.
+
 ## B3. What compute, memory, and storage are guaranteed?
 
 > **If you have no view yet:** none stated.
@@ -274,6 +291,14 @@ And what establishes that ordering.
 
 > **If you have no view yet:** not applicable — single node.
 
+## B8. Which environmental facts does your system treat as inputs?
+
+Anything the environment tells your system that a result may depend on — a clock, a region, a feature
+flag. Anything not on this list must not change a result. This is the list that keeps B from leaking
+into A.
+
+> **If you have no view yet:** none.
+
 ## B9. Which systems can this environment not serve?
 
 Requirements this environment cannot meet — a workload needing more isolation than you provide, a
@@ -285,14 +310,6 @@ deadline you cannot hold to. Saying so is what lets a reader tell in one pass wh
 
 Availability, redundancy, bounded latency — obligations a system claiming this environment can hold
 you to. Each needs something that would show it broken.
-
-> **If you have no view yet:** none.
-
-## B8. Which environmental facts does your system treat as inputs?
-
-Anything the environment tells your system that a result may depend on — a clock, a region, a feature
-flag. Anything not on this list must not change a result. This is the list that keeps B from leaking
-into A.
 
 > **If you have no view yet:** none.
 

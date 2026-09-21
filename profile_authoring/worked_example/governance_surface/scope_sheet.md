@@ -111,6 +111,10 @@ scope_sheet:
 
   # B — environment
   nodes: One machine.
+  availability: >
+    The assembled snapshot must be readable and the local evidence store writable. If either is
+    unreachable the run does not start. Nothing else has to be reachable — the surface has no
+    workload and no remote dependency.
   co_location_rules: None stated — everything runs in one process on one host.
   resource_guarantees: None stated.
   deadlines: None stated.

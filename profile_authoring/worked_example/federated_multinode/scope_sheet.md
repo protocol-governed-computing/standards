@@ -36,6 +36,7 @@ scope_sheet:
 
   # B — environment
   nodes: Several. Multinode.
+  availability:
   co_location_rules:
   resource_guarantees:
   deadlines:

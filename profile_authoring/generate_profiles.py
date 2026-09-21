@@ -47,7 +47,7 @@ SCHEMA: dict[str, str] = {
     "sufficiency_criterion": TEXT, "interaction_forms_governed": TEXT,
     "protocol_bindings_governed": TEXT, "read_surface_reach": TEXT, "genesis_discharge": TEXT,
     # B — environment
-    "nodes": TEXT, "co_location_rules": TEXT, "resource_guarantees": TEXT, "deadlines": TEXT,
+    "nodes": TEXT, "availability": TEXT, "co_location_rules": TEXT, "resource_guarantees": TEXT, "deadlines": TEXT,
     "isolation": TEXT, "failure_visibility": TEXT, "distribution": TEXT,
     "declared_environment_facts": LIST, "environment_excludes": TEXT, "environment_claims": LIST,
     # C — composition
@@ -65,7 +65,7 @@ SECTIONS: dict[str, tuple[str, ...]] = {
         "read_openness", "reads_attributed", "sufficiency_criterion", "interaction_forms_governed",
         "protocol_bindings_governed", "read_surface_reach", "genesis_discharge"),
     "B — where it runs": (
-        "nodes", "co_location_rules", "resource_guarantees", "deadlines", "isolation",
+        "nodes", "availability", "co_location_rules", "resource_guarantees", "deadlines", "isolation",
         "failure_visibility", "distribution", "declared_environment_facts", "environment_excludes",
         "environment_claims"),
     "C — what it is made of": (
@@ -382,7 +382,7 @@ def environment_profile(a: dict) -> str:
             "identity": identity,
             "environment": a.get("nodes"),
             "execution_constraints": {
-                "availability": a.get("nodes"),
+                "availability": a.get("availability"),
                 "placement": a.get("co_location_rules"),
                 "resource": a.get("resource_guarantees"),
                 "timing": a.get("deadlines"),

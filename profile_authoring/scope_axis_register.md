@@ -59,7 +59,7 @@ item — but it MUST decide every item bearing on a conformance claim it support
   `declared_vocabulary.kinds`, which is the admissible set.
 - **Watch.** Equating the two is the failure this axis exists to prevent: a profile requiring every
   kind it admits fails any snapshot that has admitted a kind it has no artifact for yet, and the
-  failure reads as non-conformance rather than as a profile defect. Found by the worked example.
+  failure reads as non-conformance rather than as a profile defect.
 
 ### A2 — Outcomes
 
@@ -250,8 +250,8 @@ what it means.
 - **Defers from.** `6b` §9 — an environment profile declares what it excludes and the conformance
   claims it supports.
 - **Lands in.** Environment profile `excludes`, `supported_claims`.
-- **Watch.** These were named by `6b` §9 and asked by nothing until the usability review found the
-  generator asserting both as empty. An emitted empty is a claim the author never made.
+- **Watch.** `6b` §9 names both, so neither may be emitted unasked. An empty the generator asserted
+  is a claim the author never made.
 
 ### B8 — Declared versus ambient environment
 
@@ -268,6 +268,17 @@ what it means.
 # C — Domain axes
 
 Asked once per domain. They land in a **domain profile**, one per domain (`6c` §5).
+
+**These numbers are not the Scope Sheet's.** The sheet asks C1–C5 in author order; the register
+numbers C1–C7 by axis. The map:
+
+| Register | Scope Sheet |
+|---|---|
+| C1 subjects, C3 capabilities, C4 workflows, C5 stores, C6 boundary exposure | C1, one row of its table each |
+| C2 governance | C1, the *obligations* row |
+| C7 authority claim | C2 |
+
+D1–D5 below are the sheet's C1b, C1c, C3, C4 and C5.
 
 | Axis | Question | Answer |
 |---|---|---|
