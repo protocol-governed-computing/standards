@@ -418,6 +418,49 @@ Deriving does not make the base privileged and does not make this profile subord
 §11). The relation is declared by this profile, and the base makes no claim on profiles that have
 not named it.
 
+### 5.1 What was derived from, exactly
+
+Naming a base profile by identity says which contract was derived from. It does not say which
+*surface* — and a platform that clones a repository at whatever its development branch happens to be
+has derived from something nobody can name twice. The four pins below are what make the ancestry
+checkable rather than merely stated.
+
+| Pin | Value | Why this one |
+|---|---|---|
+| toolchain | `protocol-governed-computing==4.0.0` | the published distribution; the implementations, not the declarations |
+| governance surface | `software_governance` @ `history-16` | the base profile's own surface — its constitutions and invariants are what deriving inherits |
+| conformance workload | `conformance_workloads` @ `history-16` | supplies required kinds, not a required domain (§1) |
+| read surface | `snapshot_inspector` @ `history-16` | required as a domain (§1); carries the ingress and egress a checking party reads through |
+
+The three repositories are pinned to one tag rather than to three, because they compose. A wheel at
+`4.0.0` against declarations from a later development branch is the incoherence pinning exists to
+prevent: the implementations would be one composition's and the declarations another's, and nothing
+would report the mismatch.
+
+**This platform does not track its base.** A fix or an addition made to the surface after this tag
+does not reach a snapshot built from these pins, and reaching it is a deliberate act: a new pin, a
+rebuild, a new snapshot identity. That is the cost of decoupling, accepted rather than regretted — a
+platform that silently follows a branch has no reproducible ancestry to declare.
+
+### 5.2 Derivation is not lineage
+
+This profile derives from `GOVERNANCE_SURFACE_PROFILE_V0` and **supersedes nothing** (§1,
+`supersedes: null`). The two relations hold between different objects and are easily confused:
+
+- **Derivation** relates *profiles*: this one names a base and does not widen it.
+- **Supersession** relates *claims*: a superseding profile states what it changes and what that
+  invalidates (4e).
+
+Superseding the base was considered and is incorrect, not merely undesirable. This profile
+invalidates nothing about the platform that claims the base — that platform still requires it, and
+replacing it would orphan a live claim. There is nothing to invalidate, so there is nothing to
+supersede.
+
+A snapshot built under this profile is therefore a **genesis snapshot**: it has no predecessor
+snapshot, and its legitimacy is settled by §1 `genesis_discharge` rather than by comparison with one.
+Carrying a governance ancestry and having no predecessor are consistent — ancestry is a relation
+between profiles, lineage a relation between snapshots.
+
 
 ## 6. Externality
 
