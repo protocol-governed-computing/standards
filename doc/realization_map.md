@@ -122,9 +122,42 @@ Each entry carries a **class**:
 | **Over-specified** | the document names a mechanism while believing it names a meaning (`8a` §4.7) — a finding against the document |
 | **Vacuous** | the mechanism the invariant constrains does not exist here, so it cannot be violated |
 | **Violated** | a mechanism demonstrably does what the invariant forbids |
+| **Mutated** | a mechanism enforces a rule the invariant does not state — narrower, wider, or differently conditioned |
 
-**Partial, Unimplemented and Vacuous entries are findings**, and a finding is resolved by ruling —
-never by editing a normative document to match what was built (Document Set §3).
+**Partial, Unimplemented, Vacuous, Violated and Mutated entries are findings**, and a finding is
+resolved by ruling — never by editing a normative document to match what was built (Document Set §3).
+
+**Mutated is not Violated, and the difference is worth keeping.** A Violated entry does what the
+invariant forbids. A Mutated entry does something the invariant never said: it enforces a rule of its
+own, which may be stricter, looser, or conditioned on something the document does not mention. Filed
+as Violated it overstates — nothing forbidden occurred. Filed as Partial it understates, and badly:
+Partial says some clause of *this* invariant holds, where Mutated says the mechanism has substituted
+a different rule and the invariant was never evaluated. A realization that has quietly rewritten what
+governs it presents, under either of the other two classes, as a realization that merely fell short.
+
+### 2.1 How an entry was established
+
+An entry's class says what the state is. It does not say how that was determined, and the two are
+independently wrong. `7a` §7 already names the four ways an obligation is discharged, and an entry
+carries whichever applies:
+
+| Discharge | What establishes the entry |
+|---|---|
+| **Observational** | the behaviour was observed — the mechanism was exercised and its result recorded |
+| **Structural** | the property follows from the declarations, and no execution is required to establish it |
+| **Comparative** | two things were compared, and the entry rests on their agreement or disagreement |
+| **Derivational** | the entry follows from another entry or from a declared relation |
+
+This is not the same question as whether a mechanism ran. Most invariants in Part I are structural:
+nothing executes them, and an entry recording one as unexercised would report a gap that is not
+there. Conversely a Demonstrated entry established structurally is a weaker claim than one
+established observationally, and `7b` §7.1 is blunt about why — **a claim with complete coverage,
+all-observational discharges, and no failing fixtures has established very little at considerable
+expense.** The inverse holds too: a mechanism whose required response to a failed condition is
+refusal, coded but never observed to refuse, is structural and should not read as observational.
+
+Entries carry a discharge as they are revisited. An entry without one states its class and nothing
+about how that class was reached.
 
 Locations are repository-relative paths in the reference realization. They are addresses in one
 codebase, not part of the standard.
