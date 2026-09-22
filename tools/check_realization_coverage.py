@@ -61,6 +61,19 @@ FINDING_CLASSES = {"Partial", "Unimplemented", "Unimplementable",
 KNOWN_CLASSES = FINDING_CLASSES | {"Demonstrated"}
 
 
+# The map declares which families it does not cover, and why. Read from the document rather
+# than listed here: which invariants a realization can bear is a judgement about the standard,
+# and a tool holding its own copy of that judgement is a second place for it to be wrong.
+OUT_OF_SCOPE_ROW = re.compile(r"^\|\s*\*\*([A-Z]{2})\*\*\s*\|", re.M)
+
+
+def out_of_scope(map_path: Path) -> set[str]:
+    """Families the map declares it does not cover."""
+    text = map_path.read_text(encoding="utf-8")
+    m = re.search(r"^### 1\.1 Families out of scope\n(.*?)^## ", text, re.S | re.M)
+    return set(OUT_OF_SCOPE_ROW.findall(m.group(1))) if m else set()
+
+
 def declared_invariants(spec_dir: Path) -> dict[str, str]:
     """Every invariant the standard declares, mapped to the document declaring it."""
     found: dict[str, str] = {}
@@ -83,10 +96,17 @@ def map_entries(map_path: Path) -> dict[str, str]:
         m = ENTRY_ROW.match(line)
         if not m:
             continue
-        cells = [c.strip() for c in line.strip().strip("|").split("|")]
-        cls = cells[-1] if cells else ""
-        cls = cls.split("—")[0].split("--")[0].strip().strip("*`").strip()
-        cls = cls.split(",")[0].strip()
+        # The map's tables do not agree on where the class sits: some carry it last, after
+        # "where demonstrated"; others carry it second, before a note. Reading a fixed column
+        # returns a note as a class for every table of the other shape, which is how 22 entries
+        # came to report as unclassified. Scan the cells and take the first that names a class.
+        cells = [c.strip() for c in line.strip().strip("|").split("|")][1:]
+        cls = ""
+        for cell in cells:
+            head = cell.split("—")[0].split("--")[0].strip().strip("*`‡ ").split(",")[0].strip()
+            if head in KNOWN_CLASSES:
+                cls = head
+                break
         # Not every table in the map carries a class column; some rows are identifier and
         # note alone. Such a row is an entry without a class, which is a different fact from
         # an entry whose class happens to be long — echoing its prose as a class would make
@@ -129,7 +149,10 @@ def main() -> int:
     declared = declared_invariants(args.spec)
     entries = map_entries(args.map)
 
-    absent = sorted(set(declared) - set(entries))
+    excluded_families = out_of_scope(args.map)
+    excluded = sorted(i for i in declared if i.split("-")[0] in excluded_families)
+    absent = sorted(i for i in set(declared) - set(entries)
+                    if i.split("-")[0] not in excluded_families)
     stale = sorted(set(entries) - set(declared))
 
     print(f"map     : {args.map.relative_to(ROOT)}")
@@ -141,7 +164,8 @@ def main() -> int:
     # realization, which is not visible in a single percentage.
     fam_declared = Counter(i.split("-")[0] for i in declared)
     fam_absent = Counter(i.split("-")[0] for i in absent)
-    incomplete = sorted(f for f in fam_declared if fam_absent[f])
+    incomplete = sorted(f for f in fam_declared
+                        if fam_absent[f] and f not in excluded_families)
     if incomplete:
         print("  coverage by family, where incomplete")
         for f in incomplete:
@@ -159,6 +183,10 @@ def main() -> int:
     print("  A finding is resolved by ruling, never by editing a normative document to match")
     print("  what was built.\n")
 
+    if excluded:
+        fams = ", ".join(sorted(excluded_families))
+        print(f"  OUT OF SCOPE — declared by §1.1, binds documents rather than a realization: "
+              f"{len(excluded)} ({fams})\n")
     if absent:
         print(f"  ABSENT — declared by the standard, no entry in the map: {len(absent)}")
         if not args.quiet:

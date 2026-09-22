@@ -109,6 +109,21 @@ by the same consideration and by the same reasoning.
 
 # Part I — Demonstration
 
+### 1.1 Families out of scope
+
+An invariant is in this map's scope when a realization can bear it. Some bind the documents of the
+family instead, and a map of a realization has nothing to say about them — not because they were
+neglected, but because they have no realization subject. They are declared here so that their absence
+is a recorded decision rather than an omission, and so that a coverage check does not report them as
+gaps that nobody can close.
+
+| Family | Binds | Why out of scope |
+|---|---|---|
+| **CM** | documents of this family, and profiles | CM-1 … CM-8 constrain how terms are used, refined, owned and revised **in the documents themselves** — "a document of this family MUST use the terms defined here", "a profile MUST NOT alter the meaning of any term". No realization can demonstrate or breach them. Conformance to them is a property of the document set, checked by reading the documents against one another. |
+
+Scope is not permission. A family listed here is checked somewhere else or not at all, and if not at
+all, that is a finding against the family's own arrangements rather than against this map.
+
 ## 2. How to read an entry
 
 Each entry carries a **class**:
@@ -792,6 +807,46 @@ changes is not a composite identity over those constituents. The two documents s
 requirement — SN-2's totality clause and ID-15's "MUST change when any constituent changes" — and
 the realization satisfies neither for the six constituents outside the view.
 
+## 8a. Semantic Model — SM-1 … SM-12
+
+The semantic model's subject is the governed transition: a determination reached over a closure,
+completing before the change it governs. The realization has two transition sites — construction,
+where `s4_govern` determines admission before `s7_materialize` writes, and execution, where the
+dispatcher determines before a capability runs.
+
+Most of these entries are **derivational**: the Architectural Invariants in §9 restate the semantic
+model in realization terms, and where §9 has read the mechanism, the semantic invariant it derives
+from is established by the same reading. Where the architectural entry is partial, the semantic one
+inherits that partiality rather than improving on it.
+
+| Invariant | Class | Where, or what is missing |
+|---|---|---|
+| **SM-1** every change to governed state is a governed transition | Partial | derivational, from AI-13: every effect beyond governed state passes a declared capability side effect. Inherits AI-17's gap (§9.4) — the realization's own declarations change by direct edit, and those are governed state |
+| **SM-2** a determination completes before the transition it governs | Demonstrated | derivational, from AI-4: `s4_govern` completes before `s7_materialize` writes, and the reach check returns `VIOLATION` before the capability runs |
+| **SM-3** a determination is reached over the complete rule set the closure supplies | Demonstrated | derivational, from AI-5 and AI-11: the rule set is compiled and sealed before execution, and nothing resolves a rule at determination time |
+| **SM-4** where a closure cannot be established, the determination is `refuse` | Demonstrated | derivational, from AI-6: `E702_UNKNOWN_ASSERT` when an obligation resolves to no handler, `E701` when a handler raises. An unresolvable governing element is never an empty one |
+| **SM-5** consequences compose by dominance; no rule admits what another refuses | Demonstrated | derivational, from AI-7: violations accumulate into one error list and any error fails the build. There is no combination step at which an allowance could outrank a refusal |
+| **SM-5a** several applicable rules compose by conjunction | Demonstrated | the same accumulation: every applicable assertion is evaluated and all their violations are retained, which is conjunction by construction |
+| **SM-6** predicate evaluation does not alter governed state | Partial — §8a.1 | no assert handler holds a write path, so evaluation cannot alter state by the route the invariant guards. The map did not read every handler, and records the class as resting on the pipeline's shape rather than on an enumeration |
+| **SM-7** a refused proposal does not partly proceed | Partial | derivational, from AI-8: the pipeline aborts before the writing stage, but `1c` carves out the evidence of refusal and that evidence does not exist (§9.3) |
+| **SM-7a** an admitted transition does not come to rest partly applied | Unimplemented ‡ | see §29 — needs the runtime read against the clause |
+| **SM-7b** a closure is established for the state a transition applies to | Unimplemented ‡ | see §29 |
+| **SM-8** every determination produces evidence adequate by §13 | Partial | derivational, from AI-14: the runtime path evidences; construction does not (§7.1, §7.2) |
+| **SM-9** transformation of the declarations is itself a governed transition | Partial — §9.4 | derivational, from AI-17: the pipeline exists and the realization's own declarations do not pass through it |
+| **SM-10** the same `(S, π, C)` yields the same determination | Partial | the snapshot is sealed and resolution is compiled, so the inputs to a determination cannot vary. What has not been demonstrated is the second clause — that the same determination applied to the same state permits the same resulting state — which SM-7a's gap leaves open |
+| **SM-11** a genesis transition is determined reflexively against its own closure | Unimplemented | derivational, from SN-13: genesis produces its snapshot through the same `assemble` path as any other, which is the point — nothing determines the first transition *against the closure it establishes*. Genesis is produced, not determined |
+| **SM-12** conformance checking re-evaluates the closure and rules recorded in evidence | Unimplemented | evidence carries no reference to a snapshot and no determination subject, so there is no recorded closure to re-evaluate. The invariant's precondition is absent rather than its mechanism |
+
+### 8a.1 SM-6 — by shape rather than by enumeration
+
+Assert handling in the compiler raises; it does not write, and the writing stage is a later one it
+cannot reach. That establishes the invariant for the route it was written to guard — a predicate that
+mutates what it is evaluating.
+
+It is recorded Partial because the map did not enumerate the handlers. A single handler acquiring a
+write would breach the invariant without changing anything the pipeline's shape shows, and an entry
+resting on shape cannot detect that. The enumeration is small and has not been done.
+
 ## 9. Architectural Invariants — AI-1 … AI-17
 
 `1c` states what must remain true of any realization, and its entries carry a **Shown by** clause
@@ -803,6 +858,16 @@ section records the four the plan asks about, plus the three whose signature was
 
 | Invariant | Where demonstrated | Class |
 |---|---|---|
+| **AI-1** behavior originates in declaration | derivational, from SN-10: `runtime/api.py` resolves every handler through the snapshot's dispatch table, and an operation the table does not name has no path to an implementation | Demonstrated |
+| **AI-2** no ambient authority | structural: the realization declares its own counterpart, `authority::INVARIANT_NO_AMBIENT_AUTHORITY_V0`, labelled *Architectural Invariant* and compiled into the snapshot alongside `INVARIANT_AUTHORITY_REQUIRED_FOR_EXECUTION_V0` and `INVARIANT_NO_RUNTIME_AUTHORIZATION_V0` | Demonstrated |
+| **AI-3** the activities do not trade places | structural: construction is CLI-only and declares "no TI/TE boundary contract, not reachable over transport"; execution reaches only a sealed snapshot; inspection is read-only behind `si.*`. No activity can be entered through another's surface | Demonstrated |
+| **AI-5** resolution completes before what depends on it | structural: every invocation is resolved at build time into the snapshot's dispatch table; the runtime looks up, and has no path that resolves a reference it did not receive sealed | Demonstrated |
+| **AI-9** identity is derived, sealing is real | derivational, from SN-2 and SN-3: `compute_composite_hash` over `_identity_view` derives the identity and nothing assigns it — and inherits their partiality, because that view does not cover every constituent (§3.2) | Partial — §3.2 |
+| **AI-10** execution consumes a verified sealed representation | observational: `warm_boot` recomputes the composite and reports "snapshot resident + hash-verified" before anything executes; `loader.py` anchors each domain to the manifest's tokenized hash | Demonstrated |
+| **AI-11** structure is complete before execution | structural: compilation and assembly complete before a snapshot exists, and assembly refuses a composition that does not satisfy its claimed profile's required kinds and artifacts | Demonstrated |
+| **AI-13** effects occur only through declared surfaces | structural: every effect beyond governed state is a `CAPABILITY_SIDE_EFFECT` named by a capability contract — the workload reaches storage only through `CC_STORE_RESULTS_V0` onto `CS_MUTABLE_JSON_V0`, never directly | Demonstrated |
+| **AI-15** evidence is output only | structural: `runtime/evidence.py:90` opens the trace append-only and the engine holds no reader. The one read path, `runtime/examine/parser.py`, belongs to inspection and reaches no determination | Demonstrated |
+| **AI-17** change occurs only by governed transformation | the Design and Construction Compilers exist and drive change requests through gated phases — and the realization's own changes do not pass through them | Partial — §9.4 |
 | **AI-4** determination precedes effect | at construction, `s4_govern` completes before `s7_materialize` writes; at runtime, the one live determination — the reach read-only check in `dispatcher._execute_cs_step` — returns `VIOLATION` **before** the capability runs | Demonstrated — §9.1 |
 | **AI-6** absence is not permission | `s4_govern` raises `E702_UNKNOWN_ASSERT` when an obligation resolves to no handler and `E701` when a handler raises; both fail the build. An unresolvable governing element is never an empty one | Demonstrated |
 | **AI-7** refusal dominates | violations from every assertion accumulate into one error list, and any error fails the build. There is no combination step at which an allowance could outrank a refusal | Demonstrated — §9.2 |
@@ -810,6 +875,22 @@ section records the four the plan asks about, plus the three whose signature was
 | **AI-12** nothing enters by discovery | statically imported handler registry; environment-provisioned roots; no reflective loading | Demonstrated |
 | **AI-14** every determination is evidenced | runtime path only | Partial — §7.1, §7.2 |
 | **AI-16** evidence checkable without its producer | integrity yes, determination no | Partial — §7.4 |
+
+### 9.4 AI-17 — the pipeline exists and does not govern its own repository
+
+`transformation` realizes governed transformation: a change request in business language is driven
+through gated phases into an Authoring Mandate, and construction materializes what the mandate
+schedules. Against a change routed through it, AI-17 holds.
+
+Most changes are not routed through it. The compilers, the governance surface, the assembler and this
+map are edited directly, reviewed by a person, and committed — a process that is neither declared nor
+gated, and under which nothing would refuse a change that no mandate authorized. The invariant says
+change occurs *only* by governed transformation; the realization makes it available rather than
+mandatory.
+
+This is not the pipeline failing at its subject. It is the realization holding its own repository
+outside the subject, which is the harder finding of the two: a transformation compiler whose own
+construction was ungoverned has demonstrated the mechanism without demonstrating the invariant.
 
 ### 9.1 AI-4 — satisfied largely by having moved determination out of runtime
 
@@ -1600,6 +1681,7 @@ Compiler. It is the correspondence the map has to handle most carefully, for a r
 | **TR-3a** every declared rule demonstrated capable of refusing | **222 of 229 rule identifiers observed to fire — 96.9%** | Partial — §21.2 |
 | **TR-4** a verdict names the rule and location of each finding | each finding carries rule id and register/row | Demonstrated |
 | **TR-5** a constrained column's admissible values declared with the register's shape; emptiness declared not inferred | vocabulary columns declared per register; `| NONE IDENTIFIED |` is a declared sentinel read by `is_sentinel` | Demonstrated |
+| **TR-5a** a register's entries are individually addressable | registers are markdown tables whose rows carry no identifier of their own; a row is reached by its position or by the text of a cell, and an entry that moves is a different address. The document leaves the mechanism unspecified — a register with none has not chosen one | Unimplemented |
 | **TR-6** each register declares its rung; a business rung names no constructed identity; grounding evidence occupies a declared column | rungs declared per register; `Source Finding` columns carry grounding | Demonstrated |
 | **TR-7** provisional name and bound identity reconciled in both directions | P5→P7 capability reconciliation rules | Demonstrated |
 | **TR-8** admissibility decided by the rule set alone; a quality score does not gate | `cli.py:221` — *"merit says how good the document is. A document may be admissible and imperfect"* | Demonstrated |
@@ -1843,12 +1925,28 @@ stages, not protocol implementations" — is IB-1 and IB-4 stated in the realiza
 | **IB-9** result-class-to-external-representation mapping is adapter-owned and absent from the egress contract | no `TE_` contract names an HTTP status | Demonstrated |
 | **IB-10** no boundary contract or adapter introduces domain state-transition, resource or result semantics | contracts declare inputs, presentation and a handler binding; no domain meaning | Demonstrated |
 | **IB-11** applicability of boundary contracts determined within an applicable governance closure | TI/TE are governed by `CONSTITUTION_TRANSPORT_INGRESS_V0` / `_EGRESS_V0` | Demonstrated |
+| **IB-12** one operation identity resolves to exactly one invocation contract | `resolver/registry.py:61` raises on a duplicate operation identity per side, and `adapters/http/binding.py:50` on a duplicate route; the assembler separately refuses one FQDN owned by two domains | Demonstrated |
+| **IB-13** an interaction with no applicable ingress contract is refused | a request to an unbound route returns `result_class: OPERATION_NOT_FOUND`, `NO_BINDING`, with no result and no evidence — nothing proceeded | Demonstrated |
+| **IB-14** evidence leaving the boundary is declared, not incidental | the response envelope carries `evidence` as a declared field; what any one `TE_` contract declares *into* it is the §23.1 reading that was not completed | Partial — §23.2 |
+| **IB-15** a system is not constituted through its own interaction boundary | construction reaches no transport: the Design and Construction Compilers declare "no TI/TE boundary contract, no Operation Identity, not reachable over transport", and run before a snapshot exists | Demonstrated |
 
 **`5a` is the best-corresponded document in the map after `6c`**, and for an identifiable reason: it
 is the one subject the realization stopped and specified *before* building. `protocol_transport`'s
 Phase 1 was frozen as a standard first, with constitutions, compiler kinds and adapters explicitly
 deferred until it was accepted. The result is a boundary that satisfies IB-1 through IB-11 by
 construction.
+
+### 23.2 IB-14 — the envelope is declared, its contents are not read
+
+Every boundary response carries `evidence` as a field of the canonical envelope, so nothing leaves
+incidentally in the sense the invariant guards: an adapter cannot attach evidence the envelope does
+not provide for. What the map did not establish is whether each `TE_` contract declares what goes
+into that field for its own operation, or whether a handler's return is passed through and labelled
+evidence. That is the same unread `TE_` question as §23.1, reaching a second invariant, and it is
+recorded as open rather than resolved in either direction.
+
+Observed responses carry `"evidence": []` — consistent with both readings, which is why the reading
+is what settles it.
 
 ### 23.1 IB-6 — normalization inbound, less clearly outbound
 
@@ -1906,6 +2004,18 @@ demonstrated and which is not* — it grants nothing.
 Every Partial entry in this map names the clause that fails. None of them is a claim that the
 invariant is partly satisfied.
 
+| **CF-13** a claim identifies, for each discharge, whether it is observational, structural, comparative or derivational | no claim exists, so no discharge is reported at all | Vacuous — §24.1 |
+
+### 24.1 CF-13 — the vocabulary now exists here, and still discharges nothing
+
+`7a` §7's four classes are used by this map, entry by entry, since §2.1 was written. That establishes
+the vocabulary is usable and says nothing about CF-13, whose subject is a conformance claim. A map is
+an account of a realization against a standard; a claim asserts conformance to a party who may check
+it. The realization makes no such assertion, so there is no discharge to classify.
+
+What it changes is the cost of satisfying CF-13 later: the classification has been exercised over
+three hundred entries, so a first claim would not be inventing it.
+
 ## 25. Conformance Test Specification — CD-1 … CD-16
 
 **The realization has no conformance claim and an extensive demonstration practice**, and the two
@@ -1928,6 +2038,18 @@ anything.
 | **CD-12** every obligation binding a claimed subject has a demonstration; any without one is reported | this map is that report | — §24.1 |
 | **CD-13** a system instance claim includes composition-obligation demonstrations, not assembled from part-level results | composition conformance evaluates 5 rules over 398 artifacts **after** assembly, not per domain | Demonstrated |
 | **CD-14** a genesis claim demonstrates the claimed profile was not authored by what claims it | no profile is claimed; and if one were, it is self-authored | **Violated** — §18.3 |
+| **CD-15** a failing demonstration is reported as a finding and is not discharged by repetition | a failing check fails the run and the finding is recorded — but nothing distinguishes a check that passed from one that passed on a later attempt, so repetition is undetectable rather than forbidden | Partial — §25.1 |
+| **CD-16** a demonstration establishes nothing broader than its stated subject, obligation, fixtures and discharge class | the checks bound themselves by what they examined — "composition: PASSED, 5 rules over 208 artifacts" — but no demonstration states a discharge class, so the bound CD-16 requires cannot be stated, and therefore cannot be respected or exceeded | Partial |
+
+### 25.1 CD-15 — repetition is undetectable rather than forbidden
+
+A failing check fails the run, which satisfies the first clause: nothing proceeds on a failure.
+
+The second clause is open. A check that fails, is re-run after an unrelated change, and passes leaves
+the same trace as one that passed the first time. Nothing records the attempt, so
+discharge-by-repetition is not prevented by any mechanism — it is merely not currently practised.
+That is a property of the practice rather than of the realization, which is why this is Partial.
+
 
 ### 25.1 CD-3 — refusal is demonstrated for one rule system and not the other
 
