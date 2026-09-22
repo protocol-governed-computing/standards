@@ -428,14 +428,18 @@ checkable rather than merely stated.
 | Pin | Value | Why this one |
 |---|---|---|
 | toolchain | `protocol-governed-computing==4.0.0` | the published distribution; the implementations, not the declarations |
-| governance surface | `software_governance` @ `history-16` | the base profile's own surface — its constitutions and invariants are what deriving inherits |
-| conformance workload | `conformance_workloads` @ `history-16` | supplies required kinds, not a required domain (§1) |
-| read surface | `snapshot_inspector` @ `history-16` | required as a domain (§1); carries the ingress and egress a checking party reads through |
+| governance surface | `software_governance` @ `v4` | the base profile's own surface — its constitutions and invariants are what deriving inherits |
+| conformance workload | `conformance_workloads` @ `v4` | supplies required kinds, not a required domain (§1) |
+| read surface | `snapshot_inspector` @ `v4` | required as a domain (§1); carries the ingress and egress a checking party reads through |
 
 The three repositories are pinned to one tag rather than to three, because they compose. A wheel at
 `4.0.0` against declarations from a later development branch is the incoherence pinning exists to
 prevent: the implementations would be one composition's and the declarations another's, and nothing
 would report the mismatch.
+
+`v4` is named because it is the **published** tag, resolvable by anyone cloning the repositories. A
+development tag that exists only on the machine that built the platform is not a pin: it names a
+commit nobody else can reach, and a pin nobody can resolve records nothing.
 
 **This platform does not track its base.** A fix or an addition made to the surface after this tag
 does not reach a snapshot built from these pins, and reaching it is a deliberate act: a new pin, a
