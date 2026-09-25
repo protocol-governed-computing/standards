@@ -1839,6 +1839,18 @@ either. **SU-7 is already satisfied** — both are excluded from the vocabulary 
 consumes. The composition is not carrying stale dependencies; it is carrying its supersession
 declarations twice.
 
+**That reading is narrower than the clause, and the difference now matters.** SU-7 says *every*
+projection execution consumes. The evidence above is about the vocabulary projection. The assertion
+path consumes the canonical projection, and a superseded `INVARIANT` present there still derives an
+assertion and still runs — observed while making execution placement composable, where a superseded
+invariant went on failing builds after its successor replaced it.
+
+No superseded invariant exists in the realization today, so nothing is currently breached. The entry
+is recorded as satisfied over one projection rather than over the invariant, and becomes a breach on
+the first superseded artifact reached by presence rather than by name. See
+`.github/doc/supersession_and_force.md` in the workspace for the enumeration and the proposed
+predicate.
+
 ### 22.2 SU-5 and SU-3 cannot both be satisfied as written
 
 `4e` §4 is emphatic about SU-5's scope:
