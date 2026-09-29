@@ -1816,7 +1816,7 @@ IN_ACTOR_VERIFIED_V0                →  IN_ACTOR_ACCEPTANCE_V0, IN_ACTOR_REJECT
 | **SU-4** a predecessor recorded as superseded by nothing is refused | both predecessors name their successors | Demonstrated |
 | **SU-5** where `X` supersedes `Y`, nothing references `Y`; closure determined during construction | the only machine-block references to `Y` are the SU-3 declarations themselves | — §22.2 |
 | **SU-6** referential closure determined over the whole composition | `INVARIANT_SUPERSEDED_NOT_REFERENCED_V0` exists and is evaluated over the composition | Demonstrated |
-| **SU-7** a superseded thing excluded from every projection execution consumes, retained in the canonical record, reachable by inspection | **both are absent from the vocabulary projection and present in `canonical/`** | Demonstrated |
+| **SU-7** a superseded thing excluded from every projection execution consumes, retained in the canonical record, reachable by inspection | `in_force` is a declared predicate every effect-conferring path consults; S8 refuses output in which a superseded workflow has a dispatch entry, a superseded intent an admission contract, or a superseded invariant ran an assertion (`artifact::INVARIANT_SUPERSEDED_NOT_IN_FORCE_V0`); both remain in `canonical/` | Demonstrated — §22.1 |
 | **SU-8** no mechanism deletes a superseded thing | nothing deletes; `construction_acceptance` excludes `superseded_by` from comparison because it is written by standing an artifact down | Demonstrated |
 | **SU-9** a supersession determines its blast radius rather than leaving it to be discovered | the P8 authoring mandate declares the amendment set; a caller outside the composition is not in it | Partial — §21.5, §22.3 |
 | **SU-10** a superseded profile or revision does not retroactively alter claims discharged against it | no claim has been discharged | Vacuous |
@@ -1847,9 +1847,15 @@ invariant went on failing builds after its successor replaced it.
 
 No superseded invariant exists in the realization today, so nothing is currently breached. The entry
 is recorded as satisfied over one projection rather than over the invariant, and becomes a breach on
-the first superseded artifact reached by presence rather than by name. See
-`.github/doc/supersession_and_force.md` in the workspace for the enumeration and the proposed
-predicate.
+the first superseded artifact reached by presence rather than by name.
+
+**Closed in v5.** The realization now declares `in_force` in the governance surface, and every path
+that confers effect — dispatch, admission, assertion — consults it. The check is made over what the
+build produced rather than over the code paths: S8 refuses output in which a superseded workflow
+still has a dispatch entry, a superseded intent still has an admission contract, or a superseded
+invariant still ran an assertion (`artifact::INVARIANT_SUPERSEDED_NOT_IN_FORCE_V0`). SU-7 is now
+evidenced over every projection execution consumes, not over the vocabulary projection alone. Before
+this, a superseded workflow was still dispatchable.
 
 ### 22.2 SU-5 and SU-3 cannot both be satisfied as written
 
