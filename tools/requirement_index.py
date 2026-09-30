@@ -36,7 +36,7 @@ XREF = re.compile(r"(%s)" % IDENT)
 SECREF = re.compile(r"§+\s*\d+(?:\.\d+)*")
 
 # Part 0 and the non-normative annex carry no invariants and are not harvested.
-EXCLUDED = {"0a", "0b", "0c", "0d", "0z", "8a"}
+EXCLUDED = {"0a", "0b", "0c", "0z", "8a", "8b"}
 
 
 @dataclass

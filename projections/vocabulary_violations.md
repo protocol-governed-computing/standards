@@ -5,7 +5,7 @@ between what a document declares it introduces and where terms are actually defi
 used, tested against the usage rules of the Conceptual Model. A defect is a breach of a
 stated invariant; a warning is a condition worth examining that no invariant forbids.
 
-0 defects, 44 warnings.
+0 defects, 43 warnings.
 
 ## Defects
 
@@ -33,7 +33,6 @@ None.
 - 'projection source' appears only in 4b — vocabulary carried by no other document.
 - 'protocol adapter' appears only in 5a — vocabulary carried by no other document.
 - 'query' appears only in 5b — vocabulary carried by no other document.
-- 'referential closure' appears only in 4e — vocabulary carried by no other document.
 - 'response projection' appears only in 5a — vocabulary carried by no other document.
 - 'rung' appears only in 4d — vocabulary carried by no other document.
 - 'semantic owner' appears only in 2c — vocabulary carried by no other document.

@@ -1,108 +1,110 @@
 # Diagnosis and Principles
 
-*Non-normative. Problem and Motivation states that the problem is real, expensive, and structural.
-This document states why it persists, and what a solution would have to be true of. It creates no
-obligation; the normative parts do that.*
+*This document explains why the problem persists and what any solution must satisfy. Problem and
+Motivation, the document before it, shows that the problem is real, expensive and structural. This
+document is non-normative: only the normative parts create obligations.*
 
 ## 1. The diagnosis is about authority
 
-The failures of the previous document are not failures of skill, discipline, or tooling. They are
-consequences of **where behavioral authority sits** — of which thing in a system is entitled to
-decide what the system does.
+The failures in the previous document do not come from a lack of skill, discipline or tools. They
+come from **where behavioral authority sits**: which part of a system has the right to decide what
+the system does.
 
-Conventional software places that authority in two places where it cannot be examined: **in the
-engine at run time**, and **nowhere at all when the system changes**. Each produces four
-difficulties, and neither set is an accident of any particular language or framework.
+Conventional software puts that authority in two places where nobody can examine it. At run time,
+**the engine holds it**. When the system changes, **nothing holds it**. Each placement causes four
+difficulties. Neither set depends on a particular language or framework.
 
 ## 2. Authority held by the runtime
 
-A conventional runtime does not merely carry out decisions already made. It makes them — evaluating
-conditions, choosing branches, resolving dispatch, sometimes constructing the very structure it is
+A conventional runtime does more than carry out decisions already made. It makes them. It evaluates
+conditions, chooses branches and resolves dispatch. Sometimes it even builds the structure it is
 about to execute.
 
 | Difficulty | Because |
 |---|---|
-| **runtime decisioning** | behavior is a property of the run rather than of the artifact |
-| **hidden behavior** | it cannot be fully known before execution, so learning what a system does means running it and watching the paths that run happened to take |
-| **poor replay** | re-running does not reliably reproduce, because decisions depended on ambient conditions that are not part of the artifact |
-| **platform dependence** | behavior is entangled with the engine that produced it, and cannot travel, because it never wholly lived in the thing that travels |
+| **runtime decisioning** | behavior belongs to the run, not to the artifact |
+| **hidden behavior** | nobody can fully know the behavior before execution; to learn what a system does, you must run it and watch which paths that run happened to take |
+| **poor replay** | a second run may not reproduce the first, because decisions depended on surrounding conditions that the artifact does not contain |
+| **platform dependence** | behavior is tangled up with the engine that produced it; it cannot move to another platform, because it never lived wholly in the thing that moves |
 
 ## 3. Authority lost at the specification
 
-Conventional development is **open-loop**: requirements go in, a running system comes out, and the
-two are never systematically compared in a governed way.
+Conventional development is **open-loop**. Requirements go in and a running system comes out.
+Nobody systematically compares the two in a governed way.
 
 | Difficulty | Because |
 |---|---|
-| **requirements leakage** | a requirements document has no structural guard against design decisions accumulating inside it |
-| **rationale decay** | it records what was decided but rarely why, so the system inherits decisions and loses their justification |
-| **governance externalization** | governance becomes a wrapper around engineering rather than a property of it |
-| **evolution amnesia** | when the system must change, the thing being changed is opaque, so evolution becomes archaeology |
+| **requirements leakage** | nothing in a requirements document stops design decisions from piling up inside it |
+| **rationale decay** | the document records what was decided but rarely why; the system inherits the decisions and loses their reasons |
+| **governance externalization** | governance becomes a wrapper around engineering instead of a property of it |
+| **evolution amnesia** | when the system must change, nobody can see inside the thing being changed, so changing it becomes archaeology |
 
-**The second set returns in full the moment a system must change.** That is what makes the process
-of change itself a subject to be governed, rather than a practice surrounding one.
+**The second set of difficulties returns in full whenever a system must change.** So the process of
+change must itself be governed. Good practice around it is not enough.
 
 ## 4. Why the prevailing model produces both
 
-The application-centric model — in which the application is the fundamental unit of design — has
-three structural properties, and they are invisible because the model is assumed rather than chosen:
+In the application-centric model, the application is the basic unit of design. The model has three
+structural properties. Nobody notices them, because everyone assumes the model instead of choosing
+it.
 
-- **Behavior is embedded.** What a system does is inseparable from how it does it. To understand the
-  intent, read the code.
-- **Governance is implicit.** The rules that constrain the system are real and load-bearing, and
-  live in comments, conventions, and memory — invisible to any structural check.
-- **Structure is emergent.** The true architecture is not declared but discovered afterwards, by
+- **Behavior is embedded.** What a system does cannot be separated from how it does it. To understand
+  the intent, you must read the code.
+- **Governance is implicit.** Real rules constrain the system, and the system depends on them. Those
+  rules live in comments, conventions and memory, where no structural check can see them.
+- **Structure is emergent.** Nobody declares the true architecture. People discover it afterwards, by
   reading code and tracing execution.
 
 The model was not a mistake. It was efficient when systems were small and change moved at human
-speed. **It made software possible. It did not make software governable** — and it is now being used
-to build at a scale and speed it was never adequate for.
+speed. **It made software possible. It did not make software governable.** Today people use it to
+build at a scale and speed it was never able to handle.
 
 ## 5. What follows
 
-If the difficulties come from where authority sits, then relocating authority is the only response
-that reaches them. Everything below is a consequence of moving behavioral authority **out of
-implementation and out of the engine, into explicit, versioned, machine-consumable declarations
-validated before anything runs** — and then governing the process by which those declarations
-change.
+If the difficulties come from where authority sits, only moving the authority can fix them. Every
+principle below follows from one move. Behavioral authority leaves the implementation and the engine.
+It moves **into explicit, versioned, machine-consumable declarations, which are validated before
+anything runs**. A governed process then controls how those declarations change.
 
 ## 6. Principles
 
-These are the architectural stance from which PGC was developed and against which its reference
-realization was built.
+PGC was developed from these principles, and its reference realization was built against them.
 
-- **Protocol is the source of truth.** Behavior is carried by declared artifacts, not by code. Code
-  may be regenerated, replaced, or machine-authored without governance being affected.
-- **Behavior is complete before execution begins.** If behavior must not emerge at run time, it must
+- **Protocol is the source of truth.** Declared artifacts carry behavior. Code does not. You can
+  regenerate code, replace it or have a machine write it, and governance is unaffected.
+- **Behavior is complete before execution begins.** Behavior must not emerge at run time. So it must
   already exist, whole, when run time starts.
-- **Resolution happens before execution.** A path not constructed during construction cannot be
-  traversed during execution.
-- **The engine is deliberately incapable.** An execution engine that interprets no domain meaning is
-  not a limitation to be worked around; every judgment it declines to make was made earlier, where
-  it could be reviewed.
-- **Zero inference.** No implicit defaults, no heuristics, no discovery by scanning. Undeclared means
-  absent.
-- **Fail hard.** A missing artifact, a missing binding, or a violated invariant produces refusal.
-  Graceful degradation hides architectural violation.
+- **Resolution happens before execution.** Execution can traverse only the paths that construction
+  built.
+- **The engine is deliberately incapable.** The execution engine interprets no domain meaning. This
+  is a design choice, not a limitation to work around. Every judgment the engine declines to make was
+  made earlier, where someone could review it.
+- **Zero inference.** There are no implicit defaults, no heuristics and no discovery by scanning.
+  What is undeclared is absent.
+- **Fail hard.** A missing artifact, a missing binding or a violated invariant causes a refusal.
+  Graceful degradation would hide an architectural violation.
 - **Determinism and structural replay.** The same governed input yields the same result. Replay is a
-  property of the artifact, not a reconstruction of an environment.
-- **No ambient authority.** Authority comes from declaration, never from execution context — so that
-  whole classes of confused-deputy failure are structurally absent rather than defended against.
-- **Sealed execution input.** Execution consumes sealed state exclusively. Behavior changes by
-  changing declarations and reconstructing, never by acting on the running system.
-- **Compression is a feature.** A small vocabulary with strong invariants is preferable to a large
-  one with heuristic flexibility. Growing the ontology without governing necessity is debt.
-- **The process of change is itself governed.** Evolution is transformation of a governed state into
-  the next, declared and evidenced — not authoring beside the system.
+  property of the artifact. It does not require rebuilding an environment.
+- **No ambient authority.** Authority comes only from declarations, never from the execution
+  context. As a result, whole classes of confused-deputy failure cannot occur, so nobody needs to
+  defend against them.
+- **Sealed execution input.** Execution consumes only sealed state. To change behavior, you change
+  the declarations and construct again. You never act on the running system.
+- **Compression is a feature.** A small vocabulary with strong invariants beats a large one with
+  heuristic flexibility. An ontology that grows without a governed need adds debt.
+- **The process of change is itself governed.** Evolution transforms one governed state into the
+  next, and each step is declared and evidenced. Nobody authors changes off to the side of the
+  system.
 
 ## 7. Principles are not requirements
 
-**A principle discharges no obligation.** It does not substitute for a normative statement, does not
-license behavior the normative documents do not, and cannot be cited in place of one.
+**A principle discharges no obligation.** It cannot stand in for a normative statement. It does not
+permit any behavior that the normative documents do not permit. Nobody may cite it in place of a
+normative statement.
 
-Where a principle and a normative document appear to differ, **the document governs**; the principle
-was an argument, never an authority. This is the same rule the family applies to its own sources:
-the papers and the reference realization may argue from what was built, and this family may not.
+When a principle and a normative document seem to differ, **the normative document governs**. The
+principle was an argument, never an authority. The family applies the same rule to its own sources.
+The papers and the reference realization may argue from what was built. This family may not.
 
 ## 8. Where this is developed
 
@@ -117,4 +119,4 @@ the papers and the reference realization may argue from what was built, and this
 - **The principles in operational form**: Ganti, B. *Protocol-Governed Computing: Field Manual.*
   <https://doi.org/10.5281/zenodo.21898082>
 
-What these principles require, precisely, is the subject of Parts I–VII.
+Parts I–VII state precisely what these principles require.

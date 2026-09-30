@@ -1,64 +1,68 @@
 # Problem and Motivation
 
-*Non-normative. This document makes no requirement and confers no authority. It states the problem
-Protocol-Governed Computing exists to address, for a reader who wants the case before the
-specification. The arguments are developed at length elsewhere; §8 says where.*
+*This document explains the problem that Protocol-Governed Computing exists to solve. Read it first
+if you want the case before the specification. It is non-normative: only the normative documents
+state requirements and confer authority. §8 lists the works that develop the argument in full.*
 
 ## 1. Maintenance dominates, and that is a symptom
 
-Most software money is spent sustaining systems rather than building them — consistently 60–80% of
-expenditure, across two decades of measurement. The ratio is treated as normal.
+Organizations spend most of their software budget keeping systems running, not building them.
+Across two decades of measurement, maintenance has taken 60–80% of the money. The industry treats
+that ratio as normal.
 
-It is a signal. A cost structure in which sustaining a system outgrows creating it says something
-about how the system was built, not about how well it is being maintained. The useful question is
-not *how do we maintain better* but **why does maintenance dominate**.
+The ratio is a warning. Suppose a system costs more to keep alive than it cost to create. The cause
+then lies in how the system was built, not in how well people maintain it. So the useful question is not "how do
+we maintain better?" It is **"why does maintenance dominate?"**
 
-The answer is not people, process, or tooling. It is structural.
+The cause is structural. People, process and tools do not explain it.
 
 ## 2. The expensive problem is not computation
 
-There are two quite different software problems, and conflating them misplaces the entire cost.
+Software solves two different kinds of problem. Anyone who treats them as one misses where the cost
+lies.
 
 | | Bounded by | Cost concentrated in |
 |---|---|---|
 | **computational software** — an algorithm, a transform, a kernel | its specification | getting it right once |
 | **business software** — rules, workflows, authorization, exceptions, obligations, integrations | its accumulated history | keeping its meaning intact over decades |
 
-The second is where organizational capital actually sits: business knowledge, policies, data
-semantics, controls, compliance obligations, operational assumptions, and migration history — most
-of it never written down as anything a machine can check.
+Business software holds an organization's real capital. That capital includes business knowledge,
+policies, the meaning of data, controls, compliance obligations, operating assumptions and migration
+history. Most of it exists in no form a machine can check.
 
-**Replacing the code is not equivalent to replacing the software.** A rewrite reproduces the
-computation and loses the accumulation, which is why rewrites of mature business systems fail in a
-characteristic way: undocumented behavior is discovered in production, one exception at a time.
+**New code does not replace the software.** A rewrite reproduces the computation and loses
+the accumulated rules. That is why rewrites of mature business systems fail in a familiar way. The
+team discovers undocumented behavior in production, one exception at a time.
 
 ## 3. What accumulates is governance debt
 
-The rules that constrain a mature system are real and load-bearing. They live in code paths, review
-conventions, wiki pages, and the memories of long-serving engineers — everywhere except in a form
-anything can validate.
+Real rules constrain every mature system, and the system depends on them. Those rules live in code
+paths, review habits, wiki pages and the memories of long-serving engineers. None of those places
+lets anything check the rules.
 
-That accumulation is **structural governance debt**: the cost of embedding governance decisions in
-code rather than in explicit, checkable declarations. It is not technical debt and does not behave
-like it.
+We call this accumulation **structural governance debt**. It is the cost of embedding governance
+decisions in code instead of in explicit, checkable declarations. It is not technical debt, and it
+behaves differently.
 
-- **It is invisible to code-level measures.** Test coverage, complexity, and static analysis do not
-  see it.
-- **It compounds superlinearly** as implicit relationships between components multiply.
-- **It cannot be repaid by refactoring.** Rewrite every function to be clean and idiomatic and the
-  debt is unchanged, because the constraints that should bind behavior to intent still do not exist
-  as artifacts.
+- **Code-level measures cannot see it.** Test coverage, complexity metrics and static analysis all
+  miss it.
+- **It grows faster than the system.** Each new component adds implicit relationships with the
+  others, so the debt compounds.
+- **Refactoring cannot repay it.** You can rewrite every function to be clean and idiomatic, and the
+  debt stays the same. The constraints that should tie behavior to intent still exist nowhere as
+  artifacts.
 
-Its visible form is **fear of change** — which is not timidity but a rational response to a system
-whose dependencies are implicit. Every change is a gamble whose odds nobody can compute.
+The debt shows itself as **fear of change**. That fear is rational, not timid. The system's
+dependencies are implicit, so nobody can calculate the risk of a change.
 
-Its organizational form is the machinery built to compensate: architecture review boards, change
-advisory boards, cross-team synchronization. **These are human governance mechanisms substituting
-for architectural ones.**
+Organizations then build machinery to compensate: architecture review boards, change advisory
+boards and cross-team coordination. **People are doing the governing that the architecture should
+do.**
 
-## 4. Existing remedies govern a layer and stop
+## 4. Existing remedies govern one layer and stop
 
-Each of the industry's advances governs something real, and none reaches the semantic layer.
+Each advance in the industry governs something real. None reaches the layer where the software's
+meaning lives.
 
 | Remedy | Governs | Cannot govern |
 |---|---|---|
@@ -67,71 +71,76 @@ Each of the industry's advances governs something real, and none reaches the sem
 | infrastructure-as-code | topology and provisioning | application logic; business rules |
 | feature flags | activation state | the semantic consequences of activation |
 
-Microservices are the instructive case: the governance gap does not shrink when a monolith is
-decomposed. **It relocates** — from inside the monolith to between services, where it is harder to
-see and harder to test. Shipping gets faster; shipping correctly does not.
+Microservices show the pattern most clearly. When a team splits a monolith, the governance gap does
+not shrink.
+**It moves the gap** from inside the monolith to the spaces between services, where it is harder to
+see and harder to test. Teams ship faster, but they do not ship more correctly.
 
-High-assurance domains — aviation, telecom — do achieve structural governance, and they do it
-*externally*: formal specification, certification regimes, and sustained human discipline at a cost
-most software cannot bear. They establish that structural governance works. The open question is
-whether it can be a property of the system rather than an institution around it.
+Some high-assurance fields, such as aviation and telecom, do achieve structural governance. They
+achieve it *from outside the system*, through formal specification, certification and sustained
+human discipline. Most software cannot afford that cost. These fields prove that structural
+governance works. The open question is whether the system itself can carry that governance, instead
+of an institution built around it.
 
-## 5. AI removes the last throttle
+## 5. AI removes the last brake
 
-The deficit predates AI. What is new is the rate.
+The governance gap existed before AI. What AI changes is the speed at which it grows.
 
 ```
 code generation velocity        accelerating
 governance establishment        bounded by human deliberation
 ```
 
-The widening gap between them is the **generation–governance impedance mismatch**. Human coding
-speed was the last natural throttle on the accumulation of governance debt, and it is being removed.
+We call the widening gap between these two rates the **generation–governance impedance mismatch**.
+The speed of human coding used to limit how fast governance debt could accumulate. AI is removing
+that limit.
 
-This is not an argument against machine-generated software. It is the observation that **when
-producing code becomes cheap, establishing what the produced system means becomes the scarce
-thing** — and that a model which cannot express meaning in checkable form gets worse, not better,
-as generation gets faster.
+This is not an argument against machine-generated software. It is an observation. **When code
+becomes cheap to produce, knowing what the produced system means becomes the scarce resource.** A
+way of building software that cannot state meaning in a checkable form gets worse as generation gets
+faster.
 
-## 6. The sweet spot, and what it is not
+## 6. Where it fits, and where it does not
 
-Protocol-Governed Computing is aimed at software where behavior is more than computation and lasts
-longer than its authors: large, long-lived, rule-intensive systems in regulated or operationally
-consequential settings — financial, industrial, clinical, governmental, supply-chain, enterprise
-workflow, and anything carrying long-term traceability obligations.
+Protocol-Governed Computing targets software whose behavior is more than computation and outlives
+its authors. Such systems are large, long-lived and full of rules, and they run where mistakes carry
+regulatory or operational consequences. Examples include financial, industrial, clinical,
+governmental, supply-chain and enterprise-workflow systems, and any system with long-term
+traceability obligations.
 
-**It is not aimed at** numerical algorithms, scientific computation, signal and image processing,
-utility libraries, small computational functions, or performance-critical inner loops. Those are
-bounded problems with a different cost structure, and a governance apparatus around them is
-overhead without a return.
+**It does not target** numerical algorithms, scientific computing, signal and image processing,
+utility libraries, small computational functions or performance-critical inner loops. Those are
+bounded problems with a different cost structure. Governance around them adds overhead and returns
+nothing.
 
-Stating this plainly matters, because a model presented as *how all software should be written* will
-be judged — correctly — as overreach.
+This limit matters. Readers would rightly judge a model presented as *how all software should be
+written* as overreach.
 
-## 7. What would count as success
+## 7. What success would look like
 
 A mature realization of this idea would let an organization:
 
 1. state business intent in a form a machine can consume;
-2. express governing constraints explicitly rather than by convention;
-3. construct a system from those declarations rather than from interpretation of them;
-4. establish that what was constructed is what was declared;
-5. run it without behavior arriving from anywhere undeclared;
-6. ask it what it contains and what it decided;
-7. change it through a governed act rather than an edit;
-8. show, to someone who was not there, that it continued to conform; and
+2. declare its governing constraints explicitly, not leave them to convention;
+3. build a system from those declarations, not from someone's interpretation of them;
+4. show that what it built is what it declared;
+5. run the system with no behavior coming from anywhere undeclared;
+6. ask the system what it contains and what it decided;
+7. change the system through a governed act, not an edit;
+8. show someone who was not there that the system kept conforming; and
 9. replace the implementation without losing the accumulated meaning.
 
-The last is the point of the other eight. **The ambition is to make the software lifecycle itself
-governable** — not to make execution safer at one moment, but to keep a system's meaning intact and
-demonstrable from its first construction to its retirement.
+The last item is the purpose of the other eight. **The goal is to make the software lifecycle itself
+governable.** Safer execution at one moment is not enough. The system's meaning must stay intact, and
+provably so, from its first construction to its retirement.
 
-Whether that ambition is realized is a question for the normative documents and for the systems
-built against them. This document only claims that the problem is real, expensive, and structural.
+This document does not claim that any system achieves this goal. The normative documents, and the
+systems built against them, answer that question. This document claims only that the problem is
+real, expensive and structural.
 
 ## 8. Where this is developed
 
-This is a summary. The argument is made in full elsewhere:
+This document summarizes. The following works make the full argument:
 
 - **The diagnosis** — the application-centric model, its three structural properties, the failure
   categories, and structural governance debt with its formal definition: *Protocol-Governed
@@ -146,5 +155,5 @@ This is a summary. The argument is made in full elsewhere:
   Realizing the Normative Platform and Its Governed Transformation.*
   <https://doi.org/10.5281/zenodo.21880155>
 
-The next document states why the problem persists and what a solution would have to be true of. The
-normative parts state what such a system must mean and do.
+The next document explains why the problem persists and what any solution must satisfy. The
+normative documents then state what such a system must mean and do.
