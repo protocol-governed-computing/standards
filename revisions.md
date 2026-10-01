@@ -437,6 +437,33 @@ and this repository are byte-identical. After this edit, that holds for every no
 except `1a`, `1b` and `1c`. Those three differ in wording and agree in every obligation. A claim
 naming `v0` stands against either text.
 
+### Carried under `v0` — Part II restated for clarity, no change in meaning
+
+**Documents:** `2a`, `2b`, `2c`, `2d`, `2e`, `2f`, every section.
+
+**What changes.** The wording only, under the same rules as the Part I restatement above. Three
+cross-references that named a document by file identifier now name it by title, as the family's
+editorial rule requires: `2c` §7.1 cites the Governance Semantic Ontology and the Kind Vocabulary,
+`2d` §5.1 cites the Machine Block Standard and the Normative Platform Profile, and `2f` §6.1 cites the
+Execution Model. Each points at the same section as before.
+
+**What does not change.**
+
+- **No requirement changes.** Each of GS-1 … GS-9, GO-1 … GO-12, MB-1 … MB-15, KV-1 … KV-10,
+  CA-1 … CA-12 and EN-1 … EN-14 was compared old against new. Each keeps its identifier, its bound
+  party and its force. The count of MUST, MUST NOT, SHOULD and MAY in each document is unchanged.
+- **No term changes.** Every term these documents introduce or refine keeps its meaning and its
+  defining site. The derived terminology index lists the same terms.
+- **No category, modality, closure rule or conformance condition changes.**
+
+**What it invalidates.** Nothing. A realization or document that conformed to Part II before this
+edit conforms after it. The requirement index changes only in sentence breaks, and the vocabulary
+check reports the same 0 defects and 43 warnings.
+
+**What this means for the deposit.** The normative documents of the archived `v0` and this
+repository now differ in wording in Parts I and II. They agree in every obligation. A claim naming
+`v0` stands against either text.
+
 ---
 
 ## `draft-3` supersedes `draft-2`

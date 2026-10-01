@@ -37,16 +37,16 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Artifact
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 4, line 172)
-- **Used in** 0a (1), 0b (5), 0c (1), 1b (3), 1c (2), 2a (9), 2b (11), 2c (43), 2d (16), 2e (4), 3b (4), 3d (1), 3e (4), 4a (4), 4b (1), 4c (6), 4d (27), 4e (6), 5a (7), 5b (8), 6a (4), 6c (2), 7a (1), 7b (1), 8b (1)
+- **Used in** 0a (1), 0b (5), 0c (1), 1b (3), 1c (2), 2a (10), 2b (11), 2c (44), 2d (15), 2e (4), 3b (4), 3d (1), 3e (4), 4a (4), 4b (1), 4c (6), 4d (27), 4e (6), 5a (7), 5b (8), 6a (4), 6c (2), 7a (1), 7b (1), 8b (1)
 
 ### Artifact kind
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 4, line 176)
-- **Used in** 1b (2), 2b (3), 2c (6), 2d (3), 4d (3), 5a (1), 6a (2), 6c (1)
+- **Used in** 1b (2), 2b (3), 2c (5), 2d (3), 4d (3), 5a (1), 6a (2), 6c (1)
 
 ### assertion
 
-- **Defined in** 2f — Enforcement & Refusal (Sec 3, line 49) [section]
+- **Defined in** 2f — Enforcement & Refusal (Sec 3, line 53) [section]
 - **Used in** 1a (1), 1c (1), 2a (2), 2c (11), 2d (4), 2e (1), 3c (1), 3e (7), 4a (2), 4c (3), 6a (1), 7a (2)
 
 ### Attestation
@@ -62,11 +62,11 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Authority
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 5, line 232)
-- **Used in** 0a (2), 0b (10), 0c (1), 0z (4), 1b (7), 1c (12), 2a (8), 2b (35), 2c (6), 2d (4), 2e (69), 2f (7), 3a (4), 3b (2), 3c (8), 3d (3), 3e (14), 4a (1), 4b (5), 4c (11), 4d (1), 5a (6), 5b (5), 6a (2), 6b (4), 6c (27), 7a (2), 7b (1), 8a (5), 8b (3)
+- **Used in** 0a (2), 0b (10), 0c (1), 0z (4), 1b (7), 1c (12), 2a (8), 2b (35), 2c (6), 2d (4), 2e (71), 2f (7), 3a (4), 3b (2), 3c (8), 3d (3), 3e (14), 4a (1), 4b (5), 4c (11), 4d (1), 5a (6), 5b (5), 6a (2), 6b (4), 6c (27), 7a (2), 7b (1), 8a (5), 8b (3)
 
 ### authorization
 
-- **Defined in** 2a — Governance Standard (Sec 4, line 121) [table]
+- **Defined in** 2a — Governance Standard (Sec 4, line 126) [table]
 - **Used in** 0a (1), 3a (1), 3e (1), 4a (1)
 
 ### Baseline
@@ -77,7 +77,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### binding
 
 - **Defined in** 3d — Capability (Sec 6, line 131) [section]
-- **Used in** 0b (1), 2c (1), 2d (3), 3a (1), 3c (1), 5a (9), 5b (1), 6a (1), 7a (1), 7b (3)
+- **Used in** 0b (1), 2c (1), 2d (2), 3a (1), 3c (1), 5a (9), 5b (1), 6a (1), 7a (1), 7b (3)
 
 ### caller
 
@@ -107,7 +107,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 
 ### category contract
 
-- **Defined in** 2b — Governance Semantic Ontology (Sec 4, line 132) [section]
+- **Defined in** 2b — Governance Semantic Ontology (Sec 4, line 143) [section]
 - **Used in** 4e (1)
 
 ### check kind
@@ -153,7 +153,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### consequence
 
 - **Defined in** 1b — Semantic Model (Sec 6, line 120) [section]
-- **Used in** 0a (2), 1a (2), 1c (6), 2a (7), 2b (3), 2c (1), 2d (2), 2f (8), 3a (1), 3b (6), 3c (14), 3d (3), 3e (5), 4a (1), 4c (2), 4e (1), 5b (3), 6a (2), 6b (14), 6c (2), 7a (8), 7b (5)
+- **Used in** 0a (2), 1a (2), 1c (6), 2a (6), 2b (2), 2c (1), 2d (2), 2e (1), 2f (8), 3a (1), 3b (6), 3c (14), 3d (3), 3e (5), 4a (1), 4c (2), 4e (1), 5b (3), 6a (2), 6b (14), 6c (2), 7a (8), 7b (5)
 
 ### constituent
 
@@ -162,13 +162,13 @@ index is regenerated rather than edited — hand edits are discarded on the next
 
 ### constituting act
 
-- **Defined in** 2e — Governance Closure & Authority (Sec 3, line 53) [emphasis]
+- **Defined in** 2e — Governance Closure & Authority (Sec 3, line 60) [emphasis]
 - **Used in** 6c (2)
 
 ### constraint
 
 - **Defined in** 6a — Normative Platform Profile (Sec 2, line 34) [table]
-- **Used in** 0a (2), 1a (3), 1b (6), 2b (1), 2c (9), 2d (2), 4a (2), 6b (9)
+- **Used in** 0a (2), 1a (3), 1b (6), 2b (1), 2c (8), 2d (2), 4a (2), 6b (9)
 
 ### Construction
 
@@ -177,23 +177,23 @@ index is regenerated rather than edited — hand edits are discarded on the next
 
 ### construction disposition
 
-- **Defined in** 2c — Machine Block (Sec 12, line 287)
+- **Defined in** 2c — Machine Block (Sec 12, line 298)
 - **Used in** no other document
 
 ### Contract
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 8, line 341)
-- **Used in** 0a (1), 0z (3), 2b (18), 2c (17), 2d (17), 3a (15), 3b (1), 3c (4), 3d (47), 3e (1), 4a (2), 4b (18), 4d (1), 4e (2), 5a (33), 5b (5), 6a (2), 6c (4), 8b (4)
+- **Used in** 0a (1), 0z (3), 2b (20), 2c (19), 2d (17), 3a (15), 3b (1), 3c (4), 3d (47), 3e (1), 4a (2), 4b (18), 4d (1), 4e (2), 5a (33), 5b (5), 6a (2), 6c (4), 8b (4)
 
 ### coverage
 
-- **Defined in** 2f — Enforcement & Refusal (Sec 4, line 83) [section]
+- **Defined in** 2f — Enforcement & Refusal (Sec 4, line 87) [section]
 - **Used in** 0a (1), 7b (9)
 
 ### Declaration
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 4, line 153)
-- **Used in** 0a (2), 0b (4), 0c (6), 1b (7), 1c (18), 2a (6), 2b (8), 2c (42), 2d (7), 2e (6), 3a (21), 3b (4), 3c (16), 3d (11), 4a (19), 4b (2), 4c (2), 4d (8), 4e (10), 5a (6), 5b (3), 6b (7), 6c (13), 7a (5), 8a (2), 8b (9)
+- **Used in** 0a (2), 0b (4), 0c (6), 1b (7), 1c (18), 2a (8), 2b (8), 2c (41), 2d (7), 2e (7), 3a (21), 3b (4), 3c (16), 3d (11), 4a (19), 4b (2), 4c (2), 4d (8), 4e (10), 5a (6), 5b (3), 6b (7), 6c (13), 7a (5), 8a (2), 8b (9)
 
 ### Declarative
 
@@ -207,18 +207,18 @@ index is regenerated rather than edited — hand edits are discarded on the next
 
 ### declared extension
 
-- **Defined in** 2c — Machine Block (Sec 4, line 83) [emphasis]
+- **Defined in** 2c — Machine Block (Sec 4, line 87) [emphasis]
 - **Used in** no other document
 
 ### delegation
 
-- **Defined in** 2e — Governance Closure & Authority (Sec 3, line 100) [section]
+- **Defined in** 2e — Governance Closure & Authority (Sec 3, line 107) [section]
 - **Used in** no other document
 
 ### demonstration
 
 - **Defined in** 7b — Conformance Test Specification (Sec 2, line 27) [section]
-- **Used in** 0z (1), 1a (1), 1b (1), 2f (2), 3b (1), 4a (1), 4d (2), 4e (1), 5a (1), 6a (1), 7a (2), 8a (2)
+- **Used in** 0z (1), 1a (1), 1b (1), 2b (1), 2f (2), 3b (1), 4a (1), 4d (2), 4e (1), 5a (1), 6a (1), 7a (2), 8a (2)
 
 ### demonstration coverage
 
@@ -228,7 +228,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### determination
 
 - **Defined in** 1b — Semantic Model (Sec 4, line 68) [emphasis]
-- **Used in** 0c (2), 1a (10), 1c (24), 2a (7), 2c (2), 2d (2), 2e (17), 2f (18), 3a (4), 3b (5), 3c (10), 3d (3), 3e (33), 4a (16), 4b (1), 4c (4), 4d (4), 4e (2), 5a (3), 5b (14), 6a (2), 6b (8), 6c (3), 7a (3), 8a (8)
+- **Used in** 0c (2), 1a (10), 1c (24), 2a (7), 2c (2), 2d (2), 2e (19), 2f (19), 3a (4), 3b (5), 3c (10), 3d (3), 3e (33), 4a (16), 4b (1), 4c (4), 4d (4), 4e (2), 5a (3), 5b (14), 6a (2), 6b (8), 6c (3), 7a (3), 8a (8)
 
 ### determinative content
 
@@ -283,12 +283,12 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Enforcement
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 11, line 430)
-- **Used in** 0z (1), 1b (2), 1c (1), 2a (5), 2b (2), 2f (24), 3a (1), 3c (4), 7a (2)
+- **Used in** 0z (1), 1b (2), 1c (1), 2a (4), 2b (2), 2f (24), 3a (1), 3c (4), 7a (2)
 
 ### evaluation
 
 - **Defined in** 1b — Semantic Model (Sec 7, line 149) [section]
-- **Used in** 0c (1), 2e (2), 2f (1), 3b (2), 3c (1), 4e (1), 5a (1), 5b (2), 7a (8)
+- **Used in** 0c (1), 2e (2), 2f (2), 3b (2), 3c (1), 4e (1), 5a (1), 5b (2), 7a (8)
 
 ### evaluator
 
@@ -298,12 +298,12 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Evidence
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 9, line 365)
-- **Used in** 0c (7), 0z (4), 1b (26), 1c (27), 2b (6), 2c (3), 2e (1), 2f (11), 3a (13), 3b (3), 3c (9), 3e (46), 4a (5), 4b (2), 4c (1), 4d (8), 4e (2), 5a (4), 5b (11), 6a (3), 6b (1), 6c (1), 7a (15), 7b (4), 8a (9), 8b (4)
+- **Used in** 0c (7), 0z (4), 1b (26), 1c (27), 2b (6), 2c (3), 2e (1), 2f (9), 3a (13), 3b (3), 3c (9), 3e (46), 4a (5), 4b (2), 4c (1), 4d (8), 4e (2), 5a (4), 5b (11), 6a (3), 6b (1), 6c (1), 7a (15), 7b (4), 8a (9), 8b (4)
 
 ### Execution
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 8, line 322)
-- **Used in** 0a (2), 0b (8), 0c (5), 0z (5), 1b (7), 1c (20), 2b (8), 2c (2), 3a (57), 3b (24), 3c (17), 3d (16), 3e (7), 4a (4), 4b (2), 4d (3), 4e (3), 5a (22), 5b (11), 6a (3), 6b (15), 6c (3), 7a (11), 7b (4), 8a (5), 8b (1)
+- **Used in** 0a (2), 0b (8), 0c (5), 0z (5), 1b (7), 1c (20), 2b (8), 2c (2), 2f (1), 3a (57), 3b (24), 3c (17), 3d (16), 3e (7), 4a (4), 4b (2), 4d (3), 4e (3), 5a (22), 5b (11), 6a (3), 6b (15), 6c (3), 7a (11), 7b (4), 8a (5), 8b (1)
 
 ### execution closure
 
@@ -353,16 +353,16 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Governance
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 5, line 205)
-- **Used in** 0a (10), 0b (3), 0c (7), 0z (5), 1b (24), 1c (5), 2a (61), 2b (22), 2c (25), 2d (9), 2e (28), 2f (19), 3a (10), 3b (1), 3c (8), 3d (3), 3e (5), 4a (11), 4b (1), 4c (3), 4d (6), 4e (2), 5a (10), 5b (7), 6a (4), 6b (8), 6c (23), 7a (4), 7b (1), 8b (8)
+- **Used in** 0a (10), 0b (3), 0c (7), 0z (5), 1b (24), 1c (5), 2a (65), 2b (22), 2c (24), 2d (9), 2e (29), 2f (18), 3a (10), 3b (1), 3c (8), 3d (3), 3e (5), 4a (11), 4b (1), 4c (3), 4d (6), 4e (2), 5a (10), 5b (7), 6a (4), 6b (8), 6c (23), 7a (4), 7b (1), 8b (8)
 
 ### Governance closure
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 5, line 245)
-- **Used in** 0c (1), 0z (1), 1b (3), 2a (3), 2b (2), 2e (2), 2f (2), 3c (1), 4a (2), 5a (1), 6c (2), 7a (1)
+- **Used in** 0c (1), 0z (1), 1b (3), 2a (4), 2b (2), 2e (2), 2f (2), 3c (1), 4a (2), 5a (1), 6c (2), 7a (1)
 
 ### governance universe
 
-- **Defined in** 2b — Governance Semantic Ontology (Sec 2, line 72) [section]
+- **Defined in** 2b — Governance Semantic Ontology (Sec 2, line 84) [section]
 - **Used in** 2c (1)
 
 ### governed decision
@@ -388,26 +388,26 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Governed subject
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 4, line 180)
-- **Used in** 2a (3), 2b (1), 2e (1), 4d (1), 8b (1)
+- **Used in** 2a (3), 2b (2), 2e (1), 4d (1), 8b (1)
 
 ### Governed system
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 4, line 149)
-- **Used in** 0c (1), 0z (2), 1b (5), 1c (4), 2a (4), 2b (2), 2c (2), 2d (7), 2e (2), 2f (2), 3a (3), 3b (1), 3c (2), 3d (2), 3e (2), 4a (3), 4b (1), 4c (1), 4d (6), 4e (2), 5a (9), 5b (9), 6a (2), 6b (1), 6c (4), 7a (2), 8b (7)
+- **Used in** 0c (1), 0z (2), 1b (5), 1c (4), 2a (4), 2b (2), 2c (2), 2d (5), 2e (2), 2f (3), 3a (3), 3b (1), 3c (2), 3d (2), 3e (2), 4a (3), 4b (1), 4c (1), 4d (6), 4e (2), 5a (9), 5b (9), 6a (2), 6b (1), 6c (4), 7a (2), 8b (7)
 
 ### governed transition
 
 - **Defined in** 1b — Semantic Model (Sec 4, line 55) [section]
-- **Used in** 2a (2), 2d (2), 2e (1), 2f (1), 3a (3), 3d (1), 4a (1), 4d (2), 6b (1)
+- **Used in** 2a (2), 2d (1), 2e (1), 2f (2), 3a (3), 3d (1), 4a (1), 4d (2), 6b (1)
 
 ### Governing element
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 5, line 228)
-- **Used in** 1b (3), 1c (1), 2a (20), 2b (2), 2c (2), 2e (13), 3d (1), 3e (2), 6c (1)
+- **Used in** 1b (3), 1c (1), 2a (21), 2b (2), 2c (2), 2e (13), 3d (1), 3e (2), 6c (1)
 
 ### governing relation
 
-- **Defined in** 2a — Governance Standard (Sec 3, line 42) [section]
+- **Defined in** 2a — Governance Standard (Sec 3, line 50) [section]
 - **Used in** 2c (1), 2e (1)
 
 ### grounding
@@ -417,7 +417,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 
 ### import
 
-- **Defined in** 2e — Governance Closure & Authority (Sec 8, line 188) [section]
+- **Defined in** 2e — Governance Closure & Authority (Sec 8, line 195) [section]
 - **Used in** 0c (1), 1c (1), 2c (1), 8a (1)
 
 ### ingress contract
@@ -427,7 +427,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 
 ### inheritance
 
-- **Defined in** 2e — Governance Closure & Authority (Sec 7, line 168) [section]
+- **Defined in** 2e — Governance Closure & Authority (Sec 7, line 176) [section]
 - **Used in** 0c (1)
 
 ### Invariant
@@ -437,33 +437,33 @@ index is regenerated rather than edited — hand edits are discarded on the next
 
 ### jurisdiction
 
-- **Defined in** 2e — Governance Closure & Authority (Sec 3, line 46) [copula]
+- **Defined in** 2e — Governance Closure & Authority (Sec 3, line 53) [copula]
 - **Used in** 4c (1), 6c (4)
 
 ### kind contract
 
-- **Defined in** 2c — Machine Block (Sec 9, line 212) [section]
+- **Defined in** 2c — Machine Block (Sec 9, line 221) [section]
 - **Used in** 2b (3), 2d (1), 3b (1), 4a (1), 4b (1), 6c (1)
 
 ### kind declaration
 
-- **Defined in** 2c — Machine Block (Sec 10, line 241) [section]
+- **Defined in** 2c — Machine Block (Sec 10, line 252) [section]
 - **Used in** no other document
 
 ### kind registry
 
-- **Defined in** 2d — Kind Vocabulary (Sec 3, line 52) [copula]
+- **Defined in** 2d — Kind Vocabulary (Sec 3, line 54) [copula]
 - **Used in** 2c (1)
 
 ### kind vocabulary
 
 - **Defined in** 2d — Kind Vocabulary (Sec 1, line 3) [section]
-- **Used in** 0z (1), 2a (1), 2b (3), 2c (1), 4d (1), 6a (2), 6c (1), 7a (1)
+- **Used in** 0z (1), 2a (1), 2b (3), 2c (2), 4d (1), 6a (2), 6c (1), 7a (1)
 
 ### machine block
 
 - **Defined in** 2c — Machine Block (Sec 1, line 3) [section]
-- **Used in** 0z (1), 2a (2), 2b (1), 2d (7), 3b (1), 4c (1), 7a (1)
+- **Used in** 0z (1), 2a (2), 2b (1), 2d (8), 3b (1), 4c (1), 7a (1)
 
 ### materialization
 
@@ -477,7 +477,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 
 ### modality
 
-- **Defined in** 2a — Governance Standard (Sec 4, line 116) [emphasis]
+- **Defined in** 2a — Governance Standard (Sec 4, line 121) [emphasis]
 - **Used in** no other document
 
 ### namespace
@@ -503,7 +503,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Obligation
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 5, line 237)
-- **Used in** 0a (3), 0b (2), 0c (1), 0z (2), 1b (3), 1c (1), 2a (2), 2b (10), 2f (58), 3a (3), 3c (10), 3d (1), 3e (2), 4a (19), 4b (2), 4d (2), 4e (4), 5b (3), 6a (23), 6b (3), 6c (7), 7a (37), 7b (47), 8a (5)
+- **Used in** 0a (3), 0b (2), 0c (1), 0z (2), 1b (3), 1c (1), 2a (2), 2b (11), 2f (61), 3a (3), 3c (10), 3d (1), 3e (2), 4a (19), 4b (2), 4d (2), 4e (4), 5b (3), 6a (23), 6b (3), 6c (7), 7a (37), 7b (47), 8a (5)
 
 ### observational content
 
@@ -532,7 +532,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 
 ### permission
 
-- **Defined in** 2a — Governance Standard (Sec 4, line 123) [table]
+- **Defined in** 2a — Governance Standard (Sec 4, line 128) [table]
 - **Used in** 0z (1), 1b (2), 1c (3), 2b (2), 2d (1), 3d (3), 4e (1), 5b (3), 8a (1)
 
 ### phase
@@ -543,7 +543,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Platform
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 6, line 276)
-- **Used in** 0a (2), 0b (1), 0c (2), 0z (2), 1b (1), 2d (2), 6a (13), 6b (2), 6c (14), 7a (2), 8b (6)
+- **Used in** 0a (2), 0b (1), 0c (2), 0z (2), 1b (1), 2d (3), 6a (13), 6b (2), 6c (14), 7a (2), 8b (6)
 
 ### predecessor
 
@@ -558,7 +558,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Profile
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 6, line 272)
-- **Used in** 0c (9), 0z (5), 1b (7), 1c (3), 2a (3), 2c (1), 2d (6), 3a (3), 3b (11), 3c (1), 3d (2), 3e (7), 4b (1), 4c (1), 4d (8), 4e (7), 5a (3), 5b (13), 6a (115), 6b (28), 6c (14), 7a (19), 7b (7), 8a (1)
+- **Used in** 0c (9), 0z (5), 1b (7), 1c (3), 2a (3), 2c (1), 2d (7), 3a (3), 3b (11), 3c (1), 3d (2), 3e (7), 4b (1), 4c (1), 4d (8), 4e (7), 5a (3), 5b (13), 6a (115), 6b (28), 6c (14), 7a (19), 7b (7), 8a (1)
 
 ### profile derivation
 
@@ -567,7 +567,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 
 ### prohibition
 
-- **Defined in** 2a — Governance Standard (Sec 4, line 168) [section]
+- **Defined in** 2a — Governance Standard (Sec 4, line 175) [section]
 - **Used in** 1c (1), 2b (1), 3a (1), 7b (3)
 
 ### Projection
@@ -593,7 +593,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### proposal
 
 - **Defined in** 1b — Semantic Model (Sec 4, line 65) [emphasis]
-- **Used in** 0c (2), 1c (7), 2a (1), 2c (1), 2f (7), 3a (1), 3b (1), 3e (1), 4d (1), 5a (1), 5b (2), 6a (2), 7b (2)
+- **Used in** 0c (2), 1c (7), 2a (2), 2c (1), 2f (7), 3a (1), 3b (1), 3e (1), 4d (1), 5a (1), 5b (2), 6a (2), 7b (2)
 
 ### protocol adapter
 
@@ -609,7 +609,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 9, line 376)
 - **Refined in** 2b
-- **Used in** 0z (1), 1b (1), 2b (20), 2c (4), 2d (2), 3a (1), 3b (4), 3c (3), 3e (20), 4a (1), 4b (8), 5b (2), 6a (2), 6c (1)
+- **Used in** 0z (1), 1b (1), 2b (21), 2c (5), 2d (2), 3a (1), 3b (4), 3c (3), 3e (20), 4a (1), 4b (8), 5b (2), 6a (2), 6c (1)
 
 ### query
 
@@ -634,7 +634,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### realization
 
 - **Defined in** 4d — Governed Transformation (Sec 13, line 371) [section]
-- **Used in** 0a (1), 0b (2), 0c (3), 0z (5), 1a (7), 1b (4), 1c (17), 2c (3), 2d (1), 3a (6), 3b (3), 3c (1), 3d (25), 3e (1), 4a (10), 4b (4), 4c (2), 4e (1), 5a (8), 5b (4), 6a (2), 6b (2), 7a (8), 7b (2), 8a (21), 8b (1)
+- **Used in** 0a (1), 0b (2), 0c (3), 0z (5), 1a (7), 1b (4), 1c (17), 2c (5), 2d (1), 3a (6), 3b (3), 3c (1), 3d (25), 3e (1), 4a (10), 4b (4), 4c (2), 4e (1), 5a (8), 5b (4), 6a (2), 6b (2), 7a (8), 7b (2), 8a (21), 8b (1)
 
 ### referential closure
 
@@ -663,14 +663,14 @@ index is regenerated rather than edited — hand edits are discarded on the next
 
 ### requirement
 
-- **Defined in** 2a — Governance Standard (Sec 4, line 122) [table]
-- **Used in** 0a (1), 0b (3), 0c (1), 0z (7), 1a (9), 1b (6), 1c (3), 2b (2), 2c (7), 2d (2), 2f (5), 3b (3), 3c (1), 3e (2), 4a (1), 4b (1), 4d (2), 4e (1), 5a (1), 5b (1), 6a (10), 6b (3), 7a (1), 8a (3)
+- **Defined in** 2a — Governance Standard (Sec 4, line 127) [table]
+- **Used in** 0a (1), 0b (3), 0c (1), 0z (7), 1a (9), 1b (6), 1c (3), 2b (2), 2c (7), 2d (1), 2f (3), 3b (3), 3c (1), 3e (2), 4a (1), 4b (1), 4d (2), 4e (1), 5a (1), 5b (1), 6a (10), 6b (3), 7a (1), 8a (3)
 
 ### Resolution
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 7, line 302)
 - **Refined in** 4c
-- **Used in** 0b (1), 1c (5), 2a (2), 2c (3), 2d (2), 2e (1), 3a (1), 4a (1), 4c (15), 4e (2), 5a (6), 8a (2)
+- **Used in** 0b (1), 1c (5), 2a (1), 2c (3), 2d (2), 2e (1), 3a (1), 4a (1), 4c (15), 4e (2), 5a (6), 8a (2)
 
 ### response projection
 
@@ -695,7 +695,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### rule
 
 - **Defined in** 1b — Semantic Model (Sec 5, line 95) [section]
-- **Used in** 0a (6), 0b (3), 0c (4), 0z (5), 1a (10), 1c (9), 2a (2), 2b (2), 2c (2), 2d (3), 2e (11), 2f (5), 3a (3), 3b (2), 3e (8), 4a (3), 4c (1), 4d (46), 4e (4), 5b (5), 6a (3), 6b (1), 6c (5), 7a (2), 7b (3), 8a (4), 8b (13)
+- **Used in** 0a (6), 0b (3), 0c (4), 0z (5), 1a (10), 1c (9), 2a (3), 2b (2), 2c (3), 2d (4), 2e (11), 2f (6), 3a (3), 3b (2), 3e (8), 4a (3), 4c (1), 4d (46), 4e (4), 5b (5), 6a (3), 6b (1), 6c (5), 7a (2), 7b (3), 8a (4), 8b (13)
 
 ### rule set
 
@@ -715,7 +715,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Scope
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 5, line 241)
-- **Used in** 1b (3), 1c (1), 2a (1), 2b (2), 2c (1), 2d (1), 2e (21), 2f (1), 3a (1), 3b (1), 3c (1), 3d (1), 3e (1), 4a (1), 4b (1), 4c (4), 4d (1), 4e (1), 5a (13), 5b (1), 6a (3), 6b (1), 6c (1), 7a (2), 7b (1), 8b (1)
+- **Used in** 1b (3), 1c (1), 2a (1), 2b (2), 2c (1), 2d (1), 2e (23), 2f (1), 3a (1), 3b (1), 3c (1), 3d (1), 3e (1), 4a (1), 4b (1), 4c (4), 4d (1), 4e (1), 5a (13), 5b (1), 6a (3), 6b (1), 6c (1), 7a (2), 7b (1), 8b (1)
 
 ### Sealing
 
@@ -734,17 +734,17 @@ index is regenerated rather than edited — hand edits are discarded on the next
 
 ### semantic category
 
-- **Defined in** 2b — Governance Semantic Ontology (Sec 3, line 106) [section]
+- **Defined in** 2b — Governance Semantic Ontology (Sec 3, line 117) [section]
 - **Used in** 2a (1), 2c (1), 2d (2), 4e (1), 6b (2), 6c (1)
 
 ### semantic owner
 
-- **Defined in** 2c — Machine Block (Sec 5, line 87) [emphasis]
+- **Defined in** 2c — Machine Block (Sec 5, line 91) [emphasis]
 - **Used in** no other document
 
 ### semantic role
 
-- **Defined in** 2c — Machine Block (Sec 12, line 276)
+- **Defined in** 2c — Machine Block (Sec 12, line 287)
 - **Used in** 2b (2)
 
 ### Side effect
@@ -787,7 +787,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Surface
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 6, line 265)
-- **Used in** 0c (1), 1c (5), 2a (2), 2b (1), 2c (25), 2d (1), 3a (4), 3c (2), 3d (1), 4b (1), 4c (1), 4d (1), 5a (1), 5b (23), 6a (6), 6c (2), 7b (1), 8a (1)
+- **Used in** 0c (1), 1c (5), 2a (2), 2b (1), 2c (27), 2d (1), 3a (4), 3c (2), 3d (1), 4b (1), 4c (1), 4d (1), 5a (1), 5b (23), 6a (6), 6c (2), 7b (1), 8a (1)
 
 ### Trace
 
@@ -816,12 +816,12 @@ index is regenerated rather than edited — hand edits are discarded on the next
 
 ### universal envelope
 
-- **Defined in** 2c — Machine Block (Sec 6, line 97) [section]
+- **Defined in** 2c — Machine Block (Sec 6, line 102) [section]
 - **Used in** no other document
 
 ### vacuous enforcement
 
-- **Defined in** 2f — Enforcement & Refusal (Sec 4, line 114) [section]
+- **Defined in** 2f — Enforcement & Refusal (Sec 4, line 115) [section]
 - **Used in** no other document
 
 ### verdict
@@ -836,7 +836,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 
 ### vocabulary revision
 
-- **Defined in** 2d — Kind Vocabulary (Sec 6, line 113) [section]
+- **Defined in** 2d — Kind Vocabulary (Sec 6, line 118) [section]
 - **Used in** no other document
 
 ### worker

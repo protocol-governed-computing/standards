@@ -62,10 +62,10 @@ references that text states, and never the sections those references reach.
 ## 2a — Governance Standard
 
 - **GS-1** (§9) The governing relation MUST be declared. It MUST NOT be established by containment, ordering, naming, defaulting, or proximity (§3.1). — *sections: §3.1*
-- **GS-2** (§9) A conforming governance arrangement MUST establish the governing relation from both the governing-element and governed-subject perspectives, and MUST refuse where the two assertions disagree (§3.2). — *sections: §3.2*
-- **GS-3** (§9) Governance MUST be positive: what is not authorized MUST NOT be admitted into the governed system, and MUST NOT require prohibition in order to be unavailable (§4.1). — *sections: §4.1*
-- **GS-4** (§9) Authorization and prohibition MUST NOT be collapsed. Authorization governs existence; prohibition governs occurrence (§4.2). — *sections: §4.2*
-- **GS-5** (§9) A governing element MUST be an artifact, admitted, identified, and superseded as any other artifact is (§5). — *sections: §5*
+- **GS-2** (§9) A conforming governance arrangement MUST establish the governing relation from both the governing-element and governed-subject perspectives. It MUST refuse where the two assertions disagree (§3.2). — *sections: §3.2*
+- **GS-3** (§9) Governance MUST be positive. What is not authorized MUST NOT be admitted into the governed system, and MUST NOT require prohibition in order to be unavailable (§4.1). — *sections: §4.1*
+- **GS-4** (§9) Authorization and prohibition MUST NOT be collapsed. Authorization governs existence. Prohibition governs occurrence (§4.2). — *sections: §4.2*
+- **GS-5** (§9) A governing element MUST be an artifact, admitted, identified and superseded as any other artifact is (§5). — *sections: §5*
 - **GS-6** (§9) Every governing element MUST itself be a governed subject. No element may be exempt from the governance it participates in (§6). — *sections: §6*
 - **GS-7** (§9) Change to a governing element MUST be a governed transition (§6, SM-9). — *requirements: SM-9; sections: §6*
 - **GS-8** (§9) Composition of applicable elements MUST be by dominance and MUST be order-independent (§7). — *sections: §7*
@@ -74,14 +74,14 @@ references that text states, and never the sections those references reach.
 ## 2b — Governance Semantic Ontology
 
 - **GO-1** (§11) Every element MUST have exactly one primary semantic category (§3). — *sections: §3*
-- **GO-2** (§11) Every semantic element MUST have exactly one provenance — authored, derived, or produced — describing how that element came into existence. Subsequent representations or materializations MUST NOT change it (§6). — *sections: §6*
+- **GO-2** (§11) Every semantic element MUST have exactly one provenance — authored, derived, or produced — describing how that element came into existence. Later representations or materializations MUST NOT change it (§6). — *sections: §6*
 - **GO-3** (§11) A kind MUST declare its semantic category and any provenance constraint its kind contract imposes. An element's provenance MUST be established explicitly, and neither category nor provenance MUST be inferred from an artifact's name, location, or content (§8). — *sections: §8*
 - **GO-4** (§11) A secondary relationship MUST NOT alter, extend, or make ambiguous an element's primary category (§5). — *sections: §5*
 - **GO-5** (§11) No element's declarations may violate its category contract (§4). — *sections: §4*
 - **GO-6** (§11) An evidential element MUST NOT be referenced as a source of authority (§4.1). — *sections: §4.1*
 - **GO-7** (§11) A participatory element MUST NOT carry behavior, and its identity MUST NOT constitute authority (§4.1). — *sections: §4.1*
 - **GO-8** (§11) An operational element MUST NOT be a source of authority (§4.1). — *sections: §4.1*
-- **GO-9** (§11) Derived and produced elements MUST NOT be sources of governance authority, and MUST carry provenance identifying their source or producing operation (§6). — *sections: §6*
+- **GO-9** (§11) Derived and produced elements MUST NOT be sources of governance authority. They MUST carry provenance identifying their source or producing operation (§6). — *sections: §6*
 - **GO-10** (§11) A semantic category MUST NOT establish, extend, or limit what an element governs (§1, §7.2). — *sections: §1, §7.2*
 - **GO-11** (§11) Authority, concern, federation, and namespace MUST NOT be encoded in a single identifier (§7.2). — *sections: §7.2*
 - **GO-12** (§11) Admitting a new kind MUST NOT require an ontology revision (§9). — *sections: §9*
@@ -93,48 +93,48 @@ references that text states, and never the sections those references reach.
 - **MB-3** (§15) Equality and identity MUST be defined over the semantic object. Integrity MUST be computed over a canonical form of the semantic object (§3). — *sections: §3*
 - **MB-4** (§15) Every declaration element MUST have exactly one semantic owner (§5). — *sections: §5*
 - **MB-5** (§15) The universal envelope MUST be closed, and a kind MUST NOT redefine or extend it (§6). — *sections: §6*
-- **MB-6** (§15) Identity MUST be declared, MUST be authoritative over position, and MUST NOT be derived from a name or location (§6.1). — *sections: §6.1*
-- **MB-7** (§15) Identity, authority, and concern MUST remain separately expressible at the declaration surface, and their representation MUST NOT collapse these distinctions (§6.1, GO-11). — *requirements: GO-11; sections: §6.1*
+- **MB-6** (§15) Identity MUST be declared and MUST be authoritative over position. It MUST NOT be derived from a name or location (§6.1). — *sections: §6.1*
+- **MB-7** (§15) Identity, authority, and concern MUST remain separately expressible at the declaration surface. Their representation MUST NOT collapse these distinctions (§6.1, GO-11). — *requirements: GO-11; sections: §6.1*
 - **MB-8** (§15) Every block MUST declare exactly one artifact kind, and the kind MUST NOT be inferred (§7). — *sections: §7*
 - **MB-9** (§15) An unregistered kind MUST be refused (§7). — *sections: §7*
-- **MB-10** (§15) A kind MUST declare whether a governance assertion is required for its ordinary use. Omission MUST be permitted only where the applicable semantic model authorizes it, and MUST NOT constitute exemption from governance (§8). — *sections: §8*
-- **MB-11** (§15) Every surface MUST be closed; no surface may admit undeclared elements (§11). — *sections: §11*
+- **MB-10** (§15) A kind MUST declare whether its ordinary use requires a governance assertion. Omission MUST be permitted only where the applicable semantic model authorizes it, and MUST NOT constitute exemption from governance (§8). — *sections: §8*
+- **MB-11** (§15) Every surface MUST be closed. No surface may admit undeclared elements (§11). — *sections: §11*
 - **MB-12** (§15) Every normative declaration element MUST carry a semantic role and a construction disposition (§12). — *sections: §12*
 - **MB-13** (§15) Every semantic element of a sealed representation MUST have a declared provenance to at least one of: a declared machine block, a governing artifact, a declared construction transformation, or a required integrity mechanism (§13). — *sections: §13*
 - **MB-14** (§15) Admitting a kind MUST NOT require amending this document (§14). — *sections: §14*
-- **MB-15** (§15) An element MUST carry a kind if and only if it is admitted as an artifact in its own right; a declaration element of an artifact MUST NOT carry one (§7.1). — *sections: §7.1*
+- **MB-15** (§15) An element MUST carry a kind if and only if it is admitted as an artifact in its own right. A declaration element of an artifact MUST NOT carry one (§7.1). — *sections: §7.1*
 
 ## 2d — Kind Vocabulary
 
 - **KV-1** (§10) A governed system MUST operate under a declared kind vocabulary, and MUST name it (§9). — *sections: §9*
-- **KV-2** (§10) A kind vocabulary MUST be closed within its revision; an unrecognized kind MUST be refused (§5). — *sections: §5*
+- **KV-2** (§10) A kind vocabulary MUST be closed within its revision. An unrecognized kind MUST be refused (§5). — *sections: §5*
 - **KV-3** (§10) A kind MUST be admitted by its vocabulary. A registry, a contract, or a mechanism MUST NOT constitute a kind (§3). — *sections: §3*
 - **KV-4** (§10) A machine block MUST carry exactly one authoritative discriminator, whose value is the self-describing canonical kind name (§4). — *sections: §4*
 - **KV-5** (§10) A kind MUST NOT be derived from a prefix, a naming convention, a location, or any other positional signal (§4). — *sections: §4*
 - **KV-6** (§10) A vocabulary revision MUST be a governed transition, and MUST NOT require amending this document, the Machine Block Standard, or the Governance Semantic Ontology (§6). — *sections: §6*
-- **KV-7** (§10) An accepted alias MUST be normalized to the canonical kind before the artifact is treated as conformant, and MUST NOT be carried or emitted as the authoritative classification (§7). — *sections: §7*
+- **KV-7** (§10) An accepted alias MUST be normalized to the canonical kind before the artifact is treated as conformant. It MUST NOT be carried or emitted as the authoritative classification (§7). — *sections: §7*
 - **KV-8** (§10) A representation change MUST NOT increment an artifact's declared version (§8). — *sections: §8*
 - **KV-9** (§10) No particular kind MUST be required of a governed system by this family (§9). — *sections: §9*
-- **KV-10** (§10) A declared vocabulary MUST state, for each kind it admits, whether a governance assertion is required for that kind's ordinary admission (§5.1, MB-10). — *requirements: MB-10; sections: §5.1*
+- **KV-10** (§10) A declared vocabulary MUST state, for each kind it admits, whether that kind's ordinary admission requires a governance assertion (§5.1, MB-10). — *requirements: MB-10; sections: §5.1*
 
 ## 2e — Governance Closure & Authority
 
 - **CA-1** (§11) Authority, ownership, scope, concern, admission, inheritance, and import MUST be separately determinable, and none MUST be inferred from another (§2). — *sections: §2*
-- **CA-2** (§11) An authority MUST exist by a declared constituting act, and MUST NOT be constituted by need, precedence, containment, naming, or classification (§3.1). — *sections: §3.1*
+- **CA-2** (§11) An authority MUST exist by a declared constituting act. It MUST NOT be constituted by need, precedence, containment, naming, or classification (§3.1). — *sections: §3.1*
 - **CA-3** (§11) A purported authority MUST answer all five questions of §3.2 from declared artifacts alone, or MUST NOT be admitted as an authority. — *sections: §3.2*
 - **CA-4** (§11) The authority constituting and exercising a jurisdiction MUST be distinguishable from the authority whose subjects it governs (§3.3). — *sections: §3.3*
 - **CA-5** (§11) A delegation MUST be declared, MUST NOT exceed its source, and MUST NOT transfer answerability (§3.4). — *sections: §3.4*
 - **CA-6** (§11) A concern classification MUST NOT constitute an authority or a jurisdiction (§5). — *sections: §5*
 - **CA-7** (§11) A governing element MUST declare its scope as a set of subjects. Scope MUST NOT be represented by the absence of a boundary, or by an unbounded assertion of everything (§5.1). — *sections: §5.1*
-- **CA-8** (§11) Inheritance MUST be declared; containment MUST NOT carry governance of itself (§7). — *sections: §7*
-- **CA-9** (§11) Import MUST be declared by the receiving closure, MUST be enumerable, and MUST NOT extend the imported element's authority (§8). — *sections: §8*
-- **CA-10** (§11) A closure MUST be fully established before any determination over its subject, and MUST be enumerable before evaluation begins (§10.1, §10.3). — *sections: §10.1, §10.3*
+- **CA-8** (§11) Inheritance MUST be declared. Containment MUST NOT carry governance of itself (§7). — *sections: §7*
+- **CA-9** (§11) Import MUST be declared by the receiving closure and MUST be enumerable. It MUST NOT extend the imported element's authority (§8). — *sections: §8*
+- **CA-10** (§11) A closure MUST be fully established before any determination over its subject. It MUST be enumerable before evaluation begins (§10.1, §10.3). — *sections: §10.1, §10.3*
 - **CA-11** (§11) No governing element may apply to a subject without having been established in that subject's closure (§10.3). — *sections: §10.3*
-- **CA-12** (§11) Where a closure cannot be established, the determination MUST be `refuse`, and MUST be distinguishable from a rule refusal (§10.4). — *sections: §10.4*
+- **CA-12** (§11) Where a closure cannot be established, the determination MUST be `refuse`. That determination MUST be distinguishable from a rule refusal (§10.4). — *sections: §10.4*
 
 ## 2f — Enforcement & Refusal
 
-- **EN-1** (§10) An obligation MUST be rendered as at least one assertion capable of refusing its violation, and an obligation without such coverage MUST be a finding (§4.1). — *sections: §4.1*
+- **EN-1** (§10) An obligation MUST be rendered as at least one assertion capable of refusing its violation. An obligation without such coverage MUST be a finding (§4.1). — *sections: §4.1*
 - **EN-2** (§10) An assertion MUST identify the obligation it enforces (§3.1). — *sections: §3.1*
 - **EN-3** (§10) An assertion MUST NOT impose a normative consequence beyond its obligation, and MUST NOT be a source of authority (§3.1). — *sections: §3.1*
 - **EN-4** (§10) Where an assertion and its obligation differ, the obligation MUST govern (§3.2). — *sections: §3.2*
@@ -147,7 +147,7 @@ references that text states, and never the sections those references reach.
 - **EN-11** (§10) An obligation whose violation produces only a report MUST NOT be declared as governance (§6.3). — *sections: §6.3*
 - **EN-12** (§10) Refusals MUST be evidenced as fully as admissions (§8). — *sections: §8*
 - **EN-13** (§10) Evidence MUST NOT be an input to a determination (§8, AI-15). — *requirements: AI-15; sections: §8*
-- **EN-14** (§10) A determination MUST NOT be reported as a refusal unless it establishes what §6.1 requires, and a refusal MUST NOT be delivered as a value that is acted on (§6.1). — *sections: §6.1*
+- **EN-14** (§10) A determination MUST NOT be reported as a refusal unless it establishes what §6.1 requires. A refusal MUST NOT be delivered as a value that is acted on (§6.1). — *sections: §6.1*
 
 ## 3a — Execution Model
 
