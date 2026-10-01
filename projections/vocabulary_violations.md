@@ -44,15 +44,15 @@ None.
 - **CM-3** — 'check kind' is introduced by 4d but its site (line 103) is bold emphasis rather than a definition — the document marks the term without saying what it is.
 - **CM-3** — 'constituting act' is introduced by 2e but its site (line 53) is bold emphasis rather than a definition — the document marks the term without saying what it is.
 - **CM-3** — 'declared extension' is introduced by 2c but its site (line 83) is bold emphasis rather than a definition — the document marks the term without saying what it is.
-- **CM-3** — 'determination' is introduced by 1b but its site (line 67) is bold emphasis rather than a definition — the document marks the term without saying what it is.
+- **CM-3** — 'determination' is introduced by 1b but its site (line 68) is bold emphasis rather than a definition — the document marks the term without saying what it is.
 - **CM-3** — 'dossier' is introduced by 4d but its site (line 75) is bold emphasis rather than a definition — the document marks the term without saying what it is.
-- **CM-3** — 'empty governed state' is introduced by 1b but its site (line 294) is bold emphasis rather than a definition — the document marks the term without saying what it is.
+- **CM-3** — 'empty governed state' is introduced by 1b but its site (line 292) is bold emphasis rather than a definition — the document marks the term without saying what it is.
 - **CM-3** — 'execution constraint' is introduced by 6b but its site (line 45) is bold emphasis rather than a definition — the document marks the term without saying what it is.
 - **CM-3** — 'mechanism decision' is introduced by 3c but its site (line 85) is bold emphasis rather than a definition — the document marks the term without saying what it is.
 - **CM-3** — 'modality' is introduced by 2a but its site (line 116) is bold emphasis rather than a definition — the document marks the term without saying what it is.
 - **CM-3** — 'outcome vocabulary' is introduced by 3a but its site (line 96) is bold emphasis rather than a definition — the document marks the term without saying what it is.
 - **CM-3** — 'predecessor' is introduced by 4e but its site (line 24) is bold emphasis rather than a definition — the document marks the term without saying what it is.
-- **CM-3** — 'predicate' is introduced by 1b but its site (line 99) is bold emphasis rather than a definition — the document marks the term without saying what it is.
-- **CM-3** — 'proposal' is introduced by 1b but its site (line 64) is bold emphasis rather than a definition — the document marks the term without saying what it is.
+- **CM-3** — 'predicate' is introduced by 1b but its site (line 98) is bold emphasis rather than a definition — the document marks the term without saying what it is.
+- **CM-3** — 'proposal' is introduced by 1b but its site (line 65) is bold emphasis rather than a definition — the document marks the term without saying what it is.
 - **CM-3** — 'semantic owner' is introduced by 2c but its site (line 87) is bold emphasis rather than a definition — the document marks the term without saying what it is.
 - **CM-3** — 'verdict' is introduced by 4d but its site (line 113) is bold emphasis rather than a definition — the document marks the term without saying what it is.

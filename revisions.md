@@ -409,6 +409,34 @@ reader who diffs the two finds a difference, and this is where they learn what i
 identity did not move. A claim naming `v0` is a claim against the normative documents, and those are
 byte-identical in both.
 
+### Carried under `v0` — Part I restated for clarity, no change in meaning
+
+**Documents:** `1a`, `1b`, `1c`, every section. Part 0 was restated the same way earlier, and needs no
+entry: it is non-normative.
+
+**What changes.** The wording only. The three documents now follow the repository's writing rules.
+Sentences are active, name their actor, and carry one idea each. Double negatives are restated
+positively. Long sentences are split, and parallel items become lists.
+
+**What does not change.**
+
+- **No requirement changes.** Each of CM-1 … CM-8, SM-1 … SM-12 (with SM-5a, SM-7a, SM-7b) and
+  AI-1 … AI-17 was compared old against new. Each keeps its identifier, its bound party and its
+  force. Where one sentence became two, every MUST and MUST NOT carried across.
+- **No term changes.** Every definition in `1a` §4–§11 keeps its meaning and its defining site. The
+  formal definitions of *software governance*, *platform* and *determinism* keep their wording.
+- **No relation, model rule or conformance condition changes.** The edit adds no uppercase keyword
+  where the text had none.
+
+**What it invalidates.** Nothing. A realization or document that conformed to Part I before this edit
+conforms after it. The derived projections were regenerated: the requirement index changes only in
+sentence breaks, and the vocabulary check reports the same 0 defects and 43 warnings.
+
+**What this means for the deposit.** The note above says the normative documents of the archived `v0`
+and this repository are byte-identical. After this edit, that holds for every normative document
+except `1a`, `1b` and `1c`. Those three differ in wording and agree in every obligation. A claim
+naming `v0` stands against either text.
+
 ---
 
 ## `draft-3` supersedes `draft-2`

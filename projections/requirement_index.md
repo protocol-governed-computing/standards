@@ -13,31 +13,31 @@ references that text states, and never the sections those references reach.
 ## 1a — Conceptual Model & Terminology
 
 - **CM-1** (§13) A document of this family MUST use the terms defined here with the meanings defined here (§12). — *sections: §12*
-- **CM-2** (§13) A document MUST NOT redefine a term defined here; where it needs more, it MUST refine the inherited concept and state what it is refining (§12). — *sections: §12*
-- **CM-3** (§13) A document introducing a term not defined here MUST define it, and MUST NOT define it so as to overlap a term defined here (§12). — *sections: §12*
-- **CM-4** (§13) A distinction drawn in §4–§11 as *distinguish from* MUST be preserved by every document that relies on it (§12). — *sections: §11, §12, §4*
+- **CM-2** (§13) A document MUST NOT redefine a term defined here. Where it needs more, it MUST refine the inherited concept and state what it is refining (§12). — *sections: §12*
+- **CM-3** (§13) A document introducing a term not defined here MUST define it. It MUST NOT define the term so that it overlaps a term defined here (§12). — *sections: §12*
+- **CM-4** (§13) Every document that relies on a distinction drawn in §4–§11 as *distinguish from* MUST preserve it (§12). — *sections: §11, §12, §4*
 - **CM-5** (§13) A profile MUST NOT alter the meaning of any term defined here (§12). — *sections: §12*
-- **CM-6** (§13) A document MUST relate the concepts as §3 relates them, MUST introduce no relation §3 does not provide, and MUST NOT draw an inference between relations that §3.2 forbids (§3, §14). — *sections: §14, §3, §3.2*
-- **CM-7** (§13) Adding, removing, or altering a definition here MUST be a revision of this document, and MUST require every document that used the affected term to be re-examined (§12). — *sections: §12*
-- **CM-8** (§13) A term MUST be defined by the document whose subject matter principally establishes it, and ownership of a term MUST NOT be assigned by the order in which documents appear (§12). — *sections: §12*
+- **CM-6** (§13) A document MUST relate the concepts as §3 relates them. It MUST introduce no relation §3 does not provide, and MUST NOT draw an inference between relations that §3.2 forbids (§3, §14). — *sections: §14, §3, §3.2*
+- **CM-7** (§13) Adding, removing or altering a definition here MUST be a revision of this document. That revision MUST require a re-examination of every document that used the affected term (§12). — *sections: §12*
+- **CM-8** (§13) The document whose subject matter principally establishes a term MUST define it. A document MUST NOT assign ownership of a term by the order in which documents appear (§12). — *sections: §12*
 
 ## 1b — Semantic Model
 
 - **SM-1** (§16) Every change to governed state MUST be a governed transition (§4). — *sections: §4*
 - **SM-2** (§16) A determination MUST complete before the transition it governs occurs.
-- **SM-3** (§16) A determination MUST be reached over the complete rule set the closure supplies; a partial evaluation MUST NOT yield a determination.
+- **SM-3** (§16) A determination MUST be reached over the complete rule set the closure supplies. A partial evaluation MUST NOT yield a determination.
 - **SM-4** (§16) Where a closure cannot be established, the determination MUST be `refuse` (§7.1). — *sections: §7.1*
 - **SM-5** (§16) Consequences MUST compose by dominance, and no rule may admit what another refuses (§6). — *sections: §6*
-- **SM-5a** (§16) Where several applicable rules constrain, their constraints MUST compose by conjunction: a proposal satisfies the composed constraint only where it satisfies every constituent constraint (§6). — *sections: §6*
+- **SM-5a** (§16) Where several applicable rules constrain, their constraints MUST compose by conjunction. A proposal satisfies the composed constraint only where it satisfies every constituent constraint (§6). — *sections: §6*
 - **SM-6** (§16) Predicate evaluation MUST NOT alter governed state.
 - **SM-7** (§16) A refused proposal MUST NOT partly proceed (§9). — *sections: §9*
-- **SM-7a** (§16) An admitted transition MUST NOT come to rest having applied part of what its determination permits; where a realization can apply a transition partly, it MUST determine what state results (§8). — *sections: §8*
+- **SM-7a** (§16) An admitted transition MUST NOT come to rest having applied part of what its determination permits. Where a realization can apply a transition partly, it MUST determine what state results (§8). — *sections: §8*
 - **SM-7b** (§16) A closure MUST be established for the state the transition applies to (§8). — *sections: §8*
 - **SM-8** (§16) Every determination MUST produce evidence adequate by §13. — *sections: §13*
 - **SM-9** (§16) Transformation of the declarations MUST itself be a governed transition (§10). — *sections: §10*
-- **SM-10** (§16) The same `(S, π, C)` MUST yield the same determination, and the same determination applied to the same governed state MUST permit the same resulting state (§12). — *sections: §12*
-- **SM-11** (§16) A genesis transition MUST be determined reflexively against the closure its proposal declares, MUST additionally satisfy the profile it claims, and MUST NOT be exempt from §8 (§11). — *sections: §11, §8*
-- **SM-12** (§16) Conformance checking MUST re-evaluate the closure and rules recorded in evidence, and MUST NOT rediscover a closure from a live system or current environment (§14). — *sections: §14*
+- **SM-10** (§16) The same `(S, π, C)` MUST yield the same determination. The same determination applied to the same governed state MUST permit the same resulting state (§12). — *sections: §12*
+- **SM-11** (§16) A genesis transition MUST be determined reflexively against the closure its proposal declares. It MUST also satisfy the profile it claims, and it MUST NOT be exempt from §8 (§11). — *sections: §11, §8*
+- **SM-12** (§16) Conformance checking MUST re-evaluate the closure and rules recorded in evidence. It MUST NOT rediscover a closure from a live system or current environment (§14). — *sections: §14*
 
 ## 1c — Architectural Invariants
 
