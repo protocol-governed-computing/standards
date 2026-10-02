@@ -464,6 +464,34 @@ check reports the same 0 defects and 43 warnings.
 repository now differ in wording in Parts I and II. They agree in every obligation. A claim naming
 `v0` stands against either text.
 
+### Carried under `v0` — Part III restated for clarity, no change in meaning
+
+**Documents:** `3a`, `3b`, `3c`, `3d`, `3e`, every section.
+
+**What changes.** The wording only, under the same rules as the Part I restatement above. Five
+cross-references that named a document by file identifier or abbreviation now name it by title:
+`3a` §4.4 cites Enforcement & Refusal, `3c` §7.1 cites Governance Closure & Authority, `3d` §3.2
+cites the Execution Model, and `3e` §3 and §3.1 cite the Semantic Model and the Normative Platform
+Profile. Each points at the same section as before.
+
+**What does not change.**
+
+- **No requirement changes.** Each of EX-1 … EX-16, SN-1 … SN-14, RT-1 … RT-13, CP-1 … CP-11 and
+  EV-1 … EV-17 was compared old against new. Each keeps its identifier, its bound party and its
+  force. The count of MUST, MUST NOT, SHOULD and MAY in each document is unchanged.
+- **No term changes.** Every term these documents introduce or refine keeps its meaning and its
+  defining site. The derived terminology index lists the same terms.
+- **No acceptance condition, routing rule, effect disposition, evidence content rule or conformance
+  condition changes.**
+
+**What it invalidates.** Nothing. A realization or document that conformed to Part III before this
+edit conforms after it. The requirement index changes only in sentence breaks, and the vocabulary
+check reports the same 0 defects and 43 warnings.
+
+**What this means for the deposit.** The normative documents of the archived `v0` and this
+repository now differ in wording in Parts I, II and III. They agree in every obligation. A claim
+naming `v0` stands against either text.
+
 ---
 
 ## `draft-3` supersedes `draft-2`

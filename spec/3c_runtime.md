@@ -2,28 +2,32 @@
 
 ## 1. Scope
 
-This document specifies the **runtime**: the agent that performs execution. It establishes what a
-runtime consumes, what it may decide, what it must produce, what it must refuse, and — most
-consequentially — what it may not be.
+This document specifies the **runtime**: the agent that performs execution. It establishes:
 
-The Execution Model says what execution is; this document bounds the thing that performs it. The
-Snapshot Standard says what it consumes; this document states its obligations toward that input.
-The Capability Standard covers the units it dispatches; Evidence, Attestation & Provenance covers
-what it records.
+- what a runtime consumes;
+- what it may decide;
+- what it must produce;
+- what it must refuse;
+- most important of all, what it may not be.
+
+The Execution Model says what execution is. This document bounds the thing that performs it. The
+Snapshot Standard says what the runtime consumes. This document states the runtime's obligations
+toward that input. The Capability Standard covers the units the runtime dispatches. Evidence,
+Attestation & Provenance covers what it records.
 
 **A runtime is a role, not a component.** Nothing here requires a program, a process, a service, a
 language, or a count of any of them. A realization satisfies this document by what its execution
 agency does and does not do, however that agency is organized.
 
-This document introduces the terms **governed decision** and **mechanism decision**. Every other
-term it uses is defined by the Conceptual Model, the Semantic Model, or Parts II–III.
+This document introduces the terms **governed decision** and **mechanism decision**. The Conceptual
+Model, the Semantic Model or Parts II–III defines every other term it uses.
 
 Keywords MUST, SHOULD, MAY per RFC 2119.
 
 ## 2. The runtime is defined by what it may not do
 
-Most components are specified by their capabilities. A runtime is specified by its **incapacities**,
-and this inversion is the point rather than a stylistic choice.
+Most components are specified by their capabilities. A runtime is specified by its
+**incapacities**. That inversion is the point, not a matter of style.
 
 A runtime:
 
@@ -32,10 +36,10 @@ A runtime:
 - adds nothing to the representation it executes;
 - originates no governed behavior.
 
-**The exclusions establish the boundary; the obligations in this document establish the permitted
-role within it.** A specification that began from the runtime's capabilities would have to
-enumerate them exhaustively and would fail closed only by accident; beginning from the exclusions,
-anything not excluded and not obliged is permitted precisely because it cannot matter (§4).
+**The exclusions set the boundary. The obligations in this document set the permitted role within
+it.** A specification that started from the runtime's capabilities would have to list them all. It
+would fail closed only by accident. Starting from the exclusions, anything that is neither excluded
+nor obliged is permitted, because it cannot matter (§4).
 
 ## 3. What a runtime consumes
 
@@ -47,57 +51,57 @@ A runtime receives only the governed inputs the applicable standards define. At 
 | **an interaction** | what is presented for execution, in canonical form |
 | **governed state** | the state the snapshot declares, as it currently stands |
 
-**It receives nothing else.** Not configuration, not environment, not defaults, not anything carried
-over from a previously accepted snapshot, not anything discovered where it happens to be running
-(SN-10, AI-12). The requirement is not the count of inputs but the exclusion: **no undeclared source
-of behavior reaches execution.** A later standard may define a further governed input; nothing may
-reach the runtime that no standard defined.
+**It receives nothing else.** It receives no configuration, no environment and no defaults. It
+receives nothing carried over from a previously accepted snapshot, and nothing discovered where it
+happens to run (SN-10, AI-12). The requirement is the exclusion, not the count of inputs: **every
+source of behavior that reaches execution is declared.** A later standard may define a further
+governed input. Only inputs that some standard defines may reach the runtime.
 
 ### 3.1 Acceptance is the runtime's obligation
 
-A runtime MUST establish the acceptance conditions of the Snapshot Standard — integrity, identity,
-totality, claimed profile — **before executing anything against a snapshot**, and MUST refuse the
-snapshot whole where any fails.
+A runtime MUST establish the acceptance conditions of the Snapshot Standard **before executing
+anything against a snapshot**. Those conditions are integrity, identity, totality and claimed
+profile. The runtime MUST refuse the snapshot whole where any condition fails.
 
-Two consequences:
+Two consequences follow:
 
-- **Verification precedes the first execution, not the first failure.** A runtime that verifies
-  lazily, or verifies a constituent when it first reaches for it, has executed against unverified
-  content and cannot say afterwards what it executed.
-- **Acceptance is not a load.** It is a determination the runtime performs against the Snapshot
-  Standard's conditions, and a runtime that loads a snapshot and reports nothing has made no
-  determination anyone can check. How that determination is evidenced belongs to Evidence,
-  Attestation & Provenance.
+- **Verification precedes the first execution, not the first failure.** Suppose a runtime verifies
+  lazily, or verifies a constituent only when it first reaches for it. It has then executed against
+  unverified content, and it cannot say afterwards what it executed.
+- **Acceptance is not a load.** The runtime performs acceptance as a determination against the
+  Snapshot Standard's conditions. A runtime that loads a snapshot and reports nothing has made no
+  determination anyone can check. Evidence, Attestation & Provenance owns how that determination is
+  evidenced.
 
 After acceptance, the runtime treats the snapshot as immutable for as long as it executes against
 it. A runtime MUST NOT modify, extend, annotate, or repair an accepted snapshot.
 
 ## 4. What a runtime may decide
 
-A runtime necessarily decides things. It schedules, allocates, orders, and places. A standard
-claiming it decides nothing would be false, and the falsehood would be exploited.
+A runtime necessarily decides things. It schedules, allocates, orders and places. A standard that
+claimed the runtime decides nothing would be false, and someone would exploit the falsehood.
 
 The line is exact:
 
 > **A decision is permitted if and only if varying it cannot vary any declared governed
 > consequence.**
 
-Such a decision is a **mechanism decision**. One that can vary a governed consequence is a
+Such a decision is a **mechanism decision**. A decision that can vary a governed consequence is a
 **governed decision**, and a runtime makes none (§5).
 
-Permitted, because none of them can change what the snapshot determines:
+These decisions are permitted, because none of them can change what the snapshot determines:
 
 - when work is scheduled, and how long it takes;
 - how resources are allocated, and how much;
 - where a step is performed, and on what substrate;
 - how the runtime internally represents or retains what it has read from the snapshot;
-- the order in which steps the declarations state to be independent are performed;
+- the order in which it performs steps that the declarations state are independent;
 - how many executions proceed concurrently.
 
-The test is not "is this decision small" or "is this decision internal." **It is whether a different
-choice could produce a different governed consequence.** If it could, the decision belongs to the
-declarations, and a runtime taking it has taken authority it does not hold — regardless of how
-reasonable the choice was.
+The test is not whether a decision is small, or whether it is internal. **The test is whether a
+different choice could produce a different governed consequence.** If it could, the decision belongs
+to the declarations. A runtime that takes it has taken authority it does not hold, however reasonable
+the choice was.
 
 ## 5. What a runtime must not decide
 
@@ -112,61 +116,65 @@ A runtime MUST NOT determine:
 | what governed state may become | the declared transition |
 | whether to proceed where the declarations do not answer | nothing — it refuses (§7) |
 
-Nor may it decide any of these *partially*: supplying a default where a declaration is silent,
-selecting among candidates where a reference is ambiguous, choosing an interpretation where a value
-is unexpected, or retrying where an outcome was not routed. **Each of these is a governed decision
-wearing the appearance of an implementation detail**, and each is where behavioral authority
-re-enters a system that was otherwise governed.
+It may not decide any of these *partially* either. Examples of partial decisions:
+
+- supplying a default where a declaration is silent;
+- selecting among candidates where a reference is ambiguous;
+- choosing an interpretation where a value is unexpected;
+- retrying where an outcome was not routed.
+
+**Each of these is a governed decision that looks like an implementation detail.** Each is a point
+where behavioral authority re-enters a system that was otherwise governed.
 
 ## 6. What a runtime must produce
 
-- **The governed consequences the snapshot determines** for the interaction presented — and nothing
+- **The governed consequences the snapshot determines** for the interaction presented, and nothing
   beyond them.
-- **Evidence** adequate to establish what was determined and what occurred (SM-8), including the
-  path taken, sufficient for the path check of the Execution Model §12.
+- **Evidence** adequate to establish what was determined and what occurred (SM-8). The evidence
+  includes the path taken, sufficient for the path check of Execution Model §12.
 - **A refusal, evidenced**, wherever it refuses (§7).
 
-A runtime MUST NOT produce effects the declarations did not establish, and MUST NOT withhold
-evidence of effects it did produce. A runtime that produced an effect it cannot account for has
-placed something outside governance, whether or not the effect was desirable.
+A runtime MUST NOT produce effects the declarations did not establish, and MUST NOT withhold evidence
+of effects it did produce. A runtime that produced an effect it cannot account for has placed
+something outside governance, whether or not the effect was desirable.
 
 ## 7. Refusal is the runtime's one enforcement function
 
 Where the declarations do not answer, the runtime **refuses**. This is the only enforcement function
-it performs, and it performs it by declining rather than by deciding. It is enforcement of a
-boundary, not an exercise of governance: the runtime governs nothing, and refusing is how it
-declines to act where nothing governs.
+it performs, and it performs it by declining, not by deciding. It enforces a boundary. It does not
+exercise governance. The runtime governs nothing. Refusing is how it declines to act where nothing
+governs.
 
-Refusal is not origination. It is the **enforcement of the declarations' boundary**: where the
-declarations answer, the runtime realizes; where they do not, it refuses. In neither case does it
-choose an outcome.
+Refusal does not originate behavior. It is the **enforcement of the declarations' boundary**. Where
+the declarations answer, the runtime realizes. Where they do not, it refuses. In neither case does
+it choose an outcome.
 
 ### 7.1 Evaluating a sealed obligation is not making a determination
 
-§2's exclusion — a runtime *makes no governing determination* — and the trigger below — *an
-obligation, applicable and evaluated, that is not satisfied* — are consistent, and the sentence that
-reconciles them belongs here rather than in a reader's head.
+Two statements in this document might seem to conflict. §2 says a runtime *makes no governing
+determination*. The list below says a runtime refuses on *an obligation, applicable and evaluated,
+that is not satisfied*. They are consistent, and this section says why, so the reader need not work
+it out.
 
-**Two acts are distinct, and only the second is the runtime's:**
+**Two acts are distinct, and only the second belongs to the runtime:**
 
 | | The act | When | By what |
 |---|---|---|---|
-| **determination** | establishing *what governs* — which closure applies, under what authority, composing how | before sealing, at construction | governance (2e §10.1) |
+| **determination** | establishing *what governs* — which closure applies, under what authority, composing how | before sealing, at construction | governance (Governance Closure & Authority §10.1) |
 | **application** | evaluating a sealed assertion against the sealed declarations, and refusing where it is unsatisfied | at execution | the runtime |
 
-A runtime evaluates. **What it does not do is decide what it is evaluating, or what follows if the
-answer is no** — both were settled and sealed before it ran. Evaluation of an already-determined
-obligation originates nothing: run twice against the same sealed representation and the same
-governed state, it yields the same answer, because nothing about the answer is the runtime's to
-supply.
+A runtime evaluates. **It does not decide what it evaluates, or what follows if the answer is no.**
+Both were settled and sealed before it ran. Evaluating an already-determined obligation originates
+nothing. Run it twice against the same sealed representation and the same governed state, and it
+yields the same answer. Nothing about the answer is the runtime's to supply.
 
-The distinction is checkable rather than rhetorical. **A runtime that could have refused differently
-— by consulting anything not in the snapshot, by resolving an ambiguity the declarations left, by
-selecting among applicable obligations — has made a determination**, whatever it is called, and
-SN-10 and RT-6 are the invariants it broke. A runtime that could only have refused as it did has
-applied one.
+The distinction is checkable, not rhetorical. **A runtime that could have refused differently has
+made a determination**, whatever it is called. It could have done so by consulting anything not in
+the snapshot, by resolving an ambiguity the declarations left, or by selecting among applicable
+obligations. It then broke SN-10 and RT-6. A runtime that could only have refused as it did has
+applied an obligation.
 
-A runtime MUST refuse — and MUST NOT improvise, default, degrade, retry, or continue — on:
+A runtime MUST refuse, and MUST NOT improvise, default, degrade, retry, or continue, on:
 
 - a snapshot that fails acceptance (§3.1);
 - a reference that does not resolve;
@@ -175,45 +183,45 @@ A runtime MUST refuse — and MUST NOT improvise, default, degrade, retry, or co
 - an obligation, applicable and evaluated, that is not satisfied;
 - any condition the declarations do not cover.
 
-**A runtime with a recovery path nobody declared has a second, undeclared runtime inside it**, and
-that one governs the cases that matter most.
+**A runtime with a recovery path nobody declared has a second, undeclared runtime inside it.** That
+second runtime governs the cases that matter most.
 
 ## 8. Deliberate incapability
 
-A runtime's ignorance is a **property**, not a limitation to be engineered around.
+A runtime's ignorance is a **property**, not a limitation to engineer around.
 
-The same agency executes a governed system of any domain — the declarations differ, the runtime
-does not. That it cannot distinguish one domain from another is what makes it substitutable, what
-makes its behavior examinable, and what makes it small enough to be reasoned about.
+The same agency executes a governed system of any domain. The declarations differ. The runtime does
+not. Because it cannot tell one domain from another, it is substitutable, its behavior is
+examinable, and it is small enough to reason about.
 
-It is also a security property, and the strongest one available here: **what a runtime cannot use as
-a source of governed behavior cannot become an authority path through it.** A runtime with no
-routing logic of its own cannot be manipulated into an alternate route. One with no interpretation
-path for unstructured input cannot be injected through it into behavior. These are not defenses that
-were added; they are authority paths that were never constructed (AI-1, and Architectural Invariants
-§9, *security by construction*).
+It is also a security property, and the strongest one available here: **anything a runtime cannot
+use as a source of governed behavior cannot become an authority path through it.** A runtime with no
+routing logic of its own cannot be manipulated into an alternate route. A runtime with no
+interpretation path for unstructured input cannot be injected through it into behavior. Nobody added
+these as defenses. They are authority paths that nobody ever built (AI-1, and Architectural
+Invariants §9, *security by construction*).
 
-This is a claim about governance surface, not about implementation soundness. A runtime remains
-subject to the ordinary failures of any built thing — resource exhaustion, memory faults, defects.
-What it is not subject to is an attacker reaching *behavioral authority* through it, because there
-is no path by which behavior enters.
+This is a claim about governance surface, not about implementation soundness. A runtime still
+suffers the ordinary failures of any built thing: resource exhaustion, memory faults, defects. What
+it is free of is an attacker reaching *behavioral authority* through it, because no path exists by
+which behavior enters.
 
-Every capability a runtime is given back — every convenience, every helpful default, every "just in
-case" fallback — is surface returned to an attacker and authority returned to the engine.
+Every capability given back to a runtime returns surface to an attacker and authority to the engine.
+That includes every convenience, every helpful default and every "just in case" fallback.
 
 ## 9. Carrying nothing forward
 
 A runtime **carries no behavioral state between executions or across snapshots.**
 
 - It MUST NOT adapt, learn, tune, or accumulate anything that changes a governed consequence.
-- It MUST NOT retain anything from a previously accepted snapshot that affects execution against
-  the current one.
-- It MUST NOT consult evidence of prior executions in determining a present one (AI-15).
+- It MUST NOT retain anything from a previously accepted snapshot that affects execution against the
+  current one.
+- It MUST NOT consult evidence of earlier executions in determining a present one (AI-15).
 
-Optimization that cannot change a governed consequence is a mechanism decision and permitted (§4).
-Optimization that can is a governed decision and forbidden, however marginal the effect — a runtime
-whose behavior depends on what it has seen before is not deterministic with respect to the governed
-execution model, and its executions are no longer functions of the snapshot.
+An optimization that cannot change a governed consequence is a mechanism decision, and it is
+permitted (§4). An optimization that can is a governed decision, and it is forbidden, however small
+the effect. A runtime whose behavior depends on what it has seen before is not deterministic with
+respect to the governed execution model. Its executions are no longer functions of the snapshot.
 
 ## 10. Multiplicity and substitutability
 
@@ -221,38 +229,38 @@ execution model, and its executions are no longer functions of the snapshot.
 
 - Any conforming runtime executing a given snapshot against given inputs and initial state, subject
   to the same declared external interactions, produces the same governed consequences (SN-11).
-- A runtime MAY be replaced entirely — different implementation, different language, different
-  substrate — without any governed consequence changing.
-- Conversely, **declarations may change entirely without the runtime changing**, because the runtime
+- A runtime MAY be replaced entirely, with a different implementation, language or substrate,
+  without any governed consequence changing.
+- Conversely, **declarations may change entirely while the runtime stays the same**. The runtime
   holds no domain meaning to update.
 
-This is the practical form of the whole arrangement: behavior lives in what travels, so what
-executes it is replaceable, and the governed system outlives any particular agent that ran it.
+This is the practical form of the whole arrangement. Behavior lives in what travels, so whatever
+executes it is replaceable. The governed system outlives any particular agent that ran it.
 
 ## 11. What a runtime is not
 
-- **Not an orchestrator.** It does not arrange work; it traverses declared structure.
+- **Not an orchestrator.** It does not arrange work. It traverses declared structure.
 - **Not a framework.** Nothing extends it with domain behavior. A runtime with an extension point
   through which undeclared governed behavior can enter has an ungoverned path into execution.
-  Extensions that carry no governed behavior — a storage engine, a hardware adapter, a transport
-  binding — are mechanism, and are not what this excludes.
+  Extensions that carry no governed behavior are mechanism, and this rule does not exclude them.
+  Examples are a storage engine, a hardware adapter and a transport binding.
 - **Not a policy point.** Governance is in the snapshot. A runtime that carries policy carries
   governance nobody declared and no closure supplied.
 - **Not a place for correctness.** Whether a capability computes the right answer is not the
-  runtime's question and cannot be; it dispatches against contracts and knows nothing beneath them.
+  runtime's question, and cannot be. The runtime dispatches against contracts and knows nothing
+  beneath them.
 
 ## 12. What this document does not specify
 
-- **The internal organization of the agent.** Components, processes, threading, memory, and
+- **The internal organization of the agent.** Components, processes, threading, memory and
   concurrency mechanism are unconstrained.
-- **The capability interface.** What a contract is, and how a capability is bound and invoked,
-  belongs to the Capability Standard.
-- **The evidence format.** What evidence must establish belongs to Evidence, Attestation &
-  Provenance.
-- **The interaction boundary.** How an interaction reaches the runtime in canonical form belongs to
-  the Governed Interaction Boundary.
-- **Performance.** Nothing here constrains speed, throughput, or resource use, and nothing here may
-  be traded away to obtain them.
+- **The capability interface.** The Capability Standard owns what a contract is, and how a
+  capability is bound and invoked.
+- **The evidence format.** Evidence, Attestation & Provenance owns what evidence must establish.
+- **The interaction boundary.** The Governed Interaction Boundary owns how an interaction reaches the
+  runtime in canonical form.
+- **Performance.** Nothing here constrains speed, throughput or resource use. Nothing here may be
+  traded away to obtain them.
 
 ## 13. Normative invariants
 
@@ -272,13 +280,13 @@ executes it is replaceable, and the governed system outlives any particular agen
 - **RT-8.** A runtime MUST evidence every determination it makes, including every refusal (§6, §7).
 - **RT-9.** A runtime MUST refuse wherever the declarations do not answer, and MUST NOT improvise,
   default, degrade, or continue (§7).
-- **RT-10.** A runtime MUST NOT carry behavioral state between executions or across snapshots, and
+- **RT-10.** A runtime MUST NOT carry behavioral state between executions or across snapshots. It
   MUST NOT consult prior evidence in a present determination (§9).
 - **RT-11.** A runtime MUST NOT expose an extension point through which domain behavior enters
   execution (§11).
 - **RT-12.** Replacing a conforming runtime with another MUST NOT change any governed consequence
   (§10).
-- **RT-13.** A runtime MUST NOT establish what governs a subject; it MUST evaluate obligations
+- **RT-13.** A runtime MUST NOT establish what governs a subject. It MUST evaluate obligations
   already determined and sealed, and MUST refuse rather than resolve what they leave open (§7.1).
 
 ## 14. Conformance
@@ -286,14 +294,21 @@ executes it is replaceable, and the governed system outlives any particular agen
 The conformance subject of this document is a **runtime**: the execution agency of a governed
 system, however organized.
 
-A runtime conforms when it consumes only what §3 permits, verifies before executing, takes no
-decision that could vary a governed consequence, produces the consequences the snapshot determines
-together with evidence of them, and refuses wherever the declarations run out.
+A runtime conforms when all of the following hold:
 
-**Two properties are established by substitution rather than by inspection.** That a runtime holds
-no domain meaning is shown by executing a differently-domained snapshot unchanged; that it
-originates no behavior is shown by another conforming runtime reaching the same governed
-consequences from the same snapshot. Neither is visible from reading one runtime's behavior on one
-snapshot, which is where a runtime that has quietly acquired authority looks most correct.
+- it consumes only what §3 permits;
+- it verifies before executing;
+- it takes no decision that could vary a governed consequence;
+- it produces the consequences the snapshot determines, together with evidence of them;
+- it refuses wherever the declarations run out.
 
-How these are required and evaluated belongs to the Conformance Test Specification.
+**Substitution, not inspection, establishes two properties:**
+
+- A runtime holds no domain meaning if it executes a snapshot from a different domain unchanged.
+- A runtime originates no behavior if another conforming runtime reaches the same governed
+  consequences from the same snapshot.
+
+Neither property is visible from one runtime's behavior on one snapshot. That is exactly where a
+runtime that has quietly gained authority looks most correct.
+
+The Conformance Test Specification owns how these properties are required and evaluated.

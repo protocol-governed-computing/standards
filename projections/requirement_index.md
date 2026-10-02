@@ -151,26 +151,26 @@ references that text states, and never the sections those references reach.
 
 ## 3a — Execution Model
 
-- **EX-1** (§15) Execution MUST NOT originate behavior; every step MUST realize behavior the sealed representation already determined (§3). — *sections: §3*
+- **EX-1** (§15) Execution MUST NOT originate behavior. Every step MUST realize behavior the sealed representation already determined (§3). — *sections: §3*
 - **EX-2** (§15) Traversal MUST advance only on declared outcomes, according to routing resolvable from the sealed representation alone (§3.2, §4.1). — *sections: §3.2, §4.1*
 - **EX-3** (§15) Routing MUST NOT be computed from payload, environment, accumulated state, or caller identity (§3.2). — *sections: §3.2*
 - **EX-4** (§15) The structure traversed MUST NOT be added to, removed from, or rerouted during a run (§3.2). — *sections: §3.2*
-- **EX-5** (§15) A result a contract does not declare as an outcome MUST NOT be routed on, admitted into the governed transition, or recorded as an outcome, and MUST produce refusal; an outcome for which no routing is declared MUST produce refusal (§4.1, §4.3). — *sections: §4.1, §4.3*
-- **EX-6** (§15) Failure paths MUST be declared outcomes with declared routing; no recovery, retry, fallback, or degraded path MUST exist that the declarations did not specify (§4.2). — *sections: §4.2*
+- **EX-5** (§15) A result a contract does not declare as an outcome MUST NOT be routed on, admitted into the governed transition, or recorded as an outcome, and MUST produce refusal. An outcome for which no routing is declared MUST produce refusal (§4.1, §4.3). — *sections: §4.1, §4.3*
+- **EX-6** (§15) Failure paths MUST be declared outcomes with declared routing. No recovery, retry, fallback, or degraded path MUST exist that the declarations did not specify (§4.2). — *sections: §4.2*
 - **EX-7** (§15) A step's inputs MUST be resolved from declared references, and MUST NOT be searched for or inferred (§5). — *sections: §5*
 - **EX-8** (§15) Every change to governed state MUST be a transition the declarations determined, including its target and its permitting conditions (§6.1). — *sections: §6.1*
 - **EX-9** (§15) A governed store MUST be written only through its owner's declarations (§6.2). — *sections: §6.2*
-- **EX-10** (§15) The set of effects a system can produce MUST be closed and declared; no implicit effect path MUST exist (§7). — *sections: §7*
+- **EX-10** (§15) The set of effects a system can produce MUST be closed and declared. No implicit effect path MUST exist (§7). — *sections: §7*
 - **EX-11** (§15) An event MUST NOT trigger execution (§8). — *sections: §8*
 - **EX-12** (§15) A step's result MUST conform to its governing contract's declared surface (§9). — *sections: §9*
 - **EX-13** (§15) No property of how an interaction arrived MUST be observable to the traversal (§10). — *sections: §10*
 - **EX-14** (§15) Where the declarations do not answer, execution MUST refuse, and MUST NOT default, improvise, or degrade (§11). — *sections: §11*
-- **EX-15** (§15) An execution MUST produce sufficient evidence to permit the path taken to be independently checked against the sealed representation (§12). — *sections: §12*
-- **EX-16** (§15) An outcome MUST NOT be treated as a governance refusal, whatever it is named, and a refusal MUST NOT be reported as a routable outcome (§4.4, EN-8). — *requirements: EN-8; sections: §4.4*
+- **EX-15** (§15) An execution MUST produce enough evidence for the path taken to be independently checked against the sealed representation (§12). — *sections: §12*
+- **EX-16** (§15) An outcome MUST NOT be treated as a governance refusal, whatever it is named. A refusal MUST NOT be reported as a routable outcome (§4.4, EN-8). — *requirements: EN-8; sections: §4.4*
 
 ## 3b — Snapshot
 
-- **SN-1** (§14) A snapshot MUST be immutable from the moment of sealing; any change MUST produce a different snapshot (§3). — *sections: §3*
+- **SN-1** (§14) A snapshot MUST be immutable from the moment of sealing. Any change MUST produce a different snapshot (§3). — *sections: §3*
 - **SN-2** (§14) A snapshot's identity MUST be derived from its content, MUST cover every constituent, and MUST NOT be assigned (§4). — *sections: §4*
 - **SN-3** (§14) Two snapshots bearing the same identity MUST have identical content (§4). — *sections: §4*
 - **SN-4** (§14) A snapshot MUST have execution closure: nothing required to execute may be obtained from outside it (§5). — *sections: §5*
@@ -178,11 +178,11 @@ references that text states, and never the sections those references reach.
 - **SN-6** (§14) The self-description MUST be a constituent and MUST be covered by the snapshot's identity (§6). — *sections: §6*
 - **SN-7** (§14) The claimed profile MUST NOT be authored by the snapshot that claims it (§6, §11). — *sections: §11, §6*
 - **SN-8** (§14) A snapshot MUST be verified for integrity, identity, totality, and claimed profile before anything executes against it (§7). — *sections: §7*
-- **SN-9** (§14) A snapshot that fails any acceptance check MUST be refused whole; partial acceptance MUST NOT occur (§7). — *sections: §7*
+- **SN-9** (§14) A snapshot that fails any acceptance check MUST be refused whole. Partial acceptance MUST NOT occur (§7). — *sections: §7*
 - **SN-10** (§14) No behavior MUST enter execution from outside the accepted snapshot (§8). — *sections: §8*
 - **SN-11** (§14) The same snapshot, inputs, and initial state MUST produce the same governed consequences on any conforming agent (§9). — *sections: §9*
-- **SN-12** (§14) A snapshot MUST NOT be modified in place; change MUST proceed by constructing a successor (§10). — *sections: §10*
-- **SN-13** (§14) A first snapshot MUST satisfy every requirement above; genesis MUST NOT relieve it of any (§11). — *sections: §11*
+- **SN-12** (§14) A snapshot MUST NOT be modified in place. Change MUST proceed by constructing a successor (§10). — *sections: §10*
+- **SN-13** (§14) A first snapshot MUST satisfy every requirement above. Genesis MUST NOT relieve it of any (§11). — *sections: §11*
 - **SN-14** (§14) A snapshot MUST declare what its whole-integrity value covers, and that covered set MUST NOT contain the value itself (§6). — *sections: §6*
 
 ## 3c — Runtime
@@ -196,10 +196,10 @@ references that text states, and never the sections those references reach.
 - **RT-7** (§13) A runtime MUST produce the governed consequences the snapshot determines and nothing beyond them (§6). — *sections: §6*
 - **RT-8** (§13) A runtime MUST evidence every determination it makes, including every refusal (§6, §7). — *sections: §6, §7*
 - **RT-9** (§13) A runtime MUST refuse wherever the declarations do not answer, and MUST NOT improvise, default, degrade, or continue (§7). — *sections: §7*
-- **RT-10** (§13) A runtime MUST NOT carry behavioral state between executions or across snapshots, and MUST NOT consult prior evidence in a present determination (§9). — *sections: §9*
+- **RT-10** (§13) A runtime MUST NOT carry behavioral state between executions or across snapshots. It MUST NOT consult prior evidence in a present determination (§9). — *sections: §9*
 - **RT-11** (§13) A runtime MUST NOT expose an extension point through which domain behavior enters execution (§11). — *sections: §11*
 - **RT-12** (§13) Replacing a conforming runtime with another MUST NOT change any governed consequence (§10). — *sections: §10*
-- **RT-13** (§13) A runtime MUST NOT establish what governs a subject; it MUST evaluate obligations already determined and sealed, and MUST refuse rather than resolve what they leave open (§7.1). — *sections: §7.1*
+- **RT-13** (§13) A runtime MUST NOT establish what governs a subject. It MUST evaluate obligations already determined and sealed, and MUST refuse rather than resolve what they leave open (§7.1). — *sections: §7.1*
 
 ## 3d — Capability
 
@@ -211,17 +211,17 @@ references that text states, and never the sections those references reach.
 - **CP-6** (§12) A capability MUST NOT communicate with execution other than through its declared outcome and outputs (§4). — *sections: §4*
 - **CP-7** (§12) A non-effecting capability MUST produce no effect and MUST NOT invoke an effecting capability, directly or transitively (§5.1). — *sections: §5.1*
 - **CP-8** (§12) Every effect a system produces MUST pass through a declared effecting capability (§5.2). — *sections: §5.2*
-- **CP-9** (§12) A binding MUST be declared, MUST resolve before dispatch, and MUST NOT alter what the contract declares (§6). — *sections: §6*
+- **CP-9** (§12) A binding MUST be declared and MUST resolve before dispatch. It MUST NOT alter what the contract declares (§6). — *sections: §6*
 - **CP-10** (§12) Replacing a realization that satisfies a contract MUST NOT change a governed consequence and MUST NOT require a declaration to change (§8). — *sections: §8*
 - **CP-11** (§12) A capability MUST NOT be a source of authority, and its reachability MUST NOT constitute permission to reach it (§9). — *sections: §9*
 
 ## 3e — Evidence, Attestation & Provenance
 
-- **EV-1** (§13) Every determination MUST produce evidence sufficient to establish the five points of §3.1, and every execution MUST additionally establish its path (§3.1). — *sections: §3.1*
+- **EV-1** (§13) Every determination MUST produce evidence sufficient to establish the five points of §3.1. Every execution MUST also establish its path (§3.1). — *sections: §3.1*
 - **EV-2** (§13) Evidence MUST be produced as the determination is made, and MUST NOT be reconstructed afterwards (§4). — *sections: §4*
 - **EV-3** (§13) Refusals MUST be evidenced as fully as admissions (§3.3). — *sections: §3.3*
 - **EV-4** (§13) Evidence MUST NOT be an input to any determination (§3.2). — *sections: §3.2*
-- **EV-5** (§13) Evidence MUST distinguish its determinative content from its observational content, and the distinction MUST be declared rather than inferred (§5.1). — *sections: §5.1*
+- **EV-5** (§13) Evidence MUST distinguish its determinative content from its observational content. The distinction MUST be declared rather than inferred (§5.1). — *sections: §5.1*
 - **EV-6** (§13) Determinative content MUST be identical across determinations over the same state, proposal, and closure (§5.1). — *sections: §5.1*
 - **EV-7** (§13) Observational content MUST NOT participate in any determination (§5.1). — *sections: §5.1*
 - **EV-8** (§13) An attestation MUST identify its attesting party, its subject, and the property asserted (§6). — *sections: §6*
