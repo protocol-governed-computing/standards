@@ -135,7 +135,8 @@ Evidence carries two kinds of content, and **a conforming system distinguishes t
   tolerate.
 - **Observational content MUST NOT be determinative.** No determination may depend on it. Suppose a
   timestamp, a duration, a node identifier or an environmental reading can change a consequence. At
-  that moment it stops being observational, and the system is no longer deterministic.
+  that moment it stops being observational, and the system is no longer deterministic. A value that
+  must be able to affect a consequence is captured as an input instead (§5.3).
 - **The distinction MUST be declared, not inferred.** Evidence must state which of its content is
   determinative, so a checker can compare that content and ignore the rest.
 
@@ -151,6 +152,19 @@ Without a declared distinction, replay comparison fails in every direction:
 **Observational content is still evidence.** It is not discardable metadata. It supports
 attestation, forensics and operational understanding. It never takes part in establishing that a
 determination was correct.
+
+### 5.3 Captured inputs
+
+A captured input is a governed input, not evidence (Conceptual Model, *captured input*). Evidence
+must still account for it:
+
+- **Evidence MUST identify every captured input the determination consumed.** A party re-deriving
+  the determination needs the same captured inputs, or the re-derivation proves nothing.
+- **A captured input is held in its own record, separate from evidence.** Evidence refers to that
+  record. Replay reads the record, never the evidence, so evidence stays output only (§3.2).
+- **Captured inputs are determinative.** They belong to the content that must be identical across
+  two executions of the same transition. Two executions that captured different values are two
+  different transitions.
 
 ## 6. Attestation
 
@@ -311,6 +325,9 @@ profile's question. The profile should answer it, not reach an answer by default
   (§10).
 - **EV-17.** Evidence MUST identify the sealed representation it was produced under and the subject
   of the determination it records (§3.1).
+- **EV-18.** Evidence MUST identify every captured input a determination consumed. A captured input
+  MUST be held in a record separate from evidence, and replay MUST read that record, not the
+  evidence (§5.3).
 
 ## 14. Conformance
 

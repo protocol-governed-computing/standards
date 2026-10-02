@@ -8,7 +8,7 @@ references that text states, and never the sections those references reach.
 **Authority.** None. Where this projection and the documents disagree, the documents govern
 (`0z` §5.2, PJ-7).
 
-357 requirements · 26 documents · 340 bullet · 17 heading
+360 requirements · 26 documents · 343 bullet · 17 heading
 
 ## 1a — Conceptual Model & Terminology
 
@@ -167,6 +167,7 @@ references that text states, and never the sections those references reach.
 - **EX-14** (§15) Where the declarations do not answer, execution MUST refuse, and MUST NOT default, improvise, or degrade (§11). — *sections: §11*
 - **EX-15** (§15) An execution MUST produce enough evidence for the path taken to be independently checked against the sealed representation (§12). — *sections: §12*
 - **EX-16** (§15) An outcome MUST NOT be treated as a governance refusal, whatever it is named. A refusal MUST NOT be reported as a routable outcome (§4.4, EN-8). — *requirements: EN-8; sections: §4.4*
+- **EX-17** (§15) A captured input, and the outcome of the non-deterministic capability that produced it, MUST NOT select a route. They MAY influence routing only through the declared outcome of a deterministic step that evaluates the captured input (§4.5). — *sections: §4.5*
 
 ## 3b — Snapshot
 
@@ -214,6 +215,7 @@ references that text states, and never the sections those references reach.
 - **CP-9** (§12) A binding MUST be declared and MUST resolve before dispatch. It MUST NOT alter what the contract declares (§6). — *sections: §6*
 - **CP-10** (§12) Replacing a realization that satisfies a contract MUST NOT change a governed consequence and MUST NOT require a declaration to change (§8). — *sections: §8*
 - **CP-11** (§12) A capability MUST NOT be a source of authority, and its reachability MUST NOT constitute permission to reach it (§9). — *sections: §9*
+- **CP-12** (§12) A contract MUST declare whether its capability is non-deterministic. Each result a non-deterministic capability produces MUST be recorded as a captured input before anything consumes it (§5.3). — *sections: §5.3*
 
 ## 3e — Evidence, Attestation & Provenance
 
@@ -234,6 +236,7 @@ references that text states, and never the sections those references reach.
 - **EV-15** (§13) Snapshot, evidence, attestation, and actor identities MUST be separately determinable (§9). — *sections: §9*
 - **EV-16** (§13) Records MUST be checkable without access to, or trust in, the system that produced them (§10). — *sections: §10*
 - **EV-17** (§13) Evidence MUST identify the sealed representation it was produced under and the subject of the determination it records (§3.1). — *sections: §3.1*
+- **EV-18** (§13) Evidence MUST identify every captured input a determination consumed. A captured input MUST be held in a record separate from evidence, and replay MUST read that record, not the evidence (§5.3). — *sections: §5.3*
 
 ## 4a — Governed Construction
 

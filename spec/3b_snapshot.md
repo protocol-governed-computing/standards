@@ -189,7 +189,7 @@ produced it, nor to the agent that executes it, nor to the environment either on
 - **The same snapshot, the same inputs and the same initial state produce the same governed
   consequences on any conforming agent** (SM-10, AI-9). Observations that are not governed
   consequences, such as timings and environmental measurements, may differ. The equivalence still
-  holds.
+  holds. The inputs include every captured input (Conceptual Model, *captured input*).
 - **A deployment decision changes where execution happens. It MUST NOT change what execution
   means.**
 

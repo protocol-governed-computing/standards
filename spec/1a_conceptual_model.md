@@ -378,7 +378,8 @@ answers *where did this come from*. Evidence answers *what happened*. Attestatio
 vouches for it*.
 
 **Determinism.** The property that the same governed input, against the same sealed representation
-and the same initial state, determines the same result and the same governed consequences. It also
+and the same initial state, determines the same result and the same governed consequences. Governed
+input includes every captured input. It also
 requires that the evidence of the execution remains sufficient to establish that determination.
 Determinism follows from where behavioral authority sits. It is not a feature added to an execution
 agent.
@@ -390,8 +391,21 @@ agent.
   observational. Determinism is a property of the determination, not of every byte of the record.
 
 **Replay.** The reproduction of a past execution by executing the same sealed representation against
-the same inputs and initial state. Replay is structural. It re-executes an artifact. It does not
-reconstruct an environment.
+the same inputs, the same captured inputs and the same initial state. Replay is structural. It
+re-executes an artifact. It does not reconstruct an environment. Replay substitutes each captured
+input from its record, and never re-invokes the step that produced it.
+
+**Captured input.** A value that a non-deterministic capability produces during execution, recorded
+once where it is produced and treated from then on as a governed input. A capability is
+non-deterministic when its declared inputs do not determine its result: it reads a clock, draws a
+random value, or asks something outside the governed system. A captured input is an input. It is
+neither a decision nor evidence.
+
+- *Distinguish from observational content.* Observational content may vary between executions and
+  never affects a governed consequence. A captured input may affect governed consequences, so it is
+  recorded and held constant wherever two executions are compared.
+- *Distinguish from evidence.* Evidence records what happened and is never an input. A captured input
+  is held in its own record. Evidence refers to that record. It is not that record.
 
 ## 10. Change
 

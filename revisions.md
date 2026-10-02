@@ -64,6 +64,58 @@ relation to be declared once, and the realization declares it on both sides. SU-
 reference to a predecessor, and a predecessor-side `superseded_by` is a second. Both are recorded in
 the realization map §22.
 
+### Change 2 — a non-deterministic result is a captured input, and is judged before it routes
+
+**Documents:** `1a` §9 (*Determinism* and *Replay* revised, **captured input** added); `1b` §12;
+`3a` §1 table, §4.5 added, §15 (**EX-17** added); `3b` §9; `3d` §1, §3, §5.3 added, §8, §12
+(**CP-12** added); `3e` §5.1, §5.3 added, §13 (**EV-18** added); `7b` §5.3; `0z` §2 (ranges become
+EX-1 … EX-17, CP-1 … CP-12, EV-1 … EV-18).
+
+**Occasioned by** a deliberate choice in the reference realization that the family did not admit.
+The realization runs non-deterministic atoms. It records a non-deterministic result where it is
+produced. Nothing routes on the result until a deterministic step has judged it. Replay substitutes
+the recorded result. `ASSERT_NONDETERMINISM_NOT_ROUTED_V0` enforces the routing rule. The family
+stated determinism with no qualification (SM-10, SN-11, RT-12, EE-6, CF-12), and the Capability
+Standard let only non-governed outputs vary. So any judged non-deterministic value that reached
+governed state broke every equivalence claim as written. A realization may not decide a revision
+(`0z` §3). This one exposed a case the family had not stated.
+
+**What changes.**
+
+- **One new concept, not an exception.** A *captured input* is a value a non-deterministic capability
+  produces, recorded once where it is produced, and governed as an input from then on. Determinism,
+  replay and every equivalence claim are now stated relative to captured inputs (`1a`, `1b` §12,
+  `3b` §9, `7b` §5.3). Determinism stays exact. It now names everything it depends on.
+- **EX-17.** Neither a captured input nor the outcome of the capability that produced it may select a
+  route. Routing reaches it only through the declared outcome of a deterministic step that judges it.
+  EX-2 and RT-6 are unchanged.
+- **CP-12.** A contract declares whether its capability is non-deterministic. Each result is recorded
+  as a captured input before anything consumes it.
+- **EV-18.** Evidence identifies every captured input a determination consumed. The captured input
+  sits in its own record, and replay reads that record, never evidence. AI-15 and EV-4 are unchanged.
+
+**Why this does not weaken runtime behavior.** Checked guarantee by guarantee before drafting:
+routing on declared outcomes only, unchanged; the runtime originates no behavior (RT-1), unchanged,
+because a captured value is an input and not a decision; replay holds, by substitution; equivalence
+across runtimes holds relative to the same captured inputs; evidence gains an obligation. Nothing
+that was required is relaxed. The only widening is that a governed consequence may now depend on a
+recorded non-deterministic value, and only through a deterministic judgement.
+
+**What it invalidates.**
+
+- **Three new obligations** bind realizations: EX-17, CP-12 and EV-18. The realization map records
+  EX-17 as Demonstrated, CP-12 as Partial, and EV-18 as Violated. The realization keeps captured
+  values in the trace and replays from it, so replay reads evidence.
+- **A definition was added to `1a`, and two were revised** (CM-7). Every document that uses
+  *determinism* or *replay* was re-examined. Those whose wording depends on the change are listed
+  above. The rest state determinism over "the same inputs", which now includes captured inputs by
+  definition.
+- **A claim discharged against `v0` keeps standing against `v0`** (SU-10, `0z` §5.1).
+
+**Not changed, and considered.** `6b` §6 states a parallel rule for declared environment. The two
+kinds of governed input could be stated together. That would be a wording change to `6b` with no new
+obligation, and is left for the restatement of `v1`.
+
 ---
 
 ## `v0` supersedes `draft-3`

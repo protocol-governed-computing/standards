@@ -19,8 +19,8 @@ This document prescribes **no realization**. A capability may be realized as a l
 service, a remote operation, a hardware function, a manual procedure, or anything else. The
 requirements cover what is declared and what is preserved, never how the work is done.
 
-This document introduces the terms **capability contract**, **binding**, **effecting**, and
-**non-effecting**. The Conceptual Model, the Semantic Model or Parts II–III defines every other term
+This document introduces the terms **capability contract**, **binding**, **effecting**,
+**non-effecting**, and **non-deterministic**. The Conceptual Model, the Semantic Model or Parts II–III defines every other term
 it uses.
 
 Keywords MUST, SHOULD, MAY per RFC 2119.
@@ -51,6 +51,7 @@ A **capability contract** declares:
 | **outputs** | what it produces on each outcome |
 | **outcomes** | the closed, enumerated set of results it may report |
 | **effect disposition** | whether it may produce effects beyond governed state (§5) |
+| **determinism disposition** | whether its declared inputs determine its result (§5.3) |
 
 All four declarations are closed. The contract declares the complete interface and disposition that
 matter to execution. This is closure of the *interface*, not of the value domain. A contract may
@@ -130,6 +131,22 @@ This makes the question *what can this system do?* answerable. A system whose ef
 through declared, enumerable capabilities can state its reach. A system whose effects can originate
 anywhere cannot, and no amount of inspection recovers the answer.
 
+### 5.3 Non-deterministic capabilities
+
+A capability is **non-deterministic** when its declared inputs do not determine its result. It reads
+a clock, draws a random value, or asks something outside the governed system. Its contract MUST
+declare that it is non-deterministic.
+
+- Each result it produces is a **captured input** (Conceptual Model, *captured input*). The result
+  MUST be recorded once, where it is produced, before anything consumes it.
+- Its result and its outcome select no route. A deterministic step must judge the result first
+  (EX-17).
+- The non-deterministic disposition is independent of the effect disposition. A non-deterministic
+  capability may be non-effecting, such as one that reads a clock.
+
+A contract that declares a capability deterministic makes a claim that substitution can test (§8). A
+realization whose result varies for the same inputs breaks that claim.
+
 ## 6. Binding
 
 A **binding** associates a contract with a realization.
@@ -176,7 +193,8 @@ checks correctness.
 **Any realization that satisfies a contract may replace any other, and execution cannot tell.**
 
 - Two realizations of one contract MUST produce the same declared outcome and the same governed
-  outputs for the same inputs. Otherwise at least one does not satisfy the contract. Observational
+  outputs for the same inputs. Otherwise at least one does not satisfy the contract. For a
+  non-deterministic capability, the comparison holds the captured inputs constant (§5.3). Observational
   content that is not a governed output may differ without violating the contract. Examples are a
   measurement, a generated identifier, and a reading taken at the moment of execution.
 - Replacing a realization MUST NOT change any governed consequence, and MUST NOT require a change to
@@ -241,6 +259,9 @@ a declared classification, a closure, and obligations that apply to it.
   and MUST NOT require a declaration to change (§8).
 - **CP-11.** A capability MUST NOT be a source of authority, and its reachability MUST NOT constitute
   permission to reach it (§9).
+- **CP-12.** A contract MUST declare whether its capability is non-deterministic. Each result a
+  non-deterministic capability produces MUST be recorded as a captured input before anything
+  consumes it (§5.3).
 
 ## 13. Conformance
 

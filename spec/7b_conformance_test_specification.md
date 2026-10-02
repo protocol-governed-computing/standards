@@ -168,7 +168,8 @@ Examine the subject for the absence of a path, without running it.
 Vary what must not matter, and compare governed consequences.
 
 - The demonstration MUST state **what was varied**, **what was held constant**, and **what
-  equivalence was required**.
+  equivalence was required**. Captured inputs are among what is held constant (Conceptual Model,
+  *captured input*).
 - **The variants MUST be genuinely independent.** Two runtimes that share the component under test,
   two protocols that share an adapter, or two environments that differ only in name establish
   nothing. The substitution did not substitute.

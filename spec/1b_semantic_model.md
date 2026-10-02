@@ -368,6 +368,11 @@ than assuming it: **the same determination, applied to the same governed state, 
 resulting state.** The determination and the state it applies to fix the state update. Nothing else
 does. So, given the same `(S, π, C)`, a governed transition reaches the same `Δ` and the same `S′`.
 
+In execution, the proposal `π` includes every captured input the execution records (Conceptual
+Model, *captured input*). So determinism holds relative to captured inputs. Two executions that
+capture different values have different proposals, and may reach different determinations. Two
+executions that hold the same captured inputs reach the same `Δ` and the same `S′`.
+
 Determinism constrains the determination and the resulting state. It does not require identical
 evidence between two executions of the same transition. Evidence may carry observational material
 that varies while every governed consequence stays the same (Conceptual Model, *Determinism*). §13

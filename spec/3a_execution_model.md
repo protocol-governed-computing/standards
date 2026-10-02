@@ -30,7 +30,7 @@ Execution is the Semantic Model's transition schema applied to one subject:
 | | In execution |
 |---|---|
 | `S` | the governed state under a sealed representation |
-| `π` | an interaction presented to the system |
+| `π` | an interaction presented to the system, with the captured inputs its execution records |
 | `C` | the closure the sealed representation supplies for that interaction |
 | `S′` | the governed state after |
 | `ε` | the evidence of what was determined and what occurred |
@@ -170,6 +170,23 @@ So a contract or profile that uses such a name carries the distinction explicitl
 
 **Where the distinction cannot be carried, change the name.** The family reserves no outcome names,
 and it does not need to. This section fixes what a name may not do, whatever the name is.
+
+### 4.5 A captured input is judged before it routes
+
+A non-deterministic capability produces a captured input (Conceptual Model, *captured input*).
+**Neither the captured input, nor the outcome of the capability that produced it, may select a
+route.** Traversal reaches routing through a deterministic step that evaluates the captured input
+and reports one of its own declared outcomes.
+
+- A step that dispatches a non-deterministic capability MUST have one declared continuation. Its
+  outcome selects nothing.
+- Where the non-deterministic capability fails to produce a value, execution refuses (§11). It does
+  not route on the failure.
+- The captured input MUST be recorded before anything consumes it (Capability Standard §5.3).
+
+The rule keeps routing where §3.2 puts it. Every route still follows a declared outcome of a
+deterministic determination. A non-deterministic value may influence a route only after a
+deterministic step has judged it, and the judgement is what the route follows.
 
 ## 5. Inputs and resolution
 
@@ -353,6 +370,9 @@ happened to apply.
   against the sealed representation (§12).
 - **EX-16.** An outcome MUST NOT be treated as a governance refusal, whatever it is named. A refusal
   MUST NOT be reported as a routable outcome (§4.4, EN-8).
+- **EX-17.** A captured input, and the outcome of the non-deterministic capability that produced it,
+  MUST NOT select a route. They MAY influence routing only through the declared outcome of a
+  deterministic step that evaluates the captured input (§4.5).
 
 ## 16. Conformance
 
