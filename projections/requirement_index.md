@@ -336,12 +336,12 @@ references that text states, and never the sections those references reach.
 - **IB-2** (§15) An operation identity MUST be uniquely resolvable and MUST NOT be the identity of an executable target (§5). — *sections: §5*
 - **IB-3** (§15) The boundary MUST bind to a governed executable target without requiring it to carry any particular vocabulary classification (§6). — *sections: §6*
 - **IB-4** (§15) Ingress and egress MUST be contracts at the edge and MUST NOT be modelled as execution stages (§3). — *sections: §3*
-- **IB-5** (§15) Operation-to-target resolution, input-contract existence, and closure establishment MUST be determined before interaction time; execution MUST enforce the constructed boundary (§6, §12). — *sections: §12, §6*
-- **IB-6** (§15) Ingress and egress MUST declare explicit normalization to and from the canonical form; raw passthrough of an inbound payload or a governed result MUST NOT occur (§8). — *sections: §8*
+- **IB-5** (§15) Operation-to-target resolution, input-contract existence, and closure establishment MUST be determined before interaction time. Execution MUST enforce the constructed boundary (§6, §12). — *sections: §12, §6*
+- **IB-6** (§15) Ingress and egress MUST declare explicit normalization to and from the canonical form. Raw passthrough of an inbound payload or a governed result MUST NOT occur (§8). — *sections: §8*
 - **IB-7** (§15) An adapter MUST determine no governed or domain semantics (§10). — *sections: §10*
 - **IB-8** (§15) A result class MUST carry no external representation semantics (§9). — *sections: §9*
 - **IB-9** (§15) The mapping from result class to external representation MUST be adapter-owned and MUST NOT appear in an egress contract (§9). — *sections: §9*
-- **IB-10** (§15) No boundary contract or adapter MUST introduce domain state-transition, resource, or result semantics; domain meaning MUST enter only through governed execution artifacts (§2, §10). — *sections: §10, §2*
+- **IB-10** (§15) No boundary contract or adapter MUST introduce domain state-transition, resource, or result semantics. Domain meaning MUST enter only through governed execution artifacts (§2, §10). — *sections: §10, §2*
 - **IB-11** (§15) Applicability of boundary contracts MUST be determined within an applicable governance scope, and contracts from incompatible scopes MUST NOT be combined (§11). — *sections: §11*
 - **IB-12** (§15) Within one governance scope, an operation identity MUST resolve to exactly one governed invocation contract (§5, §11). — *sections: §11, §5*
 - **IB-13** (§15) An interaction with no applicable ingress contract MUST be refused (§6). — *sections: §6*
@@ -361,7 +361,7 @@ references that text states, and never the sections those references reach.
 - **IN-9** (§15) Malformed or unreadable material MUST produce a refusal, and an unanswerable question MUST be refused rather than answered emptily (§9). — *sections: §9*
 - **IN-10** (§15) A read operation MUST NOT fall back to another source, a partial source, or a default (§9). — *sections: §9*
 - **IN-11** (§15) A governed system MUST be able to answer what it contains, what governs what, what it determined, and what it is (§10). — *sections: §10*
-- **IN-12** (§15) Whether a read may proceed MUST be determined by the governance applicable to it; reachability MUST NOT constitute permission (§11). — *sections: §11*
+- **IN-12** (§15) Whether a read may proceed MUST be determined by the governance applicable to it. Reachability MUST NOT constitute permission (§11). — *sections: §11*
 - **IN-13** (§15) No read path MUST exist that is not a declared read operation (§2, §12). — *sections: §12, §2*
 - **IN-14** (§15) Inspection MUST NOT be performed against a representation that has not been sealed (§13). — *sections: §13*
 - **IN-15** (§15) Inspection MUST be reachable independently of the interaction boundary, and a read operation MUST NOT be admitted as an interaction at that boundary (§2.1). — *sections: §2.1*

@@ -528,6 +528,34 @@ is unchanged.
 repository now differ in wording in Parts I to IV. They agree in every obligation. A claim naming
 `v0` stands against either text.
 
+### Carried under `v0` — Part V restated for clarity, no change in meaning
+
+**Documents:** `5a`, `5b`, every section.
+
+**What changes.** The wording only, under the same rules as the Part I restatement above. Every
+cross-reference that named a document by file identifier now names it by title: `5a` §13 and §14
+cite Governed Transformation and Governed Inspection, and `5b` §1, §2.1, §3.2, §6, §7, §11, §13 and
+§14 cite Governed Transformation, the Projection Standard, the Governed Interaction Boundary, the
+Semantic Model, Governance Closure & Authority, the Normative Platform Profile, and Enforcement &
+Refusal. Each points at the same section as before.
+
+**What does not change.**
+
+- **No requirement changes.** Each of IB-1 … IB-15 and IN-1 … IN-16 was compared old against new.
+  Each keeps its identifier, its bound party and its force. The count of MUST, MUST NOT, SHOULD and
+  MAY in each document is unchanged.
+- **No term changes.** Every term these documents introduce keeps its meaning and its defining site.
+  The derived terminology index lists the same terms.
+- **No boundary rule, read-surface rule or conformance condition changes.**
+
+**What it invalidates.** Nothing. A realization or document that conformed to Part V before this
+edit conforms after it. The requirement index changes only in sentence breaks, and the vocabulary
+check reports the same 0 defects and 40 warnings.
+
+**What this means for the deposit.** The normative documents of the archived `v0` and this
+repository now differ in wording in Parts I to V. They agree in every obligation. A claim naming
+`v0` stands against either text.
+
 ---
 
 ## `draft-3` supersedes `draft-2`
