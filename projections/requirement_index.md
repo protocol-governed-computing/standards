@@ -388,7 +388,7 @@ references that text states, and never the sections those references reach.
 - **EE-2** (§11) An environment profile MUST NOT introduce a governance kind, semantic category, authority, or determination point (§4). — *sections: §4*
 - **EE-3** (§11) An environment profile MUST NOT exempt a system from any invariant of this family (§4). — *sections: §4*
 - **EE-4** (§11) A governed consequence MUST NOT follow from an environmental property no declaration established (§6). — *sections: §6*
-- **EE-5** (§11) An environment profile MUST NOT convert an ambient environmental property into a governed input; only the system may declare one (§6). — *sections: §6*
+- **EE-5** (§11) An environment profile MUST NOT convert an ambient environmental property into a governed input. Only the system may declare one (§6). — *sections: §6*
 - **EE-6** (§11) Two conforming environments executing the same snapshot, inputs, and initial state MUST produce the same governed consequences (§7). — *sections: §7*
 - **EE-7** (§11) Inability to establish governed state or an applicable closure MUST produce refusal, whatever the environmental cause (§8.1). — *sections: §8.1*
 - **EE-8** (§11) A distributed environment MUST NOT relieve a system of any invariant a single-node system carries (§8.3). — *sections: §8.3*
@@ -396,13 +396,13 @@ references that text states, and never the sections those references reach.
 ## 6c — Domain Profiles
 
 - **DP-1** (§12) A domain MUST NOT weaken, exempt itself from, or reinterpret governance applicable to it (§3.1). — *sections: §3.1*
-- **DP-2** (§12) A domain's declarations MUST compose with applicable governance by dominance; a domain MUST NOT declare an obligation that contradicts one already applicable (§3.1). — *sections: §3.1*
+- **DP-2** (§12) A domain's declarations MUST compose with applicable governance by dominance. A domain MUST NOT declare an obligation that contradicts one already applicable (§3.1). — *sections: §3.1*
 - **DP-3** (§12) A domain MUST NOT be treated as an authority without satisfying the authority test, and MUST NOT acquire jurisdiction by being named, bounded, deployed separately, or separately owned (§4). — *sections: §4*
 - **DP-4** (§12) A domain profile MUST state whether the domain claims to be an authority or is a concern (§5). — *sections: §5*
-- **DP-5** (§12) A domain MUST have no private admission path; its declarations are admitted as any others are (§6). — *sections: §6*
+- **DP-5** (§12) A domain MUST have no private admission path. Its declarations are admitted as any others are (§6). — *sections: §6*
 - **DP-6** (§12) A domain MUST change only through governed transformation against a baseline (§6, §10). — *sections: §10, §6*
 - **DP-7** (§12) A write across a domain boundary MUST be authorized by the governance applicable to the store written, and MUST NOT be authorized by reach (§7). — *sections: §7*
-- **DP-8** (§12) A domain MUST NOT depend on another domain's internals; dependence MUST be on what the other declares (§7). — *sections: §7*
+- **DP-8** (§12) A domain MUST NOT depend on another domain's internals. Dependence MUST be on what the other declares (§7). — *sections: §7*
 - **DP-9** (§12) Admitting a domain kind MUST NOT require an ontology revision, and a domain MUST NOT hold a private vocabulary (§8). — *sections: §8*
 - **DP-10** (§12) A domain whose subject matter is governance MUST NOT thereby acquire authority over the platform (§9). — *sections: §9*
 - **DP-11** (§12) A domain MUST NOT claim genesis (§10). — *sections: §10*

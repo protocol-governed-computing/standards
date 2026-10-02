@@ -556,6 +556,33 @@ check reports the same 0 defects and 40 warnings.
 repository now differ in wording in Parts I to V. They agree in every obligation. A claim naming
 `v0` stands against either text.
 
+### Carried under `v0` — Part VI restated for clarity, no change in meaning
+
+**Documents:** `6a`, `6b`, `6c`, every section.
+
+**What changes.** The wording only, under the same rules as the Part I restatement above. Every
+cross-reference that named a document by file identifier or abbreviation now names it by title. In
+`6a` these are §4, §7 and §8. In `6b` they are §1, §4, §6, §7, §8.2, §10 and §12. In `6c` they are
+§2, §4, §5, §7, §8, §9 and §10. Each points at the same section as before.
+
+**What does not change.**
+
+- **No requirement changes.** Each of NP-1 … NP-12, EE-1 … EE-8 and DP-1 … DP-11 was compared old
+  against new. Each keeps its identifier, its bound party and its force. The count of MUST, MUST NOT,
+  SHOULD and MAY in each document is unchanged.
+- **No term changes.** Every term these documents introduce keeps its meaning and its defining site.
+  The derived terminology index lists the same terms.
+- **No narrowing rule, deferred decision, environment rule, domain rule or conformance condition
+  changes.**
+
+**What it invalidates.** Nothing. A profile, realization or document that conformed to Part VI before
+this edit conforms after it. The requirement index changes only in sentence breaks, and the
+vocabulary check reports the same 0 defects and 40 warnings.
+
+**What this means for the deposit.** The normative documents of the archived `v0` and this
+repository now differ in wording in Parts I to VI. They agree in every obligation. A claim naming
+`v0` stands against either text.
+
 ---
 
 ## `draft-3` supersedes `draft-2`

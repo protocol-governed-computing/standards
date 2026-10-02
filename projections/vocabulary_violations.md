@@ -45,7 +45,7 @@ None.
 - **CM-3** — 'declared extension' is introduced by 2c but its site (line 87) is bold emphasis rather than a definition — the document marks the term without saying what it is.
 - **CM-3** — 'determination' is introduced by 1b but its site (line 68) is bold emphasis rather than a definition — the document marks the term without saying what it is.
 - **CM-3** — 'empty governed state' is introduced by 1b but its site (line 292) is bold emphasis rather than a definition — the document marks the term without saying what it is.
-- **CM-3** — 'execution constraint' is introduced by 6b but its site (line 45) is bold emphasis rather than a definition — the document marks the term without saying what it is.
+- **CM-3** — 'execution constraint' is introduced by 6b but its site (line 44) is bold emphasis rather than a definition — the document marks the term without saying what it is.
 - **CM-3** — 'mechanism decision' is introduced by 3c but its site (line 89) is bold emphasis rather than a definition — the document marks the term without saying what it is.
 - **CM-3** — 'modality' is introduced by 2a but its site (line 121) is bold emphasis rather than a definition — the document marks the term without saying what it is.
 - **CM-3** — 'outcome vocabulary' is introduced by 3a but its site (line 108) is bold emphasis rather than a definition — the document marks the term without saying what it is.

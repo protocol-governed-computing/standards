@@ -62,7 +62,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Authority
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 5, line 232)
-- **Used in** 0a (2), 0b (10), 0c (1), 0z (4), 1b (7), 1c (12), 2a (8), 2b (35), 2c (6), 2d (4), 2e (71), 2f (7), 3a (4), 3b (2), 3c (8), 3d (3), 3e (14), 4a (1), 4b (5), 4c (11), 4d (1), 5a (6), 5b (5), 6a (2), 6b (4), 6c (27), 7a (2), 7b (1), 8a (5), 8b (3)
+- **Used in** 0a (2), 0b (10), 0c (1), 0z (4), 1b (7), 1c (12), 2a (8), 2b (35), 2c (6), 2d (4), 2e (71), 2f (7), 3a (4), 3b (2), 3c (8), 3d (3), 3e (14), 4a (1), 4b (5), 4c (11), 4d (1), 5a (6), 5b (5), 6a (2), 6b (4), 6c (29), 7a (2), 7b (1), 8a (5), 8b (3)
 
 ### authorization
 
@@ -153,7 +153,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### consequence
 
 - **Defined in** 1b — Semantic Model (Sec 6, line 120) [section]
-- **Used in** 0a (2), 1a (2), 1c (6), 2a (6), 2b (2), 2c (1), 2d (2), 2e (1), 2f (8), 3a (1), 3b (5), 3c (15), 3d (3), 3e (5), 4a (1), 4c (2), 4e (1), 5b (3), 6a (2), 6b (14), 6c (2), 7a (8), 7b (5)
+- **Used in** 0a (2), 1a (2), 1c (6), 2a (6), 2b (2), 2c (1), 2d (2), 2e (1), 2f (8), 3a (1), 3b (5), 3c (15), 3d (3), 3e (5), 4a (1), 4c (2), 4e (1), 5b (3), 6a (2), 6b (14), 6c (1), 7a (8), 7b (5)
 
 ### constituent
 
@@ -168,7 +168,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### constraint
 
 - **Defined in** 6a — Normative Platform Profile (Sec 2, line 34) [table]
-- **Used in** 0a (2), 1a (3), 1b (6), 2b (1), 2c (8), 2d (2), 4a (2), 6b (9)
+- **Used in** 0a (2), 1a (3), 1b (6), 2b (1), 2c (8), 2d (2), 4a (2), 6b (10)
 
 ### Construction
 
@@ -193,7 +193,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Declaration
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 4, line 153)
-- **Used in** 0a (2), 0b (4), 0c (6), 1b (7), 1c (18), 2a (8), 2b (8), 2c (41), 2d (7), 2e (7), 3a (21), 3b (4), 3c (16), 3d (11), 4a (19), 4b (2), 4c (2), 4d (9), 4e (10), 5a (6), 5b (3), 6b (7), 6c (13), 7a (5), 8a (2), 8b (9)
+- **Used in** 0a (2), 0b (4), 0c (6), 1b (7), 1c (18), 2a (8), 2b (8), 2c (41), 2d (7), 2e (7), 3a (21), 3b (4), 3c (16), 3d (11), 4a (19), 4b (2), 4c (2), 4d (9), 4e (10), 5a (6), 5b (3), 6b (8), 6c (13), 7a (5), 8a (2), 8b (9)
 
 ### Declarative
 
@@ -228,7 +228,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### determination
 
 - **Defined in** 1b — Semantic Model (Sec 4, line 68) [emphasis]
-- **Used in** 0c (2), 1a (10), 1c (24), 2a (7), 2c (2), 2d (2), 2e (19), 2f (19), 3a (4), 3b (5), 3c (10), 3d (3), 3e (33), 4a (17), 4b (1), 4c (4), 4d (4), 4e (1), 5a (3), 5b (16), 6a (2), 6b (8), 6c (3), 7a (3), 8a (8)
+- **Used in** 0c (2), 1a (10), 1c (24), 2a (7), 2c (2), 2d (2), 2e (19), 2f (19), 3a (4), 3b (5), 3c (10), 3d (3), 3e (33), 4a (17), 4b (1), 4c (4), 4d (4), 4e (1), 5a (3), 5b (16), 6a (2), 6b (8), 6c (2), 7a (3), 8a (8)
 
 ### determinative content
 
@@ -253,7 +253,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Domain
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 6, line 262)
-- **Used in** 0b (1), 0z (1), 1b (1), 1c (1), 2b (2), 2c (2), 2d (1), 2e (2), 2f (1), 3c (8), 3d (1), 4d (1), 4e (1), 5a (6), 6a (2), 6c (89), 7a (2), 8a (1), 8b (6)
+- **Used in** 0b (1), 0z (1), 1b (1), 1c (1), 2b (2), 2c (2), 2d (1), 2e (2), 2f (1), 3c (8), 3d (1), 4d (1), 4e (1), 5a (6), 6a (2), 6c (90), 7a (2), 8a (1), 8b (6)
 
 ### domain profile
 
@@ -283,7 +283,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Enforcement
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 11, line 430)
-- **Used in** 0z (1), 1b (2), 1c (1), 2a (4), 2b (2), 2f (24), 3a (2), 3c (3), 4d (1), 5b (1), 7a (2)
+- **Used in** 0z (1), 1b (2), 1c (1), 2a (4), 2b (2), 2f (24), 3a (2), 3c (3), 4d (1), 5b (1), 6a (1), 7a (2)
 
 ### evaluation
 
@@ -303,7 +303,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Execution
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 8, line 322)
-- **Used in** 0a (2), 0b (8), 0c (5), 0z (5), 1b (7), 1c (20), 2b (8), 2c (2), 2f (1), 3a (63), 3b (26), 3c (17), 3d (19), 3e (7), 4a (4), 4b (2), 4d (3), 4e (3), 5a (22), 5b (12), 6a (3), 6b (15), 6c (3), 7a (11), 7b (4), 8a (5), 8b (1)
+- **Used in** 0a (2), 0b (8), 0c (5), 0z (5), 1b (7), 1c (20), 2b (8), 2c (2), 2f (1), 3a (63), 3b (26), 3c (17), 3d (19), 3e (7), 4a (4), 4b (2), 4d (3), 4e (3), 5a (22), 5b (12), 6a (3), 6b (18), 6c (8), 7a (11), 7b (4), 8a (5), 8b (1)
 
 ### execution closure
 
@@ -312,7 +312,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 
 ### execution constraint
 
-- **Defined in** 6b — Execution Environment Profiles (Sec 3, line 45) [emphasis]
+- **Defined in** 6b — Execution Environment Profiles (Sec 3, line 44) [emphasis]
 - **Used in** no other document
 
 ### extension point
@@ -353,12 +353,12 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Governance
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 5, line 205)
-- **Used in** 0a (10), 0b (3), 0c (7), 0z (5), 1b (24), 1c (5), 2a (65), 2b (22), 2c (24), 2d (9), 2e (29), 2f (18), 3a (10), 3b (1), 3c (8), 3d (3), 3e (5), 4a (11), 4b (1), 4c (3), 4d (6), 4e (3), 5a (10), 5b (9), 6a (4), 6b (8), 6c (23), 7a (4), 7b (1), 8b (8)
+- **Used in** 0a (10), 0b (3), 0c (7), 0z (5), 1b (24), 1c (5), 2a (65), 2b (22), 2c (24), 2d (9), 2e (29), 2f (18), 3a (10), 3b (1), 3c (8), 3d (3), 3e (5), 4a (11), 4b (1), 4c (3), 4d (6), 4e (3), 5a (10), 5b (9), 6a (4), 6b (9), 6c (27), 7a (4), 7b (1), 8b (8)
 
 ### Governance closure
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 5, line 245)
-- **Used in** 0c (1), 0z (1), 1b (3), 2a (4), 2b (2), 2e (2), 2f (2), 3c (2), 4a (2), 5a (1), 5b (2), 6c (2), 7a (1)
+- **Used in** 0c (1), 0z (1), 1b (3), 2a (4), 2b (2), 2e (2), 2f (2), 3c (2), 4a (2), 5a (1), 5b (2), 6c (3), 7a (1)
 
 ### governance universe
 
@@ -383,7 +383,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Governed state
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 8, line 348)
-- **Used in** 0b (1), 0c (2), 1b (27), 1c (3), 2a (2), 2f (1), 3a (7), 3b (1), 3c (3), 3d (3), 3e (1), 4d (2), 5b (4), 6b (1), 6c (1), 7a (1)
+- **Used in** 0b (1), 0c (2), 1b (27), 1c (3), 2a (2), 2f (1), 3a (7), 3b (1), 3c (3), 3d (3), 3e (1), 4d (2), 5b (4), 6b (2), 6c (1), 7a (1)
 
 ### Governed subject
 
@@ -433,7 +433,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Invariant
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 11, line 434)
-- **Used in** 0a (1), 0b (2), 0c (1), 0z (3), 1b (1), 1c (37), 2a (2), 2b (3), 2c (3), 2d (1), 2e (1), 2f (5), 3a (2), 3b (1), 3c (2), 3d (1), 3e (1), 4a (1), 4b (1), 4c (1), 4d (1), 4e (2), 5a (2), 5b (1), 6a (3), 6b (6), 6c (1), 7a (4), 7b (1), 8a (1)
+- **Used in** 0a (1), 0b (2), 0c (1), 0z (3), 1b (1), 1c (37), 2a (2), 2b (3), 2c (3), 2d (1), 2e (1), 2f (5), 3a (2), 3b (1), 3c (2), 3d (1), 3e (1), 4a (1), 4b (1), 4c (1), 4d (1), 4e (2), 5a (2), 5b (1), 6a (3), 6b (7), 6c (1), 7a (4), 7b (1), 8a (1)
 
 ### jurisdiction
 
@@ -458,7 +458,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### kind vocabulary
 
 - **Defined in** 2d — Kind Vocabulary (Sec 1, line 3) [section]
-- **Used in** 0z (1), 2a (1), 2b (3), 2c (2), 4d (1), 4e (1), 6a (2), 6c (1), 7a (1)
+- **Used in** 0z (1), 2a (1), 2b (3), 2c (2), 4d (1), 4e (1), 6a (3), 6c (1), 7a (1)
 
 ### machine block
 
@@ -503,7 +503,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Obligation
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 5, line 237)
-- **Used in** 0a (3), 0b (2), 0c (1), 0z (2), 1b (3), 1c (1), 2a (2), 2b (11), 2f (61), 3a (3), 3c (11), 3d (1), 3e (2), 4a (23), 4b (2), 4d (3), 4e (4), 5b (3), 6a (23), 6b (3), 6c (7), 7a (37), 7b (47), 8a (5)
+- **Used in** 0a (3), 0b (2), 0c (1), 0z (2), 1b (3), 1c (1), 2a (2), 2b (11), 2f (61), 3a (3), 3c (11), 3d (1), 3e (2), 4a (23), 4b (2), 4d (3), 4e (4), 5b (3), 6a (24), 6b (3), 6c (7), 7a (37), 7b (47), 8a (5)
 
 ### observational content
 
@@ -543,7 +543,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Platform
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 6, line 276)
-- **Used in** 0a (2), 0b (1), 0c (2), 0z (2), 1b (1), 2d (3), 3e (1), 4d (1), 4e (2), 5b (1), 6a (13), 6b (2), 6c (14), 7a (2), 8b (6)
+- **Used in** 0a (2), 0b (1), 0c (2), 0z (2), 1b (1), 2d (3), 3e (1), 4d (1), 4e (2), 5b (1), 6a (15), 6b (2), 6c (14), 7a (2), 8b (6)
 
 ### predecessor
 
@@ -558,11 +558,11 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Profile
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 6, line 272)
-- **Used in** 0c (9), 0z (5), 1b (7), 1c (3), 2a (3), 2c (1), 2d (7), 3a (3), 3b (11), 3c (1), 3d (2), 3e (7), 4b (1), 4c (1), 4d (9), 4e (8), 5a (3), 5b (13), 6a (115), 6b (28), 6c (14), 7a (19), 7b (7), 8a (1)
+- **Used in** 0c (9), 0z (5), 1b (7), 1c (3), 2a (3), 2c (1), 2d (7), 3a (3), 3b (11), 3c (1), 3d (2), 3e (7), 4b (1), 4c (1), 4d (9), 4e (8), 5a (3), 5b (13), 6a (119), 6b (29), 6c (16), 7a (19), 7b (7), 8a (1)
 
 ### profile derivation
 
-- **Defined in** 6a — Normative Platform Profile (Sec 10, line 233) [section]
+- **Defined in** 6a — Normative Platform Profile (Sec 10, line 236) [section]
 - **Used in** no other document
 
 ### prohibition
@@ -695,7 +695,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### rule
 
 - **Defined in** 1b — Semantic Model (Sec 5, line 95) [section]
-- **Used in** 0a (6), 0b (3), 0c (4), 0z (5), 1a (10), 1c (9), 2a (3), 2b (2), 2c (3), 2d (4), 2e (11), 2f (6), 3a (3), 3b (2), 3c (1), 3e (8), 4a (4), 4c (1), 4d (51), 4e (6), 5b (6), 6a (3), 6b (1), 6c (5), 7a (2), 7b (3), 8a (4), 8b (13)
+- **Used in** 0a (6), 0b (3), 0c (4), 0z (5), 1a (10), 1c (9), 2a (3), 2b (2), 2c (3), 2d (4), 2e (11), 2f (6), 3a (3), 3b (2), 3c (1), 3e (8), 4a (4), 4c (1), 4d (51), 4e (6), 5b (6), 6a (3), 6b (2), 6c (5), 7a (2), 7b (3), 8a (4), 8b (13)
 
 ### rule set
 
@@ -710,7 +710,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Runtime
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 8, line 325)
-- **Used in** 0b (3), 0c (3), 0z (1), 1c (1), 2b (2), 3a (3), 3b (1), 3c (84), 3d (1), 3e (1), 6a (1), 6b (1), 7a (7), 7b (2)
+- **Used in** 0b (3), 0c (3), 0z (1), 1c (1), 2b (2), 3a (3), 3b (1), 3c (84), 3d (1), 3e (1), 6a (1), 6b (2), 7a (7), 7b (2)
 
 ### Scope
 
@@ -756,7 +756,7 @@ index is regenerated rather than edited — hand edits are discarded on the next
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 7, line 314)
 - **Refined in** 3b
-- **Used in** 0c (6), 0z (1), 1b (1), 3a (1), 3b (89), 3c (31), 3e (5), 4a (2), 4b (2), 4c (2), 4e (2), 5a (1), 5b (1), 6a (3), 6b (7), 7a (12), 7b (2), 8a (2)
+- **Used in** 0c (6), 0z (1), 1b (1), 3a (1), 3b (89), 3c (31), 3e (5), 4a (2), 4b (2), 4c (2), 4e (2), 5a (1), 5b (1), 6a (3), 6b (9), 7a (12), 7b (2), 8a (2)
 
 ### Software governance
 
@@ -782,12 +782,12 @@ index is regenerated rather than edited — hand edits are discarded on the next
 ### Supersession
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 10, line 413)
-- **Used in** 0z (4), 3b (1), 4c (3), 4d (1), 4e (32), 6a (3), 8a (1)
+- **Used in** 0z (4), 3b (1), 4c (3), 4d (1), 4e (32), 6a (2), 8a (1)
 
 ### Surface
 
 - **Defined in** 1a — Conceptual Model & Terminology (Sec 6, line 265)
-- **Used in** 0c (1), 1c (5), 2a (2), 2b (1), 2c (27), 2d (1), 3a (4), 3c (2), 3d (1), 4b (1), 4c (1), 4d (1), 5a (1), 5b (22), 6a (6), 6c (2), 7b (1), 8a (1)
+- **Used in** 0c (1), 1c (5), 2a (2), 2b (1), 2c (27), 2d (1), 3a (4), 3c (2), 3d (1), 4b (1), 4c (1), 4d (1), 5a (1), 5b (22), 6a (7), 6c (2), 7b (1), 8a (1)
 
 ### Trace
 
