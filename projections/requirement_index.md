@@ -238,9 +238,9 @@ references that text states, and never the sections those references reach.
 ## 4a — Governed Construction
 
 - **GC-1** (§14) Construction MUST determine admissibility, and MUST NOT determine adequacy (§4.1). — *sections: §4.1*
-- **GC-2** (§14) Admissibility MUST be determinable from declarations and governance alone; construction MUST NOT execute a realization to determine it (§4.2). — *sections: §4.2*
+- **GC-2** (§14) Admissibility MUST be determinable from declarations and governance alone. Construction MUST NOT execute a realization to determine it (§4.2). — *sections: §4.2*
 - **GC-3** (§14) Every obligation of §5 MUST be discharged, and none MUST be discharged on the basis of something a later obligation was to establish (§5). — *sections: §5*
-- **GC-4** (§14) Only admitted candidates MUST be considered; nothing MUST enter construction by discovery (§5.1). — *sections: §5.1*
+- **GC-4** (§14) Only admitted candidates MUST be considered. Nothing MUST enter construction by discovery (§5.1). — *sections: §5.1*
 - **GC-5** (§14) Nothing depending on a candidate's legality MUST precede that candidate's determination, and nothing after a determination MUST revisit it (§6). — *sections: §6*
 - **GC-6** (§14) A refused construction MUST produce no usable output (§6.1). — *sections: §6.1*
 - **GC-7** (§14) Construction MUST refuse rather than repair, complete, substitute, or default (§7). — *sections: §7*
@@ -258,7 +258,7 @@ references that text states, and never the sections those references reach.
 - **PJ-2** (§13) A derivation MUST be deterministic and MUST consult nothing but its source (§3). — *sections: §3*
 - **PJ-3** (§13) Every projection MUST be governed by a projection contract stating its source, its selection, and its derivation (§3.1). — *sections: §3.1*
 - **PJ-4** (§13) A projection MUST make no claim its source does not entail (§4). — *sections: §4*
-- **PJ-5** (§13) A projection MUST NOT supply a default, resolve an ambiguity, infer, or silently transform an unresolved condition into a resolved one; where its source does not determine what it would carry, the derivation MUST refuse (§4.2). — *sections: §4.2*
+- **PJ-5** (§13) A projection MUST NOT supply a default, resolve an ambiguity, infer, or silently transform an unresolved condition into a resolved one. Where its source does not determine what it would carry, the derivation MUST refuse (§4.2). — *sections: §4.2*
 - **PJ-6** (§13) A projection MUST NOT omit anything its contract declares it carries (§4.1). — *sections: §4.1*
 - **PJ-7** (§13) Where a projection and its source disagree, the source MUST govern (§5). — *sections: §5*
 - **PJ-8** (§13) Nothing MUST be authored into a projection, and a projection MUST NOT be edited (§5). — *sections: §5*
@@ -274,7 +274,7 @@ references that text states, and never the sections those references reach.
 - **ID-3** (§9) Identity MUST be defined over the semantic object, and a representation change preserving meaning MUST NOT change identity (§2.2). — *sections: §2.2*
 - **ID-4** (§9) Two admitted things bearing one identity MUST be refused (§2.3). — *sections: §2.3*
 - **ID-5** (§9) A change of declared semantics MUST be a new identity (§2.4). — *sections: §2.4*
-- **ID-6** (§9) Identity MUST NOT carry ordering; supersession MUST be a declared relation (§2.4). — *sections: §2.4*
+- **ID-6** (§9) Identity MUST NOT carry ordering. Supersession MUST be a declared relation (§2.4). — *sections: §2.4*
 - **ID-7** (§9) An address MUST NOT be treated as an assertion of identity (§3.1). — *sections: §3.1*
 - **ID-8** (§9) A change of address MUST NOT change identity (§3.2, §4.1). — *sections: §3.2, §4.1*
 - **ID-9** (§9) Identity MUST NOT be derived from an address (§4.1). — *sections: §4.1*
@@ -282,37 +282,37 @@ references that text states, and never the sections those references reach.
 - **ID-11** (§9) Where a resolved thing's declared identity differs from what was expected, the difference MUST be refused (§4.2). — *sections: §4.2*
 - **ID-12** (§9) A namespace MUST NOT establish authority, concern, or federation, and MUST NOT encode them alongside identity (§5). — *sections: §5*
 - **ID-13** (§9) References MUST be by declared identity, and resolution MUST complete before anything depending on it proceeds (§6). — *sections: §6*
-- **ID-14** (§9) Resolution MUST NOT search, select among candidates, or fall back; an ambiguous or unresolvable reference MUST be refused (§6). — *sections: §6*
+- **ID-14** (§9) Resolution MUST NOT search, select among candidates, or fall back. An ambiguous or unresolvable reference MUST be refused (§6). — *sections: §6*
 - **ID-15** (§9) A composite identity MUST be derived from its constituents' identities, and MUST change when any constituent changes (§7). — *sections: §7*
 
 ## 4d — Governed Transformation
 
 - **TR-1** (§17) A transformation MUST be a governed transition, and its dossier MUST NOT be a member of the governed system (§2, §4). — *sections: §2, §4*
-- **TR-2** (§17) Governed content MUST live in registers; a phase document's prose MUST NOT carry it (§5). — *sections: §5*
-- **TR-3** (§17) Rules MUST be declared data; check kinds MUST be closed and MUST fail hard on the unknown; every declared rule MUST be evaluated (§5). — *sections: §5*
-- **TR-3a** (§17) Every declared rule MUST be demonstrated capable of refusing; a rule set is not evidence that its rules can fail (§5.1). — *sections: §5.1*
+- **TR-2** (§17) Governed content MUST live in registers. A phase document's prose MUST NOT carry it (§5). — *sections: §5*
+- **TR-3** (§17) Rules MUST be declared data. Check kinds MUST be closed and MUST fail hard on the unknown. Every declared rule MUST be evaluated (§5). — *sections: §5*
+- **TR-3a** (§17) Every declared rule MUST be demonstrated capable of refusing. A rule set is not evidence that its rules can fail (§5.1). — *sections: §5.1*
 - **TR-4** (§17) A verdict MUST name, for each finding, the rule and its location, where a location identifies the register, the entry, and the field concerned (§5). — *sections: §5*
 - **TR-5** (§17) A constrained field's admissible values MUST be declared with the register's own declaration, and emptiness MUST be declared rather than inferred (§6). — *sections: §6*
-- **TR-5a** (§17) A register's entries MUST be individually addressable; the addressing mechanism is not specified (§6). — *sections: §6*
-- **TR-6** (§17) Each register MUST declare its rung; a business rung MUST NOT name a constructed identity; grounding evidence MUST occupy a field declared for it (§7). — *sections: §7*
+- **TR-5a** (§17) A register's entries MUST be individually addressable. The addressing mechanism is not specified (§6). — *sections: §6*
+- **TR-6** (§17) Each register MUST declare its rung. A business rung MUST NOT name a constructed identity. Grounding evidence MUST occupy a field declared for it (§7). — *sections: §7*
 - **TR-7** (§17) Where a capability is named before it is identified, provisional name and bound identity MUST be reconciled in both directions (§7). — *sections: §7*
-- **TR-8** (§17) Admissibility MUST be decided by the rule set alone; a quality score MUST NOT gate, and MUST NOT score a value that admission refuses (§8). — *sections: §8*
-- **TR-9** (§17) An unanswered question MUST be recorded as such, MUST NOT be filled in or hedged, and a blocking one MUST make its document inadmissible (§9.1). — *sections: §9.1*
-- **TR-10** (§17) Human semantic content MUST enter once; later phases MUST preserve, reference, or declare supersession of it (§9.2). — *sections: §9.2*
-- **TR-11** (§17) Preservation MUST be checked in both directions — nothing dropped, nothing invented (§9.2). — *sections: §9.2*
+- **TR-8** (§17) Admissibility MUST be decided by the rule set alone. A quality score MUST NOT gate, and MUST NOT score a value that admission refuses (§8). — *sections: §8*
+- **TR-9** (§17) An unanswered question MUST be recorded as such, and MUST NOT be filled in or hedged. A blocking one MUST make its document inadmissible (§9.1). — *sections: §9.1*
+- **TR-10** (§17) Human semantic content MUST enter once. Later phases MUST preserve, reference, or declare supersession of it (§9.2). — *sections: §9.2*
+- **TR-11** (§17) Preservation MUST be checked in both directions: nothing dropped, nothing invented (§9.2). — *sections: §9.2*
 - **TR-12** (§17) Gates MUST be declared, and acceptance MUST NOT be inferred from admissibility (§9.3). — *sections: §9.3*
 - **TR-13** (§17) Given the same human answers — the same declared field values (§9) — any worker MUST yield the same admissible registers (§9.4). — *sections: §9, §9.4*
-- **TR-14** (§17) A phase determined by its prior MUST be projected, MUST refuse an inadmissible prior, and its verdict MUST NOT be read as evidence about the change (§10). — *sections: §10*
+- **TR-14** (§17) A phase determined by its prior MUST be projected and MUST refuse an inadmissible prior. Its verdict MUST NOT be read as evidence about the change (§10). — *sections: §10*
 - **TR-15** (§17) A transformation MUST be validated against a named frozen baseline, and never against one containing its own output (§11). — *sections: §11*
-- **TR-15a** (§17) Only the first transformation of a system MAY proceed without a baseline; it MUST name a profile it did not author, MUST declare its grounding registers empty rather than omitting them, and MUST satisfy every other requirement of this document. No later transformation MUST claim genesis (§12). — *sections: §12*
-- **TR-16** (§17) Claims about the existing system MUST be grounded; truth, belief, and question MUST be kept in separate registers; grounding MUST be able to answer about a named artifact (§11.1, §11.2). — *sections: §11.1, §11.2*
-- **TR-17** (§17) Sufficiency MUST be determined before realization, and realization MUST refuse a design that does not fix every fact the realization needs; how it is determined is unconstrained (§13). — *sections: §13*
+- **TR-15a** (§17) Only the first transformation of a system MAY proceed without a baseline. It MUST name a profile it did not author, MUST declare its grounding registers empty rather than omitting them, and MUST satisfy every other requirement of this document. No later transformation MUST claim genesis (§12). — *sections: §12*
+- **TR-16** (§17) Claims about the existing system MUST be grounded. Truth, belief, and question MUST be kept in separate registers. Grounding MUST be able to answer about a named artifact (§11.1, §11.2). — *sections: §11.1, §11.2*
+- **TR-17** (§17) Sufficiency MUST be determined before realization, and realization MUST refuse a design that does not fix every fact the realization needs. How sufficiency is determined is unconstrained (§13). — *sections: §13*
 - **TR-18** (§17) A realized artifact MUST be a function of the design alone (§13). — *sections: §13*
 - **TR-19** (§17) An amendment MUST be a whole redeclaration and MUST NOT narrow what it replaces (§13). — *sections: §13*
-- **TR-20** (§17) The realization order MUST be gapless over what it schedules and dependency-respecting; whether independent artifacts are ordered relative to one another is not specified (§13). — *sections: §13*
+- **TR-20** (§17) The realization order MUST be gapless over what it schedules and dependency-respecting. Whether independent artifacts are ordered relative to one another is not specified (§13). — *sections: §13*
 - **TR-21** (§17) Realization MUST cover both authored and amended artifacts, and MUST be checked in both directions against what was asked for (§13). — *sections: §13*
 - **TR-22** (§17) Completion MUST require execution against real state, with criteria asserting state rather than returned status (§14). — *sections: §14*
-- **TR-23** (§17) A refusal the business declares MUST be discharged by the design, the discharge MUST be stated, and it MUST be checked against what it does rather than only that it was stated (§14). — *sections: §14*
+- **TR-23** (§17) A refusal the business declares MUST be discharged by the design, and the discharge MUST be stated. It MUST be checked against what it does, not only for having been stated (§14). — *sections: §14*
 - **TR-24** (§17) Where a rule set has two readers, they MUST derive from one declaration, and divergence MUST be detectable (§15.1). — *sections: §15.1*
 - **TR-25** (§17) A human answer MUST be recorded as declared register content addressed by field (§9). — *sections: §9*
 
@@ -320,15 +320,15 @@ references that text states, and never the sections those references reach.
 
 - **SU-1** (§11) Supersession MUST be a declared relation between two exact identities, and MUST NOT cause any reference to resolve to a different identity (§2). — *sections: §2*
 - **SU-2** (§11) Nothing MUST be treated as superseded by deletion, renaming, deprecation in prose, or disuse (§2). — *sections: §2*
-- **SU-3** (§11) The relation MUST be declared once, on the successor; both sides MUST be established from that declaration (§3). — *sections: §3*
+- **SU-3** (§11) The relation MUST be declared once, on the successor. Both sides MUST be established from that declaration (§3). — *sections: §3*
 - **SU-4** (§11) A predecessor recorded as superseded by nothing MUST be refused (§3). — *sections: §3*
 - **SU-5** (§11) Where `X` supersedes `Y`, nothing in the governed system MUST reference `Y` other than the supersession declaration SU-3 requires, and the closure MUST be determined during construction (§4). — *requirements: SU-3; sections: §4*
 - **SU-6** (§11) Referential closure MUST be determined over the whole composition (§4). — *sections: §4*
 - **SU-7** (§11) A superseded thing MUST be excluded from every projection execution consumes, and MUST be retained in the canonical record and reachable by inspection (§5). — *sections: §5*
 - **SU-8** (§11) No mechanism MUST delete a superseded thing (§6). — *sections: §6*
-- **SU-9** (§11) A supersession MUST determine its blast radius over the composition rather than leaving it to be discovered, and MUST NOT be treated as determining the state of parties the composition does not carry (§8). — *sections: §8*
+- **SU-9** (§11) A supersession MUST determine its blast radius over the composition rather than leaving it to be discovered. It MUST NOT be treated as determining the state of parties the composition does not carry (§8). — *sections: §8*
 - **SU-10** (§11) A superseded profile or family revision MUST NOT retroactively alter claims discharged against it (§8, §9). — *sections: §8, §9*
-- **SU-11** (§11) An amendment MUST NOT change an artifact's declared semantics; such a change MUST be a new identity (§7, ID-5). — *requirements: ID-5; sections: §7*
+- **SU-11** (§11) An amendment MUST NOT change an artifact's declared semantics. Such a change MUST be a new identity (§7, ID-5). — *requirements: ID-5; sections: §7*
 
 ## 5a — Governed Interaction Boundary
 

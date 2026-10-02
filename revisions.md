@@ -492,6 +492,42 @@ check reports the same 0 defects and 43 warnings.
 repository now differ in wording in Parts I, II and III. They agree in every obligation. A claim
 naming `v0` stands against either text.
 
+### Carried under `v0` — Part IV restated for clarity, no change in meaning
+
+**Documents:** `4a`, `4b`, `4c`, `4d`, `4e`, every section.
+
+**What changes.** The wording only, under the same rules as the Part I restatement above. Every
+cross-reference that named a document by file identifier now names it by title: `4d` §5 and §5.1
+cite the Machine Block Standard and Enforcement & Refusal, `4d` §16 and `4e` §10 cite the Normative
+Platform Profile, and `4e` §2, §8, §9 and §10 cite the Conceptual Model, the Kind Vocabulary, the
+Governance Semantic Ontology, the Normative Platform Profile, the Governance Standard, the Projection
+Standard, Evidence, Attestation & Provenance, and the Document Set. Each points at the same section
+as before. Three section pointers in `4d` that predate this edit pointed one section off, and now
+point where they meant: §4 cites §10 for projected phases and §11 for the baseline, and §11.3 cites
+§12 for the first transformation.
+
+**What does not change.**
+
+- **No requirement changes.** Each of GC-1 … GC-14, PJ-1 … PJ-12, ID-1 … ID-15, TR-1 … TR-25 (with
+  TR-3a, TR-5a, TR-15a) and SU-1 … SU-11 was compared old against new. Each keeps its identifier, its
+  bound party and its force. The count of MUST, MUST NOT, SHOULD and MAY in each document is
+  unchanged, except in `4a` §5. There one sentence that carried two prohibitions under one MUST NOT
+  now states each under its own. The prohibitions and their force are the same.
+- **No term changes.** Every term these documents introduce or refine keeps its meaning. The derived
+  terminology index lists the same terms.
+- **No obligation of construction, faithfulness rule, resolution rule, transformation rule or
+  conformance condition changes.**
+
+**What it invalidates.** Nothing. A realization or document that conformed to Part IV before this
+edit conforms after it. The requirement index changes only in sentence breaks. The vocabulary check
+reports 0 defects and 40 warnings, down from 43: in `4d`, *dossier*, *check kind* and *verdict* are
+now introduced by sentences that say what each is, so their sites read as definitions. Their meaning
+is unchanged.
+
+**What this means for the deposit.** The normative documents of the archived `v0` and this
+repository now differ in wording in Parts I to IV. They agree in every obligation. A claim naming
+`v0` stands against either text.
+
 ---
 
 ## `draft-3` supersedes `draft-2`
