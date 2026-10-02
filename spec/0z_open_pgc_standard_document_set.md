@@ -77,7 +77,7 @@ document's file identifier.
 | `4b` | IV | Projection | PJ-1 … PJ-12 |
 | `4c` | IV | Identity & Addressing | ID-1 … ID-15 |
 | `4d` | IV | Governed Transformation | TR-1 … TR-25 |
-| `4e` | IV | Supersession | SU-1 … SU-11 |
+| `4e` | IV | Supersession | SU-1 … SU-12 |
 | `5a` | V | Governed Interaction Boundary | IB-1 … IB-15 |
 | `5b` | V | Governed Inspection | IN-1 … IN-16 |
 | `6a` | VI | Normative Platform Profile | NP-1 … NP-12 |

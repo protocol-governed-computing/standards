@@ -13,8 +13,8 @@ becomes of what it changed.
 Its subject is **any governed thing**: an artifact, a kind, a category, a profile, a snapshot, and,
 reflexively, a document in this family (§9).
 
-This document introduces the terms **successor**, **predecessor**, **referential closure**, and
-**retirement**.
+This document introduces the terms **successor**, **predecessor**, **referential closure**,
+**retirement**, and **retention condition**.
 
 Keywords MUST, SHOULD, MAY per RFC 2119.
 
@@ -78,8 +78,8 @@ A superseded thing is **excluded from what can be reached** and **retained in wh
 |---|---|
 | reachable by execution | no — excluded from every projection execution consumes |
 | reachable by reference | no — referential closure forbids it (§4) |
-| present in the canonical record | **yes** |
-| visible to inspection | **yes** |
+| present in the canonical record | **yes**, while a retention condition holds (§6) |
+| visible to inspection | **yes**, while a retention condition holds (§6) |
 
 **Reachability is determined within the composition.** The rows above state what the composition's own
 closure establishes. A party outside the composition may name a superseded identity directly. That
@@ -91,7 +91,8 @@ establish what the system was at some earlier point. Evidence exists to preserve
 A system that cannot answer *what was authoritative last year* has lost something no current
 correctness can recover.
 
-So a superseded thing stops being reachable. It does not stop having existed.
+So a superseded thing stops being reachable. It does not stop having existed. It stays in the record
+for as long as anything can still ask about it. §6 states when that is.
 
 ## 6. Retirement is not deletion
 
@@ -99,11 +100,43 @@ So a superseded thing stops being reachable. It does not stop having existed.
 leave retired things in place.
 
 A retired thing stays where it is, with its stood-down state declared. **Deletion is a separate,
-deliberate human act.** Someone takes it if and when they decide the history is no longer worth
-carrying. Deletion is not supersession. It produces no governed relation and leaves no successor.
+deliberate human act.** Deletion is not supersession. It produces no supersession relation and leaves
+no successor.
 
 A mechanism that deleted on supersession would make retirement and destruction the same act. Every
 retirement would then be irreversible by default.
+
+### 6.1 When deletion is not permitted
+
+A **retention condition** is a standing reference that obliges a system to keep a superseded thing.
+A superseded thing MUST be retained while any retention condition holds. A retention condition holds
+while any of the following names the superseded thing, or names a sealed snapshot that contains it:
+
+- a sealed snapshot that is still a system's baseline;
+- a conformance claim that has not itself been withdrawn or superseded;
+- an evidence record still within the retention period its profile declares (Evidence, Attestation &
+  Provenance §11).
+
+Each condition marks something that can still ask about the superseded thing. A baseline may be
+inspected. A claim may be evaluated. Retained evidence may be re-derived, and a re-derivation needs
+what the evidence names (EV-16). Deleting the thing while any of these stands would leave a question
+that the record can no longer answer.
+
+### 6.2 How deletion is permitted
+
+When no retention condition holds, a person MAY decide to delete a superseded thing. The deletion is
+governed like any other change:
+
+- **A deliberate human act decides it.** A realization may carry out a deletion that a person
+  decided. It never decides one (SU-8).
+- **It is a governed transformation** of the system that holds the thing (TR-1). It is determined
+  under the closure in force, and it is evidenced.
+- **Its record names** the deleted identity, the party that decided the deletion, and the
+  determination that no retention condition held.
+
+The deletion record outlives the deleted thing. A party that later meets the identity can establish
+that it existed, that it was superseded, and that someone deliberately removed it when nothing still
+depended on it.
 
 ## 7. Supersession and amendment
 
@@ -205,8 +238,9 @@ No outer mechanism governs the family's evolution. There is this document, appli
   supersession declaration SU-3 requires, and the closure MUST be determined during construction
   (§4).
 - **SU-6.** Referential closure MUST be determined over the whole composition (§4).
-- **SU-7.** A superseded thing MUST be excluded from every projection execution consumes, and MUST be
-  retained in the canonical record and reachable by inspection (§5).
+- **SU-7.** A superseded thing MUST be excluded from every projection execution consumes. It MUST be
+  retained in the canonical record and reachable by inspection while any retention condition of §6.1
+  holds (§5, §6.1).
 - **SU-8.** No mechanism MUST delete a superseded thing (§6).
 - **SU-9.** A supersession MUST determine its blast radius over the composition rather than leaving
   it to be discovered. It MUST NOT be treated as determining the state of parties the composition does
@@ -215,6 +249,10 @@ No outer mechanism governs the family's evolution. There is this document, appli
   against it (§8, §9).
 - **SU-11.** An amendment MUST NOT change an artifact's declared semantics. Such a change MUST be a
   new identity (§7, ID-5).
+- **SU-12.** A superseded thing MAY be deleted only by a deliberate human act, decided when no
+  retention condition of §6.1 holds. The deletion MUST be a governed transformation, and its record
+  MUST name the deleted identity, the deciding party, and the determination that no retention
+  condition held (§6.2).
 
 ## 12. Conformance
 
@@ -226,8 +264,8 @@ A supersession conforms when all of the following hold:
 - it is declared on the successor;
 - both sides are established from that declaration;
 - nothing in the composition references the predecessor;
-- the predecessor is unreachable and retained;
-- nothing was deleted;
+- the predecessor is unreachable, and retained while any retention condition holds;
+- nothing was deleted while a retention condition held, and every deletion was recorded;
 - the invalidation its subject implies was determined.
 
 **The dangling reference is the demonstration.** A party establishes a supersession by exhibiting a

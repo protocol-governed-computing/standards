@@ -13,6 +13,59 @@ carries its `supersedes`.
 
 ---
 
+## `v1` supersedes `v0` — open
+
+**Predecessor:** `v0`.
+
+**`v1` is open and not frozen.** It is worked on the `work/v1` branch. `VERSION` still reads `v0`,
+and it changes when `v1` is cut. Until then, nothing may claim against `v1`, and every claim names
+`v0`. A change recorded here is declared against `v0` now, so it is not discovered at the cut.
+
+**Occasioned by** normative changes that the `v0` restatement could not carry. The restatement
+entries under `v0` change wording only. A change to an obligation needs a successor identity, and
+this is where those changes accumulate.
+
+### Change 1 — retention of a superseded thing is bounded, and deletion is a recorded act
+
+**Documents:** `4e` §1, §5, §6 (§6.1 and §6.2 added), §11 (SU-7 revised, **SU-12** added), §12;
+`0z` §2 (the Supersession range becomes SU-1 … SU-12).
+
+**Occasioned by** a contradiction inside `4e`. §6 permitted deletion of a superseded thing as "a
+separate, deliberate human act". SU-7 required the thing to stay in the canonical record and
+reachable by inspection, with no limit and no exception. So the invariant forbade what the section
+permitted. Separately, a realization accumulates superseded artifacts with nothing that can ever
+retire them.
+
+**What changes.**
+
+- **SU-7 is bounded.** A superseded thing must be retained while any **retention condition** holds,
+  not forever. §6.1 defines the conditions. Something still names the thing, or names a sealed
+  snapshot that contains it: a current baseline, a standing conformance claim, or an evidence record
+  within its profile's retention period.
+- **SU-12 is added.** Once no retention condition holds, a person may decide to delete a superseded
+  thing. The deletion is a governed transformation. Its record names the deleted identity, the
+  deciding party, and the determination that no retention condition held.
+- **SU-8 is unchanged.** No mechanism decides a deletion. §6.2 now says a realization may carry out a
+  deletion a person decided.
+- **"Retention condition" is a new term**, introduced and defined in `4e` §6.1.
+
+**What it invalidates.**
+
+- **SU-7 is relaxed.** A realization that retained every superseded thing indefinitely still
+  conforms, so no existing claim of retention is invalidated.
+- **SU-12 is a new obligation, on deletions only.** A realization that deleted a superseded thing
+  without a recorded, governed act does not conform to `v1`. The deletions recorded in the
+  realization map so far removed artifacts that were never superseded, so SU-12 does not reach them.
+  The map records SU-12 as Vacuous: no deletion of a superseded artifact has occurred.
+- **A claim discharged against `v0` keeps standing against `v0`** (SU-10, `0z` §5.1).
+
+**Carried into this change, not settled by it.** Two `4e` findings stay open. SU-3 requires the
+relation to be declared once, and the realization declares it on both sides. SU-5 allows only one
+reference to a predecessor, and a predecessor-side `superseded_by` is a second. Both are recorded in
+the realization map §22.
+
+---
+
 ## `v0` supersedes `draft-3`
 
 **Predecessor:** `draft-3` — thirty-two documents, twenty-eight declared changes, frozen.
@@ -582,6 +635,31 @@ vocabulary check reports the same 0 defects and 40 warnings.
 **What this means for the deposit.** The normative documents of the archived `v0` and this
 repository now differ in wording in Parts I to VI. They agree in every obligation. A claim naming
 `v0` stands against either text.
+
+### Carried under `v0` — Part VII restated for clarity, no change in meaning
+
+**Documents:** `7a`, `7b`, every section.
+
+**What changes.** The wording only, under the same rules as the Part I restatement above. Every
+cross-reference that named a document by file identifier now names it by title, including the
+division diagram in `7a` §1. Each points at the same section as before.
+
+**What does not change.**
+
+- **No requirement changes.** Each of CF-1 … CF-14 and CD-1 … CD-17 was compared old against new.
+  Each keeps its identifier, its bound party and its force. The count of MUST, MUST NOT, SHOULD and
+  MAY in each document is unchanged.
+- **No term changes.** Every term these documents introduce keeps its meaning and its defining site.
+  The derived terminology index lists the same terms.
+- **No subject class, discharge class, demonstration rule or conformance condition changes.**
+
+**What it invalidates.** Nothing. A claim, demonstration set or document that conformed to Part VII
+before this edit conforms after it. The requirement index changes only in sentence breaks.
+
+**What this means for the deposit.** With this entry the restatement covers every normative part.
+The normative documents of the archived `v0` and this repository differ in wording throughout, and
+agree in every obligation. A claim naming `v0` stands against either text. The change below is not
+part of this restatement and is not carried under `v0`.
 
 ---
 

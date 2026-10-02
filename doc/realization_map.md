@@ -1820,6 +1820,7 @@ IN_ACTOR_VERIFIED_V0                →  IN_ACTOR_ACCEPTANCE_V0, IN_ACTOR_REJECT
 | **SU-8** no mechanism deletes a superseded thing | nothing deletes; `construction_acceptance` excludes `superseded_by` from comparison because it is written by standing an artifact down | Demonstrated |
 | **SU-9** a supersession determines its blast radius rather than leaving it to be discovered | the P8 authoring mandate declares the amendment set; a caller outside the composition is not in it | Partial — §21.5, §22.3 |
 | **SU-10** a superseded profile or revision does not retroactively alter claims discharged against it | no claim has been discharged | Vacuous |
+| **SU-12** a superseded thing is deleted only by a recorded human act, when no retention condition holds | no deletion of a superseded artifact has occurred; nothing records a deletion or checks retention conditions | Vacuous — `v1` Change 1 |
 
 ### 22.1 SU-3 — the relation is declared twice
 

@@ -8,7 +8,7 @@ references that text states, and never the sections those references reach.
 **Authority.** None. Where this projection and the documents disagree, the documents govern
 (`0z` §5.2, PJ-7).
 
-356 requirements · 26 documents · 339 bullet · 17 heading
+357 requirements · 26 documents · 340 bullet · 17 heading
 
 ## 1a — Conceptual Model & Terminology
 
@@ -324,11 +324,12 @@ references that text states, and never the sections those references reach.
 - **SU-4** (§11) A predecessor recorded as superseded by nothing MUST be refused (§3). — *sections: §3*
 - **SU-5** (§11) Where `X` supersedes `Y`, nothing in the governed system MUST reference `Y` other than the supersession declaration SU-3 requires, and the closure MUST be determined during construction (§4). — *requirements: SU-3; sections: §4*
 - **SU-6** (§11) Referential closure MUST be determined over the whole composition (§4). — *sections: §4*
-- **SU-7** (§11) A superseded thing MUST be excluded from every projection execution consumes, and MUST be retained in the canonical record and reachable by inspection (§5). — *sections: §5*
+- **SU-7** (§11) A superseded thing MUST be excluded from every projection execution consumes. It MUST be retained in the canonical record and reachable by inspection while any retention condition of §6.1 holds (§5, §6.1). — *sections: §5, §6.1*
 - **SU-8** (§11) No mechanism MUST delete a superseded thing (§6). — *sections: §6*
 - **SU-9** (§11) A supersession MUST determine its blast radius over the composition rather than leaving it to be discovered. It MUST NOT be treated as determining the state of parties the composition does not carry (§8). — *sections: §8*
 - **SU-10** (§11) A superseded profile or family revision MUST NOT retroactively alter claims discharged against it (§8, §9). — *sections: §8, §9*
 - **SU-11** (§11) An amendment MUST NOT change an artifact's declared semantics. Such a change MUST be a new identity (§7, ID-5). — *requirements: ID-5; sections: §7*
+- **SU-12** (§11) A superseded thing MAY be deleted only by a deliberate human act, decided when no retention condition of §6.1 holds. The deletion MUST be a governed transformation, and its record MUST name the deleted identity, the deciding party, and the determination that no retention condition held (§6.2). — *sections: §6.1, §6.2*
 
 ## 5a — Governed Interaction Boundary
 
@@ -412,7 +413,7 @@ references that text states, and never the sections those references reach.
 - **CF-1** (§13) A conformance claim MUST name its subject, its profile, its revision, and its claimant (§2). — *sections: §2*
 - **CF-2** (§13) A claim MUST NOT be discharged by evidence about a different subject (§3.2). — *sections: §3.2*
 - **CF-3** (§13) A system instance claim MUST be discharged by discharging every constituent class (§3.1). — *sections: §3.1*
-- **CF-4** (§13) Discharge MUST NOT require the evaluator to trust the claimant; reliance on an assertion MUST be visible as an attestation (§4). — *sections: §4*
+- **CF-4** (§13) Discharge MUST NOT require the evaluator to trust the claimant. Reliance on an assertion MUST be visible as an attestation (§4). — *sections: §4*
 - **CF-5** (§13) Conformance MUST be established over semantic guarantees, and MUST NOT be established by resemblance to any realization (§5). — *sections: §5*
 - **CF-6** (§13) An evaluation MUST derive from a stated obligation, and MUST NOT add to or relax one (§6). — *sections: §6*
 - **CF-7** (§13) An obligation with no derivable evaluation MUST be a finding against the document stating it (§6). — *sections: §6*
