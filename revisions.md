@@ -658,8 +658,20 @@ before this edit conforms after it. The requirement index changes only in senten
 
 **What this means for the deposit.** With this entry the restatement covers every normative part.
 The normative documents of the archived `v0` and this repository differ in wording throughout, and
-agree in every obligation. A claim naming `v0` stands against either text. The change below is not
-part of this restatement and is not carried under `v0`.
+agree in every obligation. A claim naming `v0` stands against either text. `v1` Change 1, at the
+top of this record, is not part of this restatement and is not carried under `v0`.
+
+### Carried under `v0` without a revision — `8a` restated for clarity
+
+**Document:** `8a`, every section.
+
+**What it is.** The same wording restatement, applied to the implementation guidance annex. Five
+cross-references that named a document by file identifier now name it by title. The quotation of
+Governed Construction in §4.2 now matches that document's restated wording.
+
+**Why this is not a revision.** `8a` is non-normative, as the earlier `8a` amendment above records.
+Its restatement changes no obligation, because it carries none. `8b` was restated with Part 0. It
+takes four small wording edits here, and is non-normative for the same reason.
 
 ---
 

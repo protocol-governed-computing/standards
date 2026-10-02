@@ -52,7 +52,7 @@ When a new implementation arrives, the organization can then show that it preser
 
 This change of goal is the whole migration story. A rewrite reproduces the computation and loses the
 accumulated rules. An organization that recovers the meaning first keeps the accumulated rules. It
-leaves the choice of implementation open.
+leaves the implementation choice open.
 
 *The lender.* A rewrite of the loan service would reproduce the credit-score check in a week. It
 would lose the exception for long-standing customers, because nobody wrote it down. The first
@@ -94,7 +94,7 @@ the protocol it already uses. An adapter normalizes the call. The governed syste
 the call arrived.
 
 This is coexistence in the other direction. **An organization can adopt a governed system without
-changing the system's consumers.** Nothing outside has to change before work begins.
+changing the system's consumers.** Nothing outside needs to change before work begins.
 
 *The lender.* The web portal, the branch system and the broker platform keep calling exactly as they
 did. Nobody modifies them. Only the path behind the boundary changes.
@@ -110,8 +110,8 @@ did. Nobody modifies them. Only the path behind the boundary changes.
 | **composition** | ongoing | the properties that only appear over a whole — closure, equivalence, reproducibility |
 
 **Each phase pays off on its own.** An organization that stops after the first phase has proof and a
-trained author. One that stops after the second has a governed domain and its evidence. Neither needs
-the third phase to have gained something.
+trained author. One that stops after the second has a governed domain and its evidence. Neither
+needs the third phase to have gained something.
 
 The organization never has to abandon its existing architecture. Each phase adds governance beside
 what is already there.
@@ -131,7 +131,7 @@ What was authoritative last year? The exercise does not create these questions. 
 nobody could answer them already**.
 
 **You cannot govern what you cannot state.** The attempt to state it produces an artifact the
-organization never had.
+organization did not previously have.
 
 *The lender.* To state the manager override, the lender must choose among the three managers'
 versions. It now has one agreed rule where it had three habits. That rule has value even if the
@@ -170,8 +170,8 @@ People misread two cases, in opposite directions:
   being one. Make that decision explicitly, because most prototypes become production by default,
   not by decision.
 - **"We'll add governance later" is exactly the case this model exists to refuse.** By "later", the
-  rules have accumulated and their meaning is already implicit. The cost of stating meaning grows with
-  the amount of it. Each postponement makes adoption more expensive.
+  rules have accumulated and their meaning is already implicit. The cost of stating meaning grows
+  with the amount of it. Each postponement makes adoption more expensive.
 
 *The lender.* Lending rules must stay correct for years, and regulators ask what was decided and
 why. So lending qualifies. A spreadsheet that marketing built for one campaign does not.
