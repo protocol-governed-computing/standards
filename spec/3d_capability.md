@@ -69,6 +69,10 @@ This ignorance is deliberate, and it makes realizations interchangeable (§8). A
 that knew more than the contract could act on what it knew. Acting on knowledge no declaration
 supplied is origination (AI-1, RT-1).
 
+A contract realized by a **declared composition** (Execution Model §9) does not hide that
+composition. The composition is governed structure, and execution traverses it. What lies beneath
+the contract is the realization of each contract its composed steps dispatch.
+
 ### 3.2 Outcomes
 
 A contract's outcomes are the **only** thing traversal routes on (EX-2). Consequently:
@@ -80,6 +84,10 @@ A contract's outcomes are the **only** thing traversal routes on (EX-2). Consequ
 - A realization that reports something outside the set has violated its contract. Execution refuses
   and MUST NOT route on it (EX-5). **The undeclared value does not thereby become an extra outcome.**
   Only declaration extends an outcome set. A returned value never does.
+- **A composed step answers for every outcome of the contract it dispatches.** Its continuations
+  cover the outcome set that contract declares. A subset declared beside it does not narrow that
+  set. Two declarations of one outcome set can disagree, and only the dispatched contract's
+  declaration governs (CP-13).
 - **An outcome named for refusal is a declared result, not a governance refusal** (Execution Model
   §4.4, EX-16). A contract that names one carries the distinction explicitly and does not rely on
   the word. What the capability reported about its own subject matter is not a determination that
@@ -262,6 +270,9 @@ a declared classification, a closure, and obligations that apply to it.
 - **CP-12.** A contract MUST declare whether its capability is non-deterministic. Each result a
   non-deterministic capability produces MUST be recorded as a captured input before anything
   consumes it (§5.3).
+- **CP-13.** A composed step MUST declare a continuation for every outcome its dispatched contract
+  declares. The set it answers for MUST be the dispatched contract's declared outcome set, not a
+  subset declared beside it (§3.2).
 
 ## 13. Conformance
 

@@ -116,6 +116,74 @@ recorded non-deterministic value, and only through a deterministic judgement.
 kinds of governed input could be stated together. That would be a wording change to `6b` with no new
 obligation, and is left for the restatement of `v1`.
 
+
+### Change 3 — every level of a declared composition is traversal
+
+**Documents:** `3a` §1 (**declared composition** and **continuation** added), §4.3, §9, §15
+(**EX-18** added), §16; `3d` §3.1, §3.2, §12 (**CP-13** added); `3e` §4, §13 (**EV-19** added); `0z`
+§2 (ranges become EX-1 … EX-18, CP-1 … CP-13, EV-1 … EV-19).
+
+**Occasioned by** a failure the SoSyM study found in the reference realization (D2, case O3). The
+realization runs contracts as declared pipelines of steps. One step reported an outcome its pipeline
+did not list. The runtime proceeded to the next step, recorded nothing, and the workflow accepted a
+person it should have refused. `v0` did not reach the case. Execution Model §9 requires nesting to be
+declared, but no requirement says that the rules on steps apply inside it. The Capability Standard
+says execution knows nothing beneath a contract. Read that way, the pipeline was the capability's
+own business, and the contract reported a declared outcome. The realization's governance checked the
+pipeline against an outcome subset its author declared, not against the operation's outcome set.
+
+**What changes.**
+
+- **Two new terms.** A *declared composition* is a contract realized as governed steps, each
+  dispatching a contract. A *continuation* is what the composition declares for one outcome of one
+  composed step. `3a` §9 states that every level of a declared composition is traversal, and that
+  each composed step is a step.
+- **The contract boundary is placed.** `3d` §3.1: a declared composition is governed structure that
+  execution traverses. Beneath the contract lies only the realization of each dispatched contract.
+- **EX-18.** At every level of composition, an outcome with no declared continuation refuses.
+  Execution never proceeds past it. `3a` §4.3 and the §16 conformance list now say so.
+- **CP-13.** A composed step answers for the full outcome set its dispatched contract declares. A
+  subset declared beside it does not narrow that set.
+- **EV-19.** Evidence records each composed step's outcome and the continuation it selected.
+
+**What it invalidates.**
+
+- **Three new obligations** bind realizations: EX-18, CP-13 and EV-19. The realization map records
+  all three as Violated. The runtime defaults an unlisted step outcome to proceed, the governance
+  invariant trusts the author's subset, and the step record carries no outcome.
+- **No obligation is relaxed.** A realization whose contracts have no internal composition is
+  unaffected.
+- **A claim discharged against `v0` keeps standing against `v0`** (SU-10, `0z` §5.1).
+
+### Change 4 — construction refuses an outcome left without an answer
+
+**Documents:** `4a` §7.1 added, §14 (**GC-15** added), §15; `3a` §4.3; `0z` §2 (range becomes GC-1 …
+GC-15).
+
+**Occasioned by** the SoSyM study's case O1 (D1). Construction admitted and sealed a workflow in which
+a declared outcome had no route. Execution refused when a run reached the gap, as `3a` §4.3 requires.
+`v0` treated an unrouted outcome as a finding at run time only. So a sealed representation could
+present itself as complete while it carried the gap. The survey of the evaluated composition found
+11 such outcomes. No run reached any of them.
+
+**What changes.**
+
+- **GC-15.** Construction refuses a candidate in which a step that execution can reach has a
+  declared outcome with no routing, ending or continuation. `4a` §7.1 states the rule and the reason.
+  It applies GC-7 (refuse rather than complete) to routing.
+- **Execution's refusal stays.** `3a` §4.3 now names construction as the first check and execution's
+  refusal as the safeguard for any case construction did not reach.
+- **Core, not profile.** Closure at construction is required of every realization. A profile cannot
+  make it optional, because an optional closure leaves the gap this change exists to close.
+
+**What it invalidates.**
+
+- **One new obligation**, GC-15, binds construction. The realization map records it as Violated: 9
+  unrouted outcomes in force, all BACKEND_ERROR in the blockchain domain. The 2 in a superseded
+  workflow are out of reach.
+- **Changes 3 and 4 interact.** Closing a CP-13 gap adds an outcome that a composition surfaces,
+  which can open a new GC-15 gap at the workflow above. A realization closes both levels together.
+- **A claim discharged against `v0` keeps standing against `v0`** (SU-10, `0z` §5.1).
 ---
 
 ## `v0` supersedes `draft-3`

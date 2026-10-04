@@ -178,6 +178,25 @@ substitute, default, or normalize away the problem.
 system contains behavior whose source is a mechanism. It does not matter whether the repair was
 obvious or correct. No closure determined it, so nothing establishes it.
 
+### 7.1 Every declared outcome has an answer
+
+Construction refuses a candidate whose structure leaves a declared outcome without an answer. Take
+every step that execution can reach in the constructed structure. Every outcome its dispatched
+contract declares MUST have one of these answers:
+
+- declared routing to a next step;
+- a declared ending;
+- within a declared composition, a declared continuation.
+
+Construction determines this over the structure it builds. It MUST NOT supply a missing answer
+(§7). A missing answer is a refusal.
+
+**Why construction, and not only execution.** Execution refuses an unanswered outcome when one
+arises (Execution Model §4.3). That refusal comes late. It reaches only the runs that hit the gap,
+and until then a sealed representation with the gap presents itself as complete. Construction can
+check every outcome, so it must. Execution keeps its refusal as the safeguard for any case
+construction did not reach.
+
 ## 8. Construction derives meaning; it does not create it
 
 Construction may derive, compute, resolve, index and structure. **It MUST NOT originate meaning.**
@@ -301,6 +320,8 @@ only how an attestation relates to construction.
 - **GC-13.** What was materialized MUST be verified against what was determined, and a mismatch MUST
   be a refusal (§11).
 - **GC-14.** Attestation MUST NOT confer admissibility (§12).
+- **GC-15.** Construction MUST refuse a candidate in which a step that execution can reach has a
+  declared outcome with no declared routing, ending or continuation (§7.1).
 
 ## 15. Conformance
 
@@ -312,6 +333,7 @@ A construction conforms when all of the following hold:
 - it discharged every obligation of §5;
 - it determined admissibility without executing anything;
 - it refused instead of repairing;
+- it left no declared outcome of a reachable step without an answer;
 - it produced nothing on refusal;
 - it verified what it carried against what it determined;
 - it can be reproduced from the same declarations to the same identity.

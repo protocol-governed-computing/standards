@@ -17,8 +17,8 @@ This document defines observable execution consequences **independently of the p
 environment**. Nothing here assumes a process, a machine, a scheduler, a network or a number of
 nodes.
 
-This document introduces the terms **traversal**, **routing**, and **outcome vocabulary**, and
-refines the Conceptual Model's **step**. The Conceptual Model, the Semantic Model or Part II defines
+This document introduces the terms **traversal**, **routing**, **outcome vocabulary**, **declared
+composition** and **continuation**, and refines the Conceptual Model's **step**. The Conceptual Model, the Semantic Model or Part II defines
 every other term it uses.
 
 Keywords MUST, SHOULD, MAY per RFC 2119.
@@ -146,6 +146,12 @@ It MUST NOT select a default path, halt silently, or treat the absence of routin
 An unrouted outcome means the declarations are incomplete for a case that arose. That is a finding
 about the declarations, and refusal is what makes it one.
 
+The rule holds at every level of a declared composition (§9). A composed step that reports an outcome
+with no declared continuation refuses. It does not proceed to the next composed step.
+
+Construction refuses such declarations before execution (Governed Construction §7.1). This refusal
+stays in place as the safeguard for any case construction did not reach.
+
 ### 4.4 An outcome named for refusal is not a refusal
 
 A profile or a contract chooses its outcome vocabulary (§14). Either one may name an outcome
@@ -258,6 +264,12 @@ of what happens next. A system's history would become an input to its determinat
   the governed structure before execution begins, and MUST NOT be introduced by the executing
   agent.** This document does not specify how a structure represents these, whether through a step,
   a declared relation or another form.
+- **Every level of a declared composition is traversal.** A **declared composition** is a contract
+  realized as governed steps, each dispatching a contract of its own. Each composed step is a step.
+  It reports one of the outcomes its dispatched contract declares. It advances only by the
+  **continuation** the composition declares for that outcome: the next composed step, an end of the
+  composition with a declared outcome, or a route. Every requirement on steps holds at every level
+  (EX-18).
 - Composition rules are declared and settled before execution. Two workflows are related only when a
   declaration relates them. Running side by side or sharing state does not relate them.
 - A step's result MUST conform to the surface its governing contract declares. **Execution may route
@@ -373,6 +385,9 @@ happened to apply.
 - **EX-17.** A captured input, and the outcome of the non-deterministic capability that produced it,
   MUST NOT select a route. They MAY influence routing only through the declared outcome of a
   deterministic step that evaluates the captured input (§4.5).
+- **EX-18.** At every level of a declared composition, an outcome for which no continuation is
+  declared MUST produce refusal. Execution MUST NOT proceed past it, and MUST NOT treat a missing
+  continuation as a default (§4.3, §9).
 
 ## 16. Conformance
 
@@ -385,7 +400,8 @@ An execution conforms when all of the following hold:
   routing on a declared outcome (EX-1, EX-2, EX-5).
 - No structure was constructed, extended or rerouted during it (EX-4).
 - Every state change and every effect passed through a declared, owned surface (EX-8 … EX-10).
-- It refused where its declarations did not answer, rather than proceeding (EX-14).
+- It refused where its declarations did not answer, rather than proceeding, at every level of
+  composition (EX-14, EX-18).
 - Its evidence supports the path check of §12 by a party that did not observe it (EX-15).
 
 **An execution that produced the expected result is not thereby conformant.** The result is one

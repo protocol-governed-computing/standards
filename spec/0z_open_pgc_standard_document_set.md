@@ -68,12 +68,12 @@ document's file identifier.
 | `2d` | II | Kind Vocabulary | KV-1 … KV-10 |
 | `2e` | II | Governance Closure & Authority | CA-1 … CA-12 |
 | `2f` | II | Enforcement & Refusal | EN-1 … EN-14 |
-| `3a` | III | Execution Model | EX-1 … EX-17 |
+| `3a` | III | Execution Model | EX-1 … EX-18 |
 | `3b` | III | Snapshot | SN-1 … SN-14 |
 | `3c` | III | Runtime | RT-1 … RT-13 |
-| `3d` | III | Capability | CP-1 … CP-12 |
-| `3e` | III | Evidence, Attestation & Provenance | EV-1 … EV-18 |
-| `4a` | IV | Governed Construction | GC-1 … GC-14 |
+| `3d` | III | Capability | CP-1 … CP-13 |
+| `3e` | III | Evidence, Attestation & Provenance | EV-1 … EV-19 |
+| `4a` | IV | Governed Construction | GC-1 … GC-15 |
 | `4b` | IV | Projection | PJ-1 … PJ-12 |
 | `4c` | IV | Identity & Addressing | ID-1 … ID-15 |
 | `4d` | IV | Governed Transformation | TR-1 … TR-25 |

@@ -113,6 +113,10 @@ was proposed, what refused it, under what closure and authority, and that nothin
 - **A system produces evidence as it makes the determination.** It does not reconstruct evidence
   afterwards from what it can still recall. A reconstruction is an account of what probably
   happened. Its accuracy depends on exactly the mechanism under examination.
+- **Every level of composition is evidenced.** A composed step's outcome is a determination, and so
+  is the continuation it selects. Evidence records both, including where the composition proceeds
+  (EV-19). A record of the enclosing contract's outcome alone cannot show what each composed step
+  decided.
 - **What is not evidenced did not happen**, as far as anything checkable is concerned. This is not a
   metaphysical claim. It is the operating rule that makes the evidence record carry weight, rather
   than serve as advice.
@@ -328,6 +332,8 @@ profile's question. The profile should answer it, not reach an answer by default
 - **EV-18.** Evidence MUST identify every captured input a determination consumed. A captured input
   MUST be held in a record separate from evidence, and replay MUST read that record, not the
   evidence (§5.3).
+- **EV-19.** Evidence MUST record the outcome of every step at every level of a declared
+  composition, and the continuation that outcome selected (§4).
 
 ## 14. Conformance
 

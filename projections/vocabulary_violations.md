@@ -41,7 +41,7 @@ None.
 - 'vacuous enforcement' appears only in 2f — vocabulary carried by no other document.
 - 'vocabulary revision' appears only in 2d — vocabulary carried by no other document.
 - 'worker' appears only in 4d — vocabulary carried by no other document.
-- **CM-3** — 'attesting party' is introduced by 3e but its site (line 176) is bold emphasis rather than a definition — the document marks the term without saying what it is.
+- **CM-3** — 'attesting party' is introduced by 3e but its site (line 180) is bold emphasis rather than a definition — the document marks the term without saying what it is.
 - **CM-3** — 'constituting act' is introduced by 2e but its site (line 60) is bold emphasis rather than a definition — the document marks the term without saying what it is.
 - **CM-3** — 'declared extension' is introduced by 2c but its site (line 87) is bold emphasis rather than a definition — the document marks the term without saying what it is.
 - **CM-3** — 'determination' is introduced by 1b but its site (line 68) is bold emphasis rather than a definition — the document marks the term without saying what it is.
