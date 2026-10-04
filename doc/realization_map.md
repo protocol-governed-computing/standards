@@ -635,7 +635,7 @@ identity is the artifact's own declaration"* — and an artifact declaring no `f
 | **ID-2** nothing acquires identity by being found | a discovered file with no declared `fqdn` is refused, not named after itself | Demonstrated |
 | **ID-3** identity over the semantic object; meaning-preserving representation change does not alter it | `s2_canonicalize` establishes the normal form over which identity is determined | Demonstrated |
 | **ID-4** two admitted things bearing one identity refused | `INVARIANT_UNIQUE_ARTIFACT_ID_V0` — "each fqdn_id must be unique across compilation graph" | Demonstrated |
-| **ID-5** a change of declared semantics is a new identity | the `_V<n>` suffix is part of the declared FQDN, so a version is a distinct identity | Demonstrated |
+| **ID-5** a change of declared semantics is a new identity | the `_V<n>` suffix is part of the declared FQDN, so a version is a distinct identity. That shows a version *can* be a new identity, not that a change of meaning *becomes* one: nothing tells a change of meaning from an amendment (SU-11), and dev/18 changed the meaning of several artifacts under their v5 identities | Partial |
 | **ID-6** identity carries no ordering; supersession is declared | `superseded_by` is a declared relation; nothing derives order from `_V<n>` | Demonstrated |
 | **ID-7** an address is not an assertion of identity | — | Partial — §8.3 |
 | **ID-8** a change of address does not change identity | identity survives relocation; **admission does not** | Partial — §8.1 |
