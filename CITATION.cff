@@ -21,12 +21,12 @@ repository-code: https://github.com/protocol-governed-computing/standards
 url: https://github.com/protocol-governed-computing/standards
 license: Apache-2.0
 version: v1
-doi: 10.5281/zenodo.22150616
+doi: 10.5281/zenodo.23486349
 identifiers:
   - type: doi
-    value: 10.5281/zenodo.22150616
+    value: 10.5281/zenodo.23486349
     description: >-
-      The archived snapshot of revision v0. This is the identity a claim names,
+      The archived snapshot of revision v1. This is the identity a claim names,
       and the one to cite.
   - type: doi
     value: 10.5281/zenodo.22150615
