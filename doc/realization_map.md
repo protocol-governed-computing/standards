@@ -20,17 +20,21 @@ Like any evidence, it is stated against a named subject:
 
 | | |
 |---|---|
-| **Realization** | the Protocol-Governed Computing reference realization |
-| **Snapshot** | `72404ce469c8987efa83d9a68cb3d517e2b9b571204bf7087b696a25abc46c99` |
-| **Composition** | 7 domains, 410 artifacts examined, composition conformance PASSED over 5 rules |
-| **Standard revision** | `v0` |
-| **Assembler** | version 14 |
+| **Realization** | RI-1, the Protocol-Governed Computing reference realization, at its final publication `v7` (composition DOI `10.5281/zenodo.24148890`) |
+| **Snapshot** | `8ad89baa75ce1412bb61dceb5bc5dc11eeba146c96eed600d43c169b2d447982` |
+| **Composition** | 8 domains, 603 artifacts, composition conformance PASSED over 5 rules; profile `GOVERNANCE_SURFACE_PROFILE_V0` |
+| **Standard revision** | `v1` |
+| **Assembler** | version 19 |
 
-**This is the third statement of subject, and the second is not superseded so much as left behind.**
-The measurements were: `7b6f2699…` under `draft-1`; `94e9b9dd…` under `draft-2`; and this one,
-`72404ce4…` under `v0`. **§28 carries the disposition of every finding** — what closed, what was
-revised, what a change request carries, what is deferred and on what ground. The entries below record
-what was found; only §28 and §0.1 record what became of it.
+**This is the map's final subject.** RI-1 is frozen at `v7` and takes no further changes. A finding
+that stands below stands permanently for RI-1. A later realization is a different subject and needs
+its own map.
+
+**This is the fourth statement of subject.** The measurements were: `7b6f2699…` under `draft-1`;
+`94e9b9dd…` under `draft-2`; `72404ce4…` under `v0`; and this one, `8ad89baa…` under `v1`. **§28
+carries the disposition of every finding** — what closed, what was revised, what a change request
+carries, what is deferred and on what ground. The entries below record what was found; only §28,
+§0.1 and §0.2 record what became of it.
 
 **The map was retired and is un-retired, for a reason that is not the old one.** Task D closed and
 the map was not extended, on the ground that the mechanism which found its three document defects —
@@ -41,10 +45,10 @@ rather than an archived one.
 
 **Restating a subject is two operations and only one of them is complete.** §0's own standard is that
 "reading it against a later composition establishes nothing until the subject above is restated and
-the entries rechecked." The subject is restated. The entries are rechecked **in part** — §0.1 records
-exactly which, by what means, and with what verdict. **§§3–26 otherwise stand as measured against
-`94e9b9dd…` under `draft-2` and are not warranted against the subject above.** Where §0.1 and a
-section below disagree, §0.1 is later.
+the entries rechecked." The subject is restated. The entries are rechecked **in part** — §0.1 and §0.2
+record exactly which, by what means, and with what verdict. **§§3–26 otherwise stand as measured against
+`94e9b9dd…` under `draft-2` and are not warranted against the subject above.** Where §0.1 or §0.2 and a
+section below disagree, the later record governs: §0.2, then §0.1.
 
 ### 0.1 Rebasing record
 
@@ -82,6 +86,45 @@ snapshot and toolchain. Nothing here rests on reading the sections below.
 stated against the previous subject, and an entry there may be closed, relocated, or newly false
 without this record saying so. Two verdicts above are **re-verify** rather than a finding either way,
 and are not to be cited as closures.
+
+### 0.2 Rebasing record, `v0` → `v1`, onto the final subject
+
+**Coverage delta, `v0` → `v1`.** `v1` added eight obligations and relaxed one (`revisions.md`). Part I
+maps none of them.
+
+| Added | Document |
+|---|---|
+| **EX-17**, **EX-18** | `3a` Execution Model |
+| **CP-12**, **CP-13** | `3d` Capability |
+| **EV-18**, **EV-19** | `3e` Evidence, Attestation & Provenance |
+| **GC-15** | `4a` Governed Construction |
+| **SU-12** | `4e` Supersession |
+| SU-7 relaxed | `4e` Supersession |
+
+They were added because this realization exposed them. They are recorded here as unmapped, not as
+held or breached.
+
+**Spot recheck against `8ad89baa…` / `v1`.** The same signatures §0.1 checked, read again against the
+`v7` workspace. Where this table and §0.1 disagree, this table governs.
+
+| # | Verdict | Evidence |
+|---|---|---|
+| 1, 3 | **changed** — `identity_covers` is now `[domains, constituents, profile, profile_sha256]`, and `post_seal` names `conformance/` and `signature.json`. What sits outside the identity is declared. Whether that satisfies `SN-2`/`SN-3` is still a ruling | `snapshot/manifest.json` |
+| 2 | **closed, by a different route** — the runtime no longer recomputes independently. `boot.py` imports `assembler.core.verify_snapshot`, which recomputes every constituent from its bytes. One determination, one implementation, reached from both sides | `protocol_runtime/runtime/boot.py` |
+| 4 | **closed** — the manifest claims `GOVERNANCE_SURFACE_PROFILE_V0`, and the identity covers the profile's digest | `snapshot/manifest.json` |
+| 13 | **stands** — all eight domain attestations carry `"public_key_ref": "STUB"` | `snapshot/trust/*/structure_attestation.json` |
+| 14 | **stands, and §0.1 was wrong** — the compile path still searches, selects and falls back. `s1_extract.py` lines 624–627 find a carried capability with `rglob`, take `matches[0]`, skip with `continue` when nothing matches, and never compare the found artifact's declared identity with the one sought (`ID-7`, `ID-11`, `ID-14`). The same block decides which references to carry by identifier prefix, `artifact_code.split("_")[0] in ("CS", "CT")` (`KV-5`) | `protocol_compiler/compiler/stages/s1_extract.py` |
+| 24 | **closed** — `SCHEMA_TRANSPORT_INGRESS_V0.json` and `SCHEMA_TRANSPORT_EGRESS_V0.json` exist | `software_governance/registry/schema/` |
+| 29 | **re-verify** — `trace_viz.py` no longer exists, so §0.1's evidence is gone. The admission gate must be found and read | |
+| 30 | **stands** — `artifact_kinds.py` is still on disk in the governance engine | `protocol_compiler/compiler/governance_engine/` |
+| 33 | **closed** — no baseline profile remains beside the profiles in force | `.github/snapshot_profiles/` |
+| 39 | **closed** — no artifact declares `superseded_by`; 49 declare `supersedes`, once, on the successor (`SU-3`) | |
+| 45 | **stands** — the canonical projection classifies by short forms (`CC` 95, `CT` 63, `WF` 41, `IN` 41, `EV` 28, `TI` 25, `TE` 25, `CS` 24, `VOCAB` 14, `AC` 12, `RB` 9) beside canonical names (`INVARIANT` 129, `STRUCTURE` 41, `TEST_DATA` 38, `CONSTITUTION` 35). The source declares canonical names throughout | `snapshot/canonical/` |
+| 57 | **new** — see §33.1 | |
+
+**What this record does not do.** It does not re-measure §§3–26, and it does not map the `v1`
+additions. RI-1 is frozen, so no later record will. Every entry not named above stays stated against
+an earlier subject.
 
 ## 1. What this map is
 
@@ -2930,6 +2973,7 @@ Found while specifying an independent build; not among the forty-four.
 | 54 | `TR-25` — no human-answer register exists; the constrained mechanism is absent | ∅ | vacuous here |
 | 55 | `EX-16` — a refusal is delivered as a routable outcome and an outcome stands in for a refusal | ∅ | finding 28's mechanism |
 | 56 | `CM-5` — nothing checks an authored profile against the Conceptual Model's definitions | ∅ + **P** | compounds 34: one authority writes the platform, the profile constraining it, and now the vocabulary it is read in |
+| 57 | `MB-1`, `MB-3` — prose outside the machine block determines an identity. The compiler embeds each source file's full text, prose and serialization included, in the canonical artifact's `content` field (628 of 636 artifacts), and the canonical projection hash covers it. A probe on `blockchain` removed the prose, then separately re-serialized the YAML with sorted keys: behavior logic, tokenized projection and evidence were unchanged, and all 46 canonical artifacts and the canonical projection hash changed | ∅ | `MB-1` and `MB-3` already determine it. Finding 15 moved the identity by location; this moves it by representation |
 
 ## 34. What this yields
 
@@ -2969,10 +3013,12 @@ Three routes change with §0.1 and are carried here:
 | # | Route as recorded | Effect of §0.1 |
 |---|---|---|
 | 2, 4 | ∅ / **P** | closed in the realization. The **P** on 4 stands regardless: a snapshot that claims no profile has nothing to be judged against, and that is a prerequisite rather than a defect report |
-| 14 | ∅ | **re-verify.** The search-select-fallback signature is gone from the compile path. If the finding closed, its value as a probe closes with it |
+| 14 | ∅ | **stands (§0.2).** This row read the signature as gone from the compile path. It is not: `s1_extract.py` carries it, and adds a kind decided by prefix |
 | 45 | **N** ‡ + **G** | strengthened. Both vocabularies are carried at scale *inside the sealed snapshot*, not only in a checker's normalization step. The **N** question — whether anything forbids a projection renaming a kind — is correspondingly sharper |
 
-**The coverage delta is closed.** `v0`'s twenty-four additions are mapped at §26A and routed above
+| 57 | ∅ | new at the final subject (§0.2, §33.1) |
+
+**The `v0` coverage delta is closed.** `v0`'s twenty-four additions are mapped at §26A and routed above
 as findings 50–56. `CM-1 … CM-8` are not a realization's obligations and are recorded as such; the
 sixteen others yielded six findings, one closure (`SN-14`), and four entries marked ‡ that need a
 section read rather than a signature checked.
@@ -2981,6 +3027,11 @@ What remains open is the reverse direction: **§§3–26 are still measured agai
 `draft-2`.** §26A is stated against the current subject and the rest of Part I is not, so a route
 drawn from an older section may be stated against a finding that has since moved. §0.1's spot recheck
 bounds that risk for eleven findings and not for the others.
+
+**The final subject.** §0.2 rebases the map onto `8ad89baa…` under `v1`, RI-1's final publication.
+It rechecks the same signatures and leaves the `v1` coverage delta unmapped. RI-1 takes no further
+changes, so every route above stays as recorded. A finding routed ∅ stays open in RI-1. A finding
+routed to a document stays open against that document until the standard rules on it.
 
 ---
 

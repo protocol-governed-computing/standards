@@ -137,3 +137,39 @@ being working material?
 Parked rather than ruled because nothing yet depends on the answer — the profile's kind list is read
 by the assembler today and the working list is read by no one. It is recorded here so the trigger is
 not discovered by someone wondering why two lists of kinds exist.
+
+
+---
+
+## Provenance of a generated declaration — open question
+
+The Governance Semantic Ontology gives every element exactly one provenance: authored, derived, or
+produced (GO-2). It requires that provenance to be established explicitly (GO-3). It does not say
+which value applies to a declaration that a generator wrote from content a human authored.
+
+Two cases in one realization raise the question:
+
+- **Realization output.** Governed Transformation requires a realized artifact to be a function of
+  the design alone (TR-18). Construction then admits that artifact as a declaration. A human authored
+  the design registers. Nobody authored the artifact.
+- **A cohesive authoring front end.** A human authors one file per act. A generator expands it into
+  per-kind declarations, such as workflow, intent, contracts and events, before admission. Construction
+  admits the per-kind declarations.
+
+**The ambiguity.** If the generated declaration is *authored*, its provenance hides the generator, and
+EV-12 loses its subject. If it is *derived*, PJ-8 forbids editing it. GO-9 then forbids it to be a
+source of governance authority. That second consequence fits contracts and workflows. It does not fit
+a generated constitution or obligation.
+
+**A candidate answer, not a ruling.** The element admitted into the governed system is the one whose
+provenance is *authored*. Every layer generated from it is *derived*. It carries provenance to its
+source, and it is never edited. A realization admits exactly one layer as the source. So when the
+front end's files are the admitted source, the per-kind declarations are derived projections. When
+the per-kind declarations are admitted, the front end is tooling, and its output must not claim
+*authored*.
+
+**Why parked.** No requirement is violated today, and no revision is needed for the front end to
+conform. The question becomes live when a generator produces a governing element, or when a
+conformance claim has to state the provenance of realization output. Validate against the
+reference realization's transformation output before ruling. If a ruling changes text, it belongs in
+`2b` §6.
